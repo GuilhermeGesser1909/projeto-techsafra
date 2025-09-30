@@ -57,7 +57,7 @@
                     </div>
 
 
-                    <button class="btn primary" a ref="http://127.0.0.1:3000/dashboard.html?serverWindowId=ca886953-1867-4436-8790-bc662d576060">Entrar</button>
+                    <button class="btn primary" a ref="#">Entrar</button>
 
                     <div class="divider"><span>ou</span></div>
 
@@ -68,7 +68,7 @@
                     </div>
 
 
-                    <p class="signup">Não tem uma conta? <a href="http://127.0.0.1:3000/telacadastro.html?serverWindowId=710947c3-7172-4c66-ac97-a2729716951d">Crie gratuitamente</a></p>
+                    <p class="signup">Não tem uma conta? <a href="/telacadastro.html">Crie gratuitamente</a></p>
                 </form>
 
 
@@ -80,20 +80,7 @@
     </main>
 
 
-    <script>
-        function togglePassword() {
-            const pw = document.getElementById('password');
-            const btn = document.querySelector('.toggle-pass');
-            if (pw.type === 'password') {
-                pw.type = 'text';
-                btn.textContent = 'Ocultar';
-            } else {
-                pw.type = 'password';
-                btn.textContent = 'Mostrar';
-            }
-        }
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script src="/static/js/telalogin.js"></script>
 </body>
 
 </html>

@@ -37,62 +37,50 @@
                     </label>
 
                     <form class="login-form" action="/login" method="post" autocomplete="on">
-                    <label class="input-group">
-                        <span class="label">Email</span>
-                        <input type="email" name="email" placeholder="seu@exemplo.com" required>
-                    </label>
-
-                    <label class="input-group">
-                        <span class="label">Senha</span>
-                        <div class="password-row">
-                            <input type="password" name="senha" placeholder="••••••••" required id="password">
-                            <button type="button" class="toggle-pass" aria-label="Mostrar senha"
-                                onclick="togglePassword()">Mostrar</button>
-                        </div>
-                    </label>
-
-                    <label class="input-group">
-                        <span class="label">Confirmar Senha</span>
-                        <div class="password-row">
-                            <input type="password" name="senha" placeholder="••••••••" required id="password">
-                            <button type="button" class="toggle-pass" aria-label="Mostrar senha"
-                                onclick="togglePassword()">Mostrar</button>
-                        </div>
-                    </label>
-
-
-                    <div class="form-actions">
-                        <label class="checkbox">
-                            
-                            <span></span>
+                        <label class="input-group">
+                            <span class="label">Email</span>
+                            <input type="email" name="email" placeholder="seu@exemplo.com" required>
                         </label>
-                        <a class="forgot" href="#"></a>
-                    </div>
+
+                        <label class="input-group">
+                            <span class="label">Senha</span>
+                            <div class="password-row">
+                                <input type="password" name="senha" placeholder="••••••••" required id="password">
+                                <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                                    onclick="togglePassword()">Mostrar</button>
+                            </div>
+                        </label>
+
+                        <label class="input-group">
+                            <span class="label">Confirmar Senha</span>
+                            <div class="password-row">
+                                <input type="password" name="senha" placeholder="••••••••" required id="password">
+                                <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                                    onclick="togglePassword()">Mostrar</button>
+                            </div>
+                        </label>
 
 
-                    <button class="btn primary" a ref="ir para o dashboard">Cadastrar</button>
+                        <div class="form-actions">
+                            <label class="checkbox">
 
-                <footer class="card-foot muted">
-                    <small>© <span id="year"></span> TechSafra — Todos os direitos reservados.</small>
-                </footer>
+                                <span></span>
+                            </label>
+                            <a class="forgot" href="#"></a>
+                        </div>
+
+
+                        <button class="btn primary" a ref="ir para o dashboard">Cadastrar</button>
+
+                        <footer class="card-foot muted">
+                            <small>© <span id="year"></span> TechSafra — Todos os direitos reservados.</small>
+                        </footer>
             </div>
         </section>
     </main>
 
 
-    <script>
-        function togglePassword() {
-            const pw = document.getElementById('password');
-            const btn = document.querySelector('.toggle-pass');
-            if (pw.type === 'password') {
-                pw.type = 'text';
-                btn.textContent = 'Ocultar';
-            } else {
-                pw.type = 'password';
-                btn.textContent = 'Mostrar';
-            }
-        }
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <script src="/static/js/telacadastro.js">
     </script>
 </body>
 
