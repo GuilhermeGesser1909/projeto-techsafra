@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    padding: 20px;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #2e7a3e;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filters label {
+    font-weight: bold;
+}
+
+.filters select, .filters button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.filters button {
+    background-color: #2e7a3e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.filters button:hover {
+    background-color: #3c9a4e;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 150px;
+}
+
+.card h3 {
+    color: #2e7a3e;
+    margin-bottom: 10px;
+}
+
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.table-section th, .table-section td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.table-section th {
+    background-color: #2e7a3e;
+    color: #fff;
+}
+
+.table-section tr:hover {
+    background-color: #f1f1f1;
+}

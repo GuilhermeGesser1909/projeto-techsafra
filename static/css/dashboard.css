@@ -1,0 +1,1024 @@
+:root {  /* card botões superiores */
+    --green-900: #dddddd;
+    --green-700: #2e7a3e;
+    --green-500: #3c9a4e;
+    --muted: #f7f9f6;
+    --card-bg: #ffffff;
+    --text: #153127;
+    --radius: 14px;
+    --shadow: 0 6px 18px rgba(20, 30, 20, 0.06);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+header {  /* organiza os botões superiores */
+    display: flex;
+    align-items: center;
+    padding: 6px 6vw;
+    background: transparent
+}
+
+.nav { /* separa os botões superiores */
+    display: flex;
+    gap: 28px;
+    align-items: center
+}
+
+.nav a { /* da cor aos botões superiores */
+    color: rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+    font-weight: 500;
+    background: var(--green-700);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    
+
+}
+
+body { /*corpo da tela*/
+    display: left;
+    height: 10-vh;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+.sidebar { /* barra lateral */
+    width: 220px;
+    background: transparent;
+    padding: 12px 0
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.sidebar button { /* dá forma a barra lateral */
+    display: block;
+    background: none;
+    border: none;
+    color: #2f9410;
+    text-align: left;
+    padding: 12px 16px;
+    margin: 4px 0;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.sidebar button:hover {
+    background: #40d360;
+}
+
+.sidebar button.ativo {
+    background: #4CAF50; /* verde */
+    color: white;
+    font-weight: bold;
+}
+
+* {
+    margin: 5;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+.card {  /* card ações rapidas */
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 60px rgba(218, 131, 131, 0.1);
+    width: 1500px;
+    margin-left: 250px;
+    margin-right: 50px;
+    margin-top: -225px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s;
+    position: absolute;
+    top: 405px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 10px;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .sidebar button {
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .cards {
+        grid-template-columns: 12fr;
+        
+    }
+}
+
+@media (max-width:1100px) {
+    .cards-row {
+        grid-template-columns: 1fr 320px
+    }
+
+    .cards-row.lower {
+        grid-template-columns: 1fr
+    }
+
+    .app {
+        padding: 0 16px
+    }
+
+    .sidebar {
+        display: none
+    }
+}
+-----------------------------------------------------------------
+/* section dashb */
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    
+}
+
+.action-item {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-item:hover {
+    transform: translateY(-3px);
+    
+}
+
+.action-item i {
+    font-size: 24px;
+    color: var(--green-500);
+    margin-bottom: 10px;
+}
+
+.action-item span {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+:root {
+    --primary-color: #b4b4b4; 
+    --secondary-color: #000000;
+    --background-color: #f7f7f7;
+    --card-background: #ffffff;
+    --text-color-dark: #000000;
+    --text-color-light: #117081;
+    --border-color: #ffffff;
+}
+
+.bar {
+  height: 8px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.card-header {
+    display: flex;
+    margin-left: auto;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+-------------------------------------------------------------------------
+/* section maquinario */
+.quick-actions-section.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  margin: 20px auto;
+  max-width: 800px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Título */
+.quick-actions-section.card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #000000;
+  padding-left: 10px;
+}
+
+/* Cada máquina */
+.machine {
+  padding: 16px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  transition: 0.3s ease;
+}
+
+.machine:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Nome do equipamento */
+.machine h4 {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Textos de detalhes */
+.machine p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Status das máquinas */
+.machine.operational {
+  border-left: 6px solid #4CAF50;
+  background: #f5fff7;
+}
+
+.machine.maintenance {
+  border-left: 6px solid #f44336;
+  background: #fff5f5;
+}
+
+/* Caixa de resumo */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #117081, #4CAF50);
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+-------------------------------------------------------------------------
+/* section previsao */
+.weather-section.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* Cabeçalho */
+.weather-section .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.weather-section .card-header h3 {
+  font-size: 1.4rem;
+  color: #000000;
+}
+
+.weather-section .card-header .update-info {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Previsão dos dias */
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.day-forecast {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.day-forecast:hover {
+  transform: translateY(-3px);
+  background: #eef6f9;
+}
+
+.day-forecast h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.day-forecast i {
+  font-size: 1.8rem;
+  margin: 8px 0;
+  color: #117081;
+}
+
+.day-forecast .temperature {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.day-forecast .condition {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.day-forecast .humidity-percentage {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Detalhes extras */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.detail-item {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.detail-item:hover {
+  background: #eef6f9;
+}
+
+.detail-item i {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #117081;
+}
+
+.detail-item .detail-value {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.detail-item .detail-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+-----------------------------------------------------------------
+/* section propriedades */
+.properties-section.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 950px;
+  margin: 20px auto;
+}
+
+/* Cabeçalho */
+.properties-section .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.properties-section .card-header h3 {
+  font-size: 1.4rem;
+  color: #117081;
+}
+
+/* Botões de ação */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.add-btn {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background: #45a049;
+}
+
+.edit-btn {
+  background: #117081;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #0d5560;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: #fff;
+}   
+.delete-btn:hover {
+  background: #d32f2f;
+}   
+
+
+/* Lista de propriedades */
+.properties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.property-item {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+
+.property-item:hover {
+  transform: translateY(-3px);
+  background: #eef6f9;
+}
+
+/* Infos principais */
+.property-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.property-info p {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Culturas com barra de progresso */
+.property-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crop-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crop-name {
+  font-weight: bold;
+  min-width: 80px;
+  color: #444;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #117081);
+  border-radius: 8px;
+}
+
+.progress-text {
+  min-width: 40px;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Rodapé com resumo */
+.summary-footer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+  padding-top: 15px;
+}
+
+.summary-item .summary-number {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #117081;
+}
+
+.summary-item .summary-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+-----------------------------------------------------------------
+/* section estoque */
+.quick-actions-section.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.quick-actions-section.card > h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+/* Container interno */
+.card1 {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Itens */
+.item {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 12px 15px;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.item:hover {
+  background: #eef6f9;
+}
+
+.item span {
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* Status */
+.status {
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.status.low {
+  background: #ffebee;
+  color: #c62828;
+  font-weight: bold;
+}
+
+/* Barra de estoque */
+.bar {
+  height: 10px;
+  border-radius: 6px;
+  margin: 6px 0;
+}
+
+.bar.red {
+  background: #e53935;
+}
+
+.bar.green {
+  background: #4caf50;
+}
+
+.bar.yellow {
+  background: #fbc02d;
+}
+
+/* Quantidade */
+.item small {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Total */
+.total {
+  text-align: right;
+  font-size: 1rem;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  color: #333;
+}
+
+.total strong {
+  color: #117081;
+  font-weight: bold;
+}
+-------------------------------------------------------------
+/*section analise de solo*/
+.quick-actions-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-actions-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.quick-actions-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ====== BOTÕES DE AÇÃO ====== */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-actions .btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions .btn i {
+    font-size: 0.9rem;
+}
+
+/* Botão padrão */
+.card-actions .btn:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos específicos */
+.add-btn {
+    background: #27ae60;
+    color: #fff;
+}
+
+.add-btn:hover {
+    background: #219150;
+}
+
+.edit-btn {
+    background: #f39c12;
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: #d98208;
+}
+
+.delete-btn {
+    background: #c22a19;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* ====== ITENS DAS LISTAS ====== */
+.analysis-item,
+.safra-item {
+    border-left: 5px solid #3498db;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background 0.2s ease;
+}
+
+.analysis-item:hover,
+.safra-item:hover {
+    background: #f0f8ff;
+}
+
+.analysis-item h4,
+.safra-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.analysis-item p,
+.safra-item p {
+    margin: 3px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+--------------------------------------------------------------
+/* section alertas */
+/* ====== SEÇÃO ALERTAS ====== */
+.quick-actions-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-actions-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.quick-actions-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ====== BOTÕES ====== */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-actions .btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions .btn:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos específicos */
+.mark-read-btn {
+    background: #27ae60;
+    color: #fff;
+}
+
+.mark-read-btn:hover {
+    background: #219150;
+}
+
+.settings-btn {
+    background: #2980b9;
+    color: #fff;
+}
+
+.settings-btn:hover {
+    background: #1f6391;
+}
+
+/* ====== ALERTAS ====== */
+.alert-item {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border-left: 5px solid transparent;
+    transition: background 0.2s ease;
+}
+
+.alert-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #2c3e50;
+}
+
+.alert-item p {
+    margin: 2px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Níveis de alerta */
+.alert-item.critical {
+    background: #fdecea;
+    border-left-color: #e74c3c;
+}
+
+.alert-item.warning {
+    background: #fff8e6;
+    border-left-color: #f39c12;
+}
+
+.alert-item.info {
+    background: #eaf4fc;
+    border-left-color: #3498db;
+}
+
+.alert-item:hover {
+    background: #f1f1f1;
+}
+---------------------------------------------
+/* section relatorios */
+/* ====== SEÇÃO RELATÓRIOS ====== */
+.quick-actions-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-actions-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+
+.quick-actions-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ====== BOTÕES DE AÇÃO ====== */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-actions .btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-actions .btn i {
+    font-size: 0.9rem;
+}
+
+.card-actions .btn:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos específicos */
+.generate-report-btn {
+    background: #27ae60;
+    color: #fff;
+}
+
+.generate-report-btn:hover {
+    background: #219150;
+}
+
+.export-btn {
+    background: #2980b9;
+    color: #fff;
+}
+
+.export-btn:hover {
+    background: #1f6391;
+}
+
+/* ====== ITENS DE RELATÓRIO ====== */
+.report-item {
+    background: #f9f9f9;
+    border-left: 5px solid #3498db;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: background 0.2s ease;
+}
+
+.report-item:hover {
+    background: #eef6f9;
+}
+
+.report-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #2c3e50;
+}
+
+.report-item p {
+    margin: 3px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Link para ver relatório completo */
+.view-report-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #117081;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.view-report-link:hover {
+    color: #0d5560;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;  /* tira o traço */
+    color: #2e7a3e;         /* cor padrão do link */
+    transition: color 0.3s; /* efeito suave ao passar o mouse */
+}

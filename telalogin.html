@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>TechSafra — Entrar</title>
+    <link rel="icon" href="/src/img/logo.png">
+    <link rel="stylesheet" href="/static/css/telalogin.css">
+</head>
+
+<body>
+    <main class="login-page">
+        <aside class="login-visual">
+            <img src="/src/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image">
+            <div class="visual-overlay">
+                <img src="/src/img/logo.png" alt="TechSafra" class="logo-small">
+                <h1>TechSafra</h1>
+                <p>Conectando fazendas, dados e decisões.</p>
+            </div>
+        </aside>
+
+
+        <section class="login-form-wrap">
+            <div class="card">
+                <header class="card-header">
+                    <img src="/src/img/logo.png" alt="TechSafra" class="logo-inline">
+                    <h2>Faça seu login</h2>
+                    <p class="muted">Acesse sua conta para gerenciar suas propriedades.</p>
+                </header>
+
+
+                <form class="login-form" action="/login" method="post" autocomplete="on">
+                    <label class="input-group">
+                        <span class="label">Email</span>
+                        <input type="email" name="email" placeholder="seu@exemplo.com" required>
+                    </label>
+
+
+                    <label class="input-group">
+                        <span class="label">Senha</span>
+                        <div class="password-row">
+                            <input type="password" name="senha" placeholder="••••••••" required id="password">
+                            <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                                onclick="togglePassword()">Mostrar</button>
+                        </div>
+                    </label>
+
+
+                    <div class="form-actions">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember">
+                            <span>Manter-me conectado</span>
+                        </label>
+                        <a class="forgot" href="#">Esqueceu a senha?</a>
+                    </div>
+
+
+                    <button class="btn primary" a ref="http://127.0.0.1:3000/dashboard.html?serverWindowId=ca886953-1867-4436-8790-bc662d576060">Entrar</button>
+
+                    <div class="divider"><span>ou</span></div>
+
+
+                    <div class="social-row">
+                        <button type="button" class="btn social google">Entrar com Google</button>
+                        <button type="button" class="btn social apple">Entrar com Apple</button>
+                    </div>
+
+
+                    <p class="signup">Não tem uma conta? <a href="http://127.0.0.1:3000/telacadastro.html?serverWindowId=710947c3-7172-4c66-ac97-a2729716951d">Crie gratuitamente</a></p>
+                </form>
+
+
+                <footer class="card-foot muted">
+                    <small>© <span id="year"></span> TechSafra — Todos os direitos reservados.</small>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        function togglePassword() {
+            const pw = document.getElementById('password');
+            const btn = document.querySelector('.toggle-pass');
+            if (pw.type === 'password') {
+                pw.type = 'text';
+                btn.textContent = 'Ocultar';
+            } else {
+                pw.type = 'password';
+                btn.textContent = 'Mostrar';
+            }
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
