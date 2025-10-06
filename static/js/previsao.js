@@ -31,12 +31,9 @@ const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(ci
     } else {
         showAlert(`
             Não foi possível localizar...
-            <img src="/img/undraw_location_tracking_q3yd.svg">
+            <img src="/projeto-techsafra/img/undraw_location_tracking_q3yd.svg">
         `);
     }
-
-    console.log(json);
-    
 
 });
 
@@ -59,9 +56,9 @@ document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toStr
 
 document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}`;
 
-document.querySelector('#humidity').innerHTML = `${json.humidity}%`;
-
 document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1)}km/h`;
+
+document.querySelector('#humidity').innerHTML = `${json.humidity}%`;
 
 }
 
