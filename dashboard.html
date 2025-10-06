@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/previsao.css">
+
     <style>
     </style>
 </head>
@@ -18,8 +21,7 @@
 
     <header class="container">
         <div style="display:-moz-stack;align-items:center;gap: 16px">
-            <a href="/PaginaInicial.html"><img
-                    src="/src/img/logo.png" width="250"></a>
+            <a href="/PaginaInicial.html"><img src="/src/img/logo.png" width="250"></a>
 
         </div>
         <nav class="nav">
@@ -27,8 +29,7 @@
 
             <a href="/sobreotech.html">Sobre</a>
 
-            <a href="/telalogin.html"
-                class="botão">Entrar</a>
+            <a href="/telalogin.html" class="botão">Entrar</a>
         </nav>
     </header>
     <div class="sidebar">
@@ -74,12 +75,12 @@
             </div>
         </div>
         <div class="dashboard">
-            
+
             <h3>🕒 Atividades Recentes</h3>
-                <p> 🌱 Plantio de milho concluído <small>2 horas atrás</small></p>
-                <p> 💧  Irrigação programada <small>4 horas atrás</small></p>
-                <p> 🔧 Manutenção do trator <small>1 dia atrás</small></p>
-                <p> 📄 Relatório gerado <small>2 dias atrás</small></p>
+            <p> 🌱 Plantio de milho concluído <small>2 horas atrás</small></p>
+            <p> 💧 Irrigação programada <small>4 horas atrás</small></p>
+            <p> 🔧 Manutenção do trator <small>1 dia atrás</small></p>
+            <p> 📄 Relatório gerado <small>2 dias atrás</small></p>
             </ul>
         </div>
         </div>
@@ -88,71 +89,91 @@
 
     </section>
     <section id="section2" style="display:none;" class="weather-section card">
-        <div class="card-header">
-            <h3>🌤️ Previsão do Tempo - Blumenau, SC</h3>
-            <span class="update-info">Atualizado há 15 min</span>
+        <h3>🌤️ Previsão do Tempo </h3>
+        
+
+        <form id="search">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="city" id="city_Name" placeholder="Buscar cidade">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <div id="weather">
+            <h1 id="title">Blumenau, BR</h1>
+
+            <div id="infos">
+                <div id="temp">
+                    <img id="temp_img" src="" alt="Ícone do tempo">
+
+                    <div>
+                        <p id="temp_value">
+                            32 <sup>°C</sup>
+                        </p>
+                        <p id="temp_description">
+                            Ensolarado
+                        </p>
+                    </div>
+                </div>
+                <div id="other_infos">
+                    <div class="info">
+                        <i id="temp_max_icon" class="fa-solid fa-temperature-high"></i>
+                        <div>
+                            <h2>Temp. max</h2>
+
+                            <p id="temp_max">
+                                32°C
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <i id="temp_min_icon" class="fa-solid fa-temperature-low"></i>
+                        <div>
+                            <h2>Temp. min</h2>
+
+                            <p id="temp_max">
+                                99°C
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <i id="humidity_icon" class="fa-solid fa-droplet"></i>
+                        <div>
+                            <h2>Humidade</h2>
+
+                            <p id="humidity">
+                                99%
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <i id="wind_icon" class="fa-solid fa-wind"></i>
+                        <div>
+                            <h2>Vento</h2>
+
+                            <p id="wind">
+                                99km/h
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="weather-forecast">
-            <div class="day-forecast">
-                <h4>Hoje</h4>
-                <i class="fas fa-sun"></i>
-                <span class="temperature">28°C</span>
-                <span class="condition">Ensolarado</span>
-                <span class="humidity-percentage">
-                    <i class="fas fa-tint"></i> 0%
-                </span>
-            </div>
-            <div class="day-forecast">
-                <h4>Amanhã</h4>
-                <i class="fas fa-cloud-sun"></i>
-                <span class="temperature">25°C</span>
-                <span class="condition">Nublado</span>
-                <span class="humidity-percentage">
-                    <i class="fas fa-tint"></i> 20%
-                </span>
-            </div>
-            <div class="day-forecast">
-                <h4>Quinta</h4>
-                <i class="fas fa-cloud-showers-heavy"></i>
-                <span class="temperature">22°C</span>
-                <span class="condition">Chuva</span>
-                <span class="humidity-percentage">
-                    <i class="fas fa-tint"></i> 80%
-                </span>
-            </div>
-            <div class="day-forecast">
-                <h4>Sexta</h4>
-                <i class="fas fa-cloud"></i>
-                <span class="temperature">26°C</span>
-                <span class="condition">Parcialmente nublado</span>
-                <span class="humidity-percentage">
-                    <i class="fas fa-tint"></i> 10%
-                </span>
-            </div>
-        </div>
-        <div class="weather-details">
-            <div class="detail-item">
-                <i class="fas fa-wind"></i>
-                <span class="detail-value">Vento</span>
-                <span class="detail-text">12 km/h</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-tint"></i>
-                <span class="detail-value">Umidade</span>
-                <span class="detail-text">68%</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-sun"></i>
-                <span class="detail-value">UV</span>
-                <span class="detail-text">Alto</span>
-            </div>
-            <div class="detail-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span class="detail-value">Pressão</span>
-                <span class="detail-text">1013 hPa</span>
-            </div>
-        </div>
+
+        <div id="Alert"></div>
+
+
+
+
     </section>
+    
 
     <section id="section3" style="display:none;" class="quick-actions-section card">
         <h3>🚜 Status do Maquinário</h3>
@@ -287,45 +308,45 @@
     </section>
 
     <section id="section5" style="display:none;" class="quick-actions-section card">
-  <h3>📦 Estoque de Insumos</h3>
-  <div class="card-actions">
+        <h3>📦 Estoque de Insumos</h3>
+        <div class="card-actions">
             <button class="btn add-btn"><i class="fas fa-plus"></i> Adicionar Insumos</button>
             <button class="btn edit-btn"><i class="fas fa-edit"></i> Editar</button>
             <button class="btn delete-btn"><i class="fas fa-trash"></i> Excluir</button>
         </div>
 
-  <div class="card1">
-    <div class="item">
-      <span>Sementes de Milho</span>
-      <span class="status low">Baixo</span>
-      <div class="bar red" style="width: 30%"></div>
-      <small>150/500 kg</small>
-    </div>
+        <div class="card1">
+            <div class="item">
+                <span>Sementes de Milho</span>
+                <span class="status low">Baixo</span>
+                <div class="bar red" style="width: 30%"></div>
+                <small>150/500 kg</small>
+            </div>
 
-    <div class="item">
-      <span>Fertilizante NPK</span>
-      <div class="bar green" style="width: 80%"></div>
-      <small>800/1000 kg</small>
-    </div>
+            <div class="item">
+                <span>Fertilizante NPK</span>
+                <div class="bar green" style="width: 80%"></div>
+                <small>800/1000 kg</small>
+            </div>
 
-    <div class="item">
-      <span>Defensivo Agrícola</span>
-      <div class="bar yellow" style="width: 50%"></div>
-      <small>25/50 L</small>
-    </div>
+            <div class="item">
+                <span>Defensivo Agrícola</span>
+                <div class="bar yellow" style="width: 50%"></div>
+                <small>25/50 L</small>
+            </div>
 
-    <div class="item">
-      <span>Combustível</span>
-      <div class="bar green" style="width: 65%"></div>
-      <small>200/300 L</small>
-    </div>
+            <div class="item">
+                <span>Combustível</span>
+                <div class="bar green" style="width: 65%"></div>
+                <small>200/300 L</small>
+            </div>
 
-    <div class="total">
-      Valor total em estoque <strong>R$ 12.450,00</strong>
-    </div>
-  </div>
-</section>
-<section id="section6" style="display:none;" class="quick-actions-section card">
+            <div class="total">
+                Valor total em estoque <strong>R$ 12.450,00</strong>
+            </div>
+        </div>
+    </section>
+    <section id="section6" style="display:none;" class="quick-actions-section card">
         <h3>🧪 Análise de Solo</h3>
         <div class="card-actions">
             <button class="btn add-btn"><i class="fas fa-plus"></i> Nova Análise</button>
@@ -391,15 +412,17 @@
         <h3>📑 Relatórios e Estatísticas</h3>
         <div class="card-actions">
 
-            <a href="/relatorio.html" class="btn generate-report-btn"><i class="fas fa-file-alt"></i> Gerar Novo Relatório
-</a>
+            <a href="/relatorio.html" class="btn generate-report-btn"><i class="fas fa-file-alt"></i> Gerar Novo
+                Relatório
+            </a>
 
             <button class="btn export-btn"><i class="fas fa-file-export"></i></a> Exportar Dados</button>
         </div>
         <div class="report-item">
             <h4>Relatório Mensal - Setembro 2023</h4>
             <p>Data de Geração: 30/09/2023</p>
-            <p>Resumo: Produtividade de milho aumentou 10% em relação ao mês anterior. Custos com insumos reduziram 5%.</p>
+            <p>Resumo: Produtividade de milho aumentou 10% em relação ao mês anterior. Custos com insumos reduziram 5%.
+            </p>
             <a href="#" class="view-report-link">Ver Relatório Completo</a>
         </div>
         <div class="report-item">
@@ -411,6 +434,7 @@
     </section>
 
     <script src="/static/js/dashboard.js"></script>
+    <script src="/static/js/previsao.js"></script>
 
 </body>
 
