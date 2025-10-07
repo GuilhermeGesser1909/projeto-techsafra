@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>TechSafra — Recuperar Senha</title>
+  <link rel="icon" href="/projeto-techsafra/src/img/logo.png">
+  <link rel="stylesheet" href="/projeto-techsafra/static/css/telalogin.css">
+</head>
+
+<body>
+  <main class="login-page">
+    <aside class="login-visual">
+      <img src="/projeto-techsafra/src/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image">
+      <div class="visual-overlay">
+        <img src="/projeto-techsafra/src/img/logo.png" alt="TechSafra" class="logo-small">
+        <h1>TechSafra</h1>
+        <p>Conectando fazendas, dados e decisões.</p>
+      </div>
+    </aside>
+
+    <section class="login-form-wrap">
+      <div class="card">
+        <header class="card-header">
+          <img src="/projeto-techsafra/src/img/logo.png" alt="TechSafra" class="logo-inline">
+          <h2>Recuperar senha</h2>
+          <p class="muted">Informe seu e-mail para receber o código de redefinição.</p>
+        </header>
+
+        <form class="login-form" id="formRecuperar" autocomplete="off">
+          <!-- Etapa 1 -->
+          <div id="step1">
+            <label class="input-group">
+              <span class="label">E-mail</span>
+              <input type="email" id="emailRecuperacao" placeholder="seu@exemplo.com" required>
+            </label>
+
+            <button type="button" class="btn primary" id="btnEnviarCodigo">Enviar código</button>
+
+            <p class="muted" style="margin-top: 1rem;">
+              <a class="forgot" href="telalogin.html">Voltar ao login</a>
+            </p>
+          </div>
+
+          <!-- Etapa 2 -->
+          <div id="step2" style="display: none;">
+            <label class="input-group">
+              <span class="label">Código de verificação</span>
+              <input type="text" id="codigoVerificacao" placeholder="Digite o código recebido" required>
+            </label>
+
+            <label class="input-group">
+              <span class="label">Nova senha</span>
+              <div class="password-row">
+                <input type="password" id="novaSenha" placeholder="••••••••" required>
+              </div>
+            </label>
+
+            <label class="input-group">
+              <span class="label">Confirmar nova senha</span>
+              <div class="password-row">
+                <input type="password" id="confirmarSenha" placeholder="••••••••" required>
+              </div>
+            </label>
+
+            <button type="button" class="btn primary" id="btnRedefinirSenha">Redefinir senha</button>
+
+            <p class="muted" style="margin-top: 1rem;">
+              <a class="forgot" href="telalogin.html">Voltar ao login</a>
+            </p>
+          </div>
+
+          <p id="mensagem" class="muted" style="text-align: center; margin-top: 1rem;"></p>
+        </form>
+
+        <footer class="card-foot muted">
+          <small>© <span id="year"></span> TechSafra — Todos os direitos reservados.</small>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="/projeto-techsafra/static/js/recuperarsenha.js"></script>
+</body>
+
+</html>
