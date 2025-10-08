@@ -31,13 +31,15 @@ const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(ci
     } else {
         showAlert(`
             Não foi possível localizar...
-            <img src="/projeto-techsafra/img/undraw_location_tracking_q3yd.svg">
+            <img src="\\projeto-techsafra\\src\\img\\undraw_location-tracking_q3yd.svg">
         `);
     }
 
 });
 
 function showInfo(json) {
+
+    document.querySelector("#weather").classList.remove('show');
     
     showAlert('');
 
