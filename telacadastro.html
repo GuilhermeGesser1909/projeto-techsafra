@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <title>TechSafra — Cadastrar</title>
-    <link rel="icon" href="/projeto-techsafra/src/img/logo.png">
-    <link rel="stylesheet" href="/projeto-techsafra/static/css/telacadastro.css">
+    <link rel="icon" href="/src/img/logo.png">
+    <link rel="stylesheet" href="/static/css/telacadastro.css">
 </head>
 
 <body>
     <main class="login-page">
         <aside class="login-visual">
-            <img src="/projeto-techsafra/src/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image">
+            <img src="/src/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image">
             <div class="visual-overlay">
-                <img src="/projeto-techsafra/src/img/logo.png" alt="TechSafra" class="logo-small">
+                <img src="/src/img/logo.png" alt="TechSafra" class="logo-small">
                 <h1>TechSafra</h1>
                 <p>Conectando fazendas, dados e decisões.</p>
             </div>
@@ -25,7 +25,7 @@
         <section class="login-form-wrap">
             <div class="card">
                 <header class="card-header">
-                    <img src="/projeto-techsafra/src/img/logo.png" alt="TechSafra" class="logo-inline">
+                    <img src="/src/img/logo.png" alt="TechSafra" class="logo-inline">
                     <h2>Cadastre-se</h2>
                     <p class="muted">Crie uma conta para gerenciar suas propriedades.</p>
                 </header>
@@ -43,21 +43,21 @@
                         </label>
 
                         <label class="input-group">
-                            <span class="label">Senha</span>
-                            <div class="password-row">
-                                <input type="password" name="senha" placeholder="••••••••" required id="password">
-                                <button type="button" class="toggle-pass" aria-label="Mostrar senha"
-                                    onclick="togglePassword()">Mostrar</button>
+                             <span class="label">Senha</span>
+                                <div class="password-row">
+                                    <input type="password" name="senha" placeholder="••••••••" required id="password">
+                                 <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                               onclick="togglePassword('password')">Mostrar</button>
                             </div>
                         </label>
 
                         <label class="input-group">
-                            <span class="label">Confirmar Senha</span>
-                            <div class="password-row">
-                                <input type="password" name="senha" placeholder="••••••••" required id="password">
-                                <button type="button" class="toggle-pass" aria-label="Mostrar senha"
-                                    onclick="togglePassword()">Mostrar</button>
-                            </div>
+                             <span class="label">Confirmar Senha</span>
+                              <div class="password-row">
+                              <input type="password" name="confirmarSenha" placeholder="••••••••" required id="confirmPassword">
+                             <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                         onclick="togglePassword('confirmPassword')">Mostrar</button>
+                        </div>
                         </label>
 
 
@@ -80,7 +80,7 @@
     </main>
 
 
-    <script src="/projeto-techsafra/static/js/telacadastro.js">
+    <script src="/static/js/telacadastro.js">
     </script>
 </body>
 

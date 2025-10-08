@@ -1,12 +1,10 @@
-function togglePassword() {
-    const pw = document.getElementById('password');
-    const btn = document.querySelector('.toggle-pass');
-    if (pw.type === 'password') {
-        pw.type = 'text';
-        btn.textContent = 'Ocultar';
+function togglePassword(idCampo) {
+    const campo = document.getElementById(idCampo);
+    if (campo.type === "password") {
+        campo.type = "text";
     } else {
-        pw.type = 'password';
-        btn.textContent = 'Mostrar';
+        campo.type = "password";
     }
 }
+
 document.getElementById('year').textContent = new Date().getFullYear();
