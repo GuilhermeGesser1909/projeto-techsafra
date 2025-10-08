@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastrar Propriedade - TechSafra</title>
+    <link rel="stylesheet" href="/projeto-techsafra/static/css/telalogin.css" />
+    <style>
+      main {
+        max-width: 500px;
+        margin: 3rem auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 1rem;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+      button {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.7rem;
+        border: none;
+        border-radius: 8px;
+        background-color: #28a745;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h2>Cadastrar Nova Propriedade</h2>
+      <form id="formPropriedade">
+        <label>
+          Nome da Propriedade:
+          <input type="text" id="nomePropriedade" required />
+        </label>
+        <label>
+          Localização:
+          <input type="text" id="localizacao" required />
+        </label>
+        <label>
+          Tamanho (hectares):
+          <input type="number" id="tamanho" required />
+        </label>
+        <label>
+          Tipo de Cultura:
+          <select id="cultura" required>
+            <option value="">Selecione...</option>
+            <option value="soja">Soja</option>
+            <option value="milho">Milho</option>
+            <option value="trigo">Trigo</option>
+            <option value="café">Café</option>
+          </select>
+        </label>
+        <button type="submit">Salvar</button>
+      </form>
+      <p style="text-align: center; margin-top: 1rem">
+        <a href="dashboard.html">Voltar ao Dashboard</a>
+      </p>
+    </main>
+
+    <script>
+      document
+        .getElementById("formPropriedade")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Propriedade cadastrada com sucesso!");
+          window.location.href = "dashboard.html";
+        });
+    </script>
+  </body>
+</html>

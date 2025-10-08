@@ -215,9 +215,11 @@
     <section id="section4" style="display:none;" class="quick-actions-section card">
         <h3>🌱 Minhas Propriedades</h3>
         <div class="card-actions">
-            <button class="btn add-btn"><i class="fas fa-plus"></i> Nova Propriedade</button>
-            <button class="btn edit-btn"><i class="fas fa-edit"></i> Editar</button>
-            <button class="btn delete-btn"><i class="fas fa-trash"></i> Excluir</button>
+            <button class="btn add-btn" onclick="window.location.href='cadastroPropriedade.html'">
+  <i class="fas fa-plus"></i> Nova Propriedade
+</button>
+<button onclick="abrirModal('modalEditar')">Editar</button>
+<button onclick="abrirModal('modalExcluir')">Excluir</button>
         </div>
         </div>
         <div class="properties-list">
@@ -439,6 +441,53 @@
 
     <script src="/projeto-techsafra/static/js/dashboard.js"></script>
     <script src="/projeto-techsafra/static/js/previsao.js"></script>
+
+    <!-- Modal Editar -->
+<div id="modalEditar" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Editar Propriedade</h3>
+    <input type="text" id="editarNome" placeholder="Novo nome da propriedade">
+    <button onclick="salvarEdicao()">Salvar</button>
+    <button onclick="fecharModal('modalEditar')">Cancelar</button>
+  </div>
+</div>
+
+<!-- Modal Excluir -->
+<div id="modalExcluir" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Excluir Propriedade</h3>
+    <p>Tem certeza que deseja excluir esta propriedade?</p>
+    <button onclick="confirmarExclusao()">Excluir</button>
+    <button onclick="fecharModal('modalExcluir')">Cancelar</button>
+  </div>
+</div>
+
+<style>
+  .modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-content {
+    background: white; padding: 2rem; border-radius: 10px; width: 300px; text-align: center;
+  }
+  .modal-content button { margin-top: 1rem; width: 100%; }
+</style>
+
+<script>
+  function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
+  function fecharModal(id) { document.getElementById(id).style.display = 'none'; }
+
+  function salvarEdicao() {
+    alert('Propriedade editada com sucesso!');
+    fecharModal('modalEditar');
+  }
+
+  function confirmarExclusao() {
+    alert('Propriedade excluída com sucesso!');
+    fecharModal('modalExcluir');
+  }
+</script>
 
 </body>
 
