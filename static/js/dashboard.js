@@ -19,4 +19,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   mostrarSecao('#botao1', '#section1');
 });
-const propriedades = JSON.parse(localStorage.getItem('propriedades')) || [];
