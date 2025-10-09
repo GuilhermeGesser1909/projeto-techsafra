@@ -84,6 +84,22 @@
         .getElementById("formPropriedade")
         .addEventListener("submit", (e) => {
           e.preventDefault();
+
+          const nome = document.getElementById("nomePropriedade").value;
+          const localizacao = document.getElementById("localizacao").value;
+          const tamanho = document.getElementById("tamanho").value;
+          const cultura = document.getElementById("cultura").value;
+
+          // Recupera lista existente ou cria nova
+          const propriedades =
+            JSON.parse(localStorage.getItem("propriedades")) || [];
+
+          // Adiciona nova propriedade
+          propriedades.push({ nome, localizacao, tamanho, cultura });
+
+          // Salva novamente no localStorage
+          localStorage.setItem("propriedades", JSON.stringify(propriedades));
+
           alert("Propriedade cadastrada com sucesso!");
           window.location.href = "dashboard.html";
         });
