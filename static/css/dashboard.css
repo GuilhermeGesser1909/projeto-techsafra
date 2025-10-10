@@ -1,17 +1,3 @@
-/* Reset básico e prevenção de overflow horizontal */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-  font-family: Arial, sans-serif;
-}
-
 :root {
   /* card botões superiores */
   --green-900: #dddddd;
@@ -32,15 +18,6 @@ header {
   align-items: center;
   padding: 6px 6vw;
   background: transparent;
-}
-
-/* Logo responsiva dentro do header */
-header img {
-  width: 100%;
-  max-width: 180px;
-  min-width: 120px;
-  height: auto;
-  display: block;
 }
 
 .nav {
@@ -65,9 +42,9 @@ header img {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  /*corpo da tela*/
+  display: left;
+  height: 10-vh;
   background-color: #f5f7fa;
   color: #333;
   margin: 0;
@@ -76,44 +53,11 @@ body {
   overflow-x: hidden;
 }
 
-.layout-wrapper {
-  display: flex;
-  width: 100%;
-  overflow-x: hidden;
-}
 .sidebar {
+  /* barra lateral */
   width: 220px;
-  height: 100%;
   background: transparent;
-  flex-shrink: 0;
-}
-
-section {
-  margin-left: 240px; /* Compensa a sidebar de 220px + algum espaço */
-  padding: 20px;
-  max-width: calc(
-    100% - 240px
-  ); /* Garante que o conteúdo não ultrapasse a tela */
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  section {
-    margin-left: 0;
-    max-width: 100%;
-  }
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-x: hidden;
+  padding: 12px 0;
 }
 
 .sidebar h2 {
@@ -149,17 +93,27 @@ section {
   font-weight: bold;
 }
 
+* {
+  margin: 5;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
 .card {
+  /* card ações rapidas */
   background: #ffffff;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 60px rgba(218, 131, 131, 0.1);
-  width: 100%;
-  max-width: 1000px;
-  margin: 25px auto;
+  width: 1500px;
+  margin-left: 250px;
+  margin-right: 50px;
+  margin-top: -225px;
+  margin-bottom: 25px;
   border: 1px solid #e0e0e0;
   transition: transform 0.2s;
-  position: relative;
+  position: absolute;
+  top: 405px;
 }
 
 /* Responsividade */
