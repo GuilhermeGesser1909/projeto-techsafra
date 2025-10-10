@@ -65,9 +65,9 @@ header img {
 }
 
 body {
-  /*corpo da tela*/
-  display: left;
-  height: 10-vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #f5f7fa;
   color: #333;
   margin: 0;
@@ -82,9 +82,8 @@ body {
   overflow-x: hidden;
 }
 .sidebar {
-  /* barra lateral */
   width: 220px;
-  min-height: 100vh;
+  height: 100%;
   background: transparent;
   flex-shrink: 0;
 }
@@ -150,12 +149,6 @@ section {
   font-weight: bold;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
 .card {
   background: #ffffff;
   border-radius: 12px;
