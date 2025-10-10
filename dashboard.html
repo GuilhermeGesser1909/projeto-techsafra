@@ -442,23 +442,29 @@
     <script src="/static/js/previsao.js"></script>
 
     <!-- Modal Editar -->
-<div id="modalEditar" class="modal" style="display:none;">
+<div id="modalEditar" class="modal">
   <div class="modal-content">
-    <h3>Editar Propriedade</h3>
-    <input type="text" id="editarNome" placeholder="Novo nome da propriedade">
-    <button onclick="salvarEdicao()">Salvar</button>
-    <button onclick="fecharModal('modalEditar')">Cancelar</button>
+    <h3>Editar</h3>
+    <input type="text" id="editarNome" placeholder="edite aqui">
+    <div class="modal-actions">
+    <button class="btn salvar-btn">Salvar</button>
+    <button class="btn cancelar-btn" onclick="fecharModal('modalEditar')">Cancelar</button>
   </div>
+ </div>
 </div>
-
 <!-- Modal Excluir -->
-<div id="modalExcluir" class="modal" style="display:none;">
+<div id="modalExcluir" class="modal">
   <div class="modal-content">
-    <h3>Excluir Propriedade</h3>
-    <p>Tem certeza que deseja excluir esta propriedade?</p>
-    <button onclick="confirmarExclusao()">Excluir</button>
-    <button onclick="fecharModal('modalExcluir')">Cancelar</button>
+    <h3>Excluir</h3>
+    <p class="modal-text">
+    Tem certeza que deseja excluir isso?<br>
+      Essa ação não poderá ser desfeita.
+    </p>
+    <div class="modal-actions">
+      <button onclick="confirmarExclusao()" class="btn excluir-btn">Excluir</button>
+      <button onclick="fecharModal('modalExcluir')" class="btn cancelar-btn">Cancelar</button>
   </div>
+ </div>
 </div>
 
 <style>

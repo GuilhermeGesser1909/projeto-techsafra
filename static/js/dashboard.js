@@ -1,3 +1,9 @@
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.style.display = 'none';
+  });
+});
 document.addEventListener('DOMContentLoaded', function () {
   const botoes = document.querySelectorAll('.sidebar button');
   const secoes = document.querySelectorAll('section[id^="section"]');
@@ -19,3 +25,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   mostrarSecao('#botao1', '#section1');
 });
+
+function abrirModal(id) {
+  document.getElementById(id).style.display = 'flex';
+}
+
+function fecharModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+function confirmarExclusao() {
+  //  lógica para remover
+  fecharModal('modalExcluir');
+}
