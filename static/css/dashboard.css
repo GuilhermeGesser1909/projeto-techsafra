@@ -43,8 +43,10 @@ header {
 
 body {
   /*corpo da tela*/
-  display: left;
-  height: 10-vh;
+  display: flex;
+  height: 10vh;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: #f5f7fa;
   color: #333;
   margin: 0;
@@ -105,14 +107,14 @@ body {
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 4px 60px rgba(218, 131, 131, 0.1);
-  width: 1500px;
+  max-width: 1000px;
+  width: 90%;
   margin-left: 250px;
   margin-right: 50px;
-  margin-top: -225px;
+  margin-top: -500px;
   margin-bottom: 25px;
   border: 1px solid #e0e0e0;
   transition: transform 0.2s;
-  position: absolute;
   top: 405px;
 }
 
