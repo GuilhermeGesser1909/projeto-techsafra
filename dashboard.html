@@ -62,7 +62,7 @@
                 <i class="fas fa-tractor"></i>
                 <span>Adicionar Maquinário</span>
             </div>
-            <div class="action-item">
+            <div class="action-item" onclick="window.location.href='relatorio.html'">
                 <i class="fas fa-file-alt"></i>
                 <span>Gerar Relatório</span>
             </div>
@@ -106,7 +106,7 @@
 
             <div id="infos">
                 <div id="temp">
-                    <img id="temp_img" src="" alt="Ícone do tempo">
+                    <img id="temp_img" src="" alt="">
 
                     <div>
                         <p id="temp_value">
@@ -222,6 +222,7 @@
             <button class="btn delete-btn" onclick="abrirModal('modalExcluir')">Excluir</button>
         </div>
         </div>
+        
         <div class="properties-list">
             <div class="property-item">
                 <div class="property-info">
@@ -315,17 +316,18 @@
     <section id="section5" style="display:none;" class="quick-actions-section card">
         <h3>📦 Estoque de Insumos</h3>
         <div class="card-actions">
-            <button class="btn add-btn"><i class="fas fa-plus"></i> Adicionar Insumos</button>
-            <button class="btn edit-btn" onclick="abrirModal('modalEditar')">Editar</button>
-            <button class="btn delete-btn" onclick="abrirModal('modalExcluir')">Excluir</button>
+            <button class="btn add-btn" onclick=window.location.href='/cadastroproduto.html'><i class="fas fa-plus"></i> Adicionar Insumos</button>
+            <button class="btn edit-btn" onclick="produto.editarproduto()">Editar</button>
+            <button class="btn delete-btn" onclick="produto.excluirproduto()">Excluir</button>
         </div>
 
-        <div class="card1">
+        <div class="cardProduto">
             <div class="item">
-                <span>Sementes de Milho</span>
+                <span id="spannomeproduto">Sementes de Milho</span>
                 <span class="status low">Baixo</span>
                 <div class="bar red" style="width: 30%"></div>
-                <small>150/500 kg</small>
+                <small id="smallpesoproduto">150/500 kg</small>
+            
             </div>
 
             <div class="item">
@@ -441,59 +443,7 @@
 
     <script src="/static/js/dashboard.js"></script>
     <script src="/static/js/previsao.js"></script>
-
-    <!-- Modal Editar -->
-<div id="modalEditar" class="modal">
-  <div class="modal-content">
-    <h3>Editar</h3>
-    <input type="text" id="editarNome" placeholder="edite aqui">
-    <div class="modal-actions">
-    <button class="btn salvar-btn">Salvar</button>
-    <button class="btn cancelar-btn" onclick="fecharModal('modalEditar')">Cancelar</button>
-  </div>
- </div>
-</div>
-<!-- Modal Excluir -->
-<div id="modalExcluir" class="modal">
-  <div class="modal-content">
-    <h3>Excluir</h3>
-    <p class="modal-text">
-    Tem certeza que deseja excluir isso?<br>
-      Essa ação não poderá ser desfeita.
-    </p>
-    <div class="modal-actions">
-      <button onclick="confirmarExclusao()" class="btn excluir-btn">Excluir</button>
-      <button onclick="fecharModal('modalExcluir')" class="btn cancelar-btn">Cancelar</button>
-  </div>
- </div>
-</div>
-
-<style>
-  .modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .modal-content {
-    background: white; padding: 2rem; border-radius: 10px; width: 300px; text-align: center;
-  }
-  .modal-content button { margin-top: 1rem; width: 100%; }
-</style>
-
-<script>
-  function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
-  function fecharModal(id) { document.getElementById(id).style.display = 'none'; }
-
-  function salvarEdicao() {
-    alert('Propriedade editada com sucesso!');
-    fecharModal('modalEditar');
-  }
-
-  function confirmarExclusao() {
-    alert('Propriedade excluída com sucesso!');
-    fecharModal('modalExcluir');
-  }
-</script>
+    <script src="/static/js/Estoque.js"></script>
 
 </body>
 

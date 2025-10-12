@@ -15,6 +15,8 @@ const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(ci
     const results = await fetch(apiurl);
     const json = await results.json();
 
+    console.log(json);
+
     if (json.cod === 200) {
         showInfo({
         city: json.name,
