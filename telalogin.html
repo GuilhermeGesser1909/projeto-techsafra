@@ -34,16 +34,12 @@
             </p>
           </header>
 
-          <form
-            class="login-form"
-            action="/projeto-techsafra/login"
-            method="post"
-            autocomplete="on"
-          >
+          <form id="login-form" class="login-form" autocomplete="on">
             <label class="input-group">
               <span class="label">Email</span>
               <input
                 type="email"
+                id="usuario"
                 name="email"
                 placeholder="seu@exemplo.com"
                 required
@@ -55,10 +51,10 @@
               <div class="password-row">
                 <input
                   type="password"
+                  id="senha"
                   name="senha"
                   placeholder="••••••••"
                   required
-                  id="password"
                 />
                 <button
                   type="button"
@@ -109,5 +105,6 @@
     </main>
 
     <script src="/static/js/telalogin.js"></script>
+    <script src="/static/js/login.js"></script>
   </body>
 </html>
