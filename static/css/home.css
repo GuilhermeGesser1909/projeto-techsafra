@@ -1,0 +1,133 @@
+:root {
+  --green-900: #2f7a3d;
+  --green-700: #4caf50;
+  --gray-100: #f5f5f5;
+  --gray-800: #333;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gray-100);
+  margin: 0;
+  color: var(--gray-800);
+}
+
+/* 🟢 Cabeçalho */
+header.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--green-900);
+}
+
+.botao-sair {
+  background: var(--green-900);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* 👋 Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(90deg, var(--green-900), var(--green-700));
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* 📰 Notícias */
+.noticias {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.noticias h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.lista-noticias {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-noticia {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card-noticia:hover {
+  transform: translateY(-3px);
+}
+
+.card-noticia h4 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  color: var(--green-900);
+}
+
+.card-noticia p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+.card-noticia .data {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/* ⚪ Rodapé */
+footer {
+  background: white;
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Análise de Solo - TechSafra</title>
+    <link rel="stylesheet" href="static/css/cadastroanalisesolo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Nova Análise de Solo</h1>
+      <a href="dashboard.html" class="voltar">← Voltar ao Dashboard</a>
+    </header>
+    <main>
+      <section class="form-container">
+        <form id="formAnaliseSolo">
+          <div class="campo">
+            <label for="data">Data da Coleta:</label>
+            <input type="date" id="data" required />
+          </div>
+          <div class="campo">
+            <label for="local">Local da Amostra:</label>
+            <input type="text" id="local" required />
+          </div>
+          <div class="campo">
+            <label for="profundidade">Profundidade da Amostra (cm):</label>
+            <input type="number" id="profundidade" min="0" required />
+          </div>
+          <div class="campo">
+            <label for="ph">pH do Solo:</label>
+            <input type="number" id="ph" step="0.1" min="0" max="14" required />
+          </div>
+          <div class="campo">
+            <label for="nutrientes">Principais Nutrientes:</label>
+            <textarea
+              id="nutrientes"
+              rows="3"
+              placeholder="Ex: Nitrogênio, Fósforo, Potássio..."
+              required
+            ></textarea>
+          </div>
+          <div class="campo">
+            <label for="observacoes">Observações:</label>
+            <textarea id="observacoes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="botao-cadastrar">Salvar Análise</button>
+        </form>
+      </section>
+      <section class="resultado">
+        <h2>Resultado da Análise</h2>
+        <div id="resultado"></div>
+      </section>
+    </main>
+    <script src="static/js/cadastroanalisesolo.js"></script>
+  </body>
+</html>

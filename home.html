@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechSafra — Home</title>
+    <link rel="stylesheet" href="/static/css/home.css" />
+    <link rel="icon" href="/src/img/logo.png" />
+  </head>
+  <body>
+    <!-- 🟢 Cabeçalho -->
+    <header class="container">
+      <div class="logo-area">
+        <img src="/src/img/logo.png" alt="TechSafra logo" />
+        <h1>TechSafra</h1>
+      </div>
+      <nav class="nav">
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/sobreotech.html">Sobre Nós</a>
+        <a href="#noticias">Notícias</a>
+        <a href="/PaginaInicial.html" class="botao-sair" onclick="logout()"
+          >Sair</a
+        >
+      </nav>
+    </header>
+
+    <!-- 👋 Boas-vindas -->
+    <section class="hero container">
+      <div class="hero-text">
+        <h2 id="saudacao">Bem-vindo 👋</h2>
+        <p id="mensagem-dia">Tenha um ótimo dia no campo!</p>
+      </div>
+    </section>
+
+    <!-- 📰 Seção de Notícias -->
+    <section id="noticias" class="noticias container">
+      <h3>🌱 Notícias da Região</h3>
+      <div id="lista-noticias" class="lista-noticias">
+        <!-- Notícias serão inseridas via JS -->
+      </div>
+    </section>
+
+    <!-- ⚪ Rodapé -->
+    <footer>
+      <p>© 2025 TechSafra — Todos os direitos reservados.</p>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/a2e0e9f6af.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/static/js/home.js"></script>
+  </body>
+</html>

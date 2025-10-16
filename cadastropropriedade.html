@@ -5,44 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastrar Propriedade - TechSafra</title>
     <link rel="stylesheet" href="/static/css/telalogin.css" />
+    <link rel="stylesheet" href="/static/css/cadastropropriedade.css" />
     <style>
-      main {
-        max-width: 500px;
-        margin: 3rem auto;
-        background: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      h2 {
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-      label {
-        display: block;
-        margin-bottom: 1rem;
-      }
-      input,
-      select {
-        width: 100%;
-        padding: 0.5rem;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-      }
-      button {
-        width: 100%;
-        margin-top: 1rem;
-        padding: 0.7rem;
-        border: none;
-        border-radius: 8px;
-        background-color: #28a745;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #218838;
-      }
     </style>
   </head>
 
@@ -55,7 +19,7 @@
           <input type="text" id="nomePropriedade" required />
         </label>
         <label>
-          Localização:
+          Cidade:
           <input type="text" id="localizacao" required />
         </label>
         <label>
@@ -79,30 +43,7 @@
       </p>
     </main>
 
-    <script>
-      document
-        .getElementById("formPropriedade")
-        .addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          const nome = document.getElementById("nomePropriedade").value;
-          const localizacao = document.getElementById("localizacao").value;
-          const tamanho = document.getElementById("tamanho").value;
-          const cultura = document.getElementById("cultura").value;
-
-          // Recupera lista existente ou cria nova
-          const propriedades =
-            JSON.parse(localStorage.getItem("propriedades")) || [];
-
-          // Adiciona nova propriedade
-          propriedades.push({ nome, localizacao, tamanho, cultura });
-
-          // Salva novamente no localStorage
-          localStorage.setItem("propriedades", JSON.stringify(propriedades));
-
-          alert("Propriedade cadastrada com sucesso!");
-          window.location.href = "dashboard.html";
-        });
-    </script>
   </body>
 </html>
+
+
