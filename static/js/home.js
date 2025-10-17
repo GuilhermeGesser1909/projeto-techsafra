@@ -1,69 +1,75 @@
-// Saudação com nome do usuário e horário do dia
-document.addEventListener("DOMContentLoaded", () => {
-  const saudacao = document.getElementById("saudacao");
-  const mensagemDia = document.getElementById("mensagem-dia");
-  const nomeUsuario = localStorage.getItem("usuario");
-  const hora = new Date().getHours();
+// ================================
+// HOME.JS — TechSafra
+// ================================
 
-  let saudacaoTexto = "Bem-vindo";
-  if (hora >= 5 && hora < 12) saudacaoTexto = "Bom dia";
-  else if (hora >= 12 && hora < 18) saudacaoTexto = "Boa tarde";
-  else saudacaoTexto = "Boa noite";
+// 👋 Saudação personalizada
+function saudacaoPersonalizada() {
+  const agora = new Date();
+  const hora = agora.getHours();
+  let saudacao = "Bem-vindo 👋";
 
-  if (nomeUsuario && nomeUsuario.trim() !== "") {
-    saudacao.textContent = `${saudacaoTexto}, ${nomeUsuario} 👋`;
-  } else {
-    saudacao.textContent = `${saudacaoTexto} 👋`;
-  }
+  if (hora >= 5 && hora < 12) saudacao = "Bom dia ☀️";
+  else if (hora >= 12 && hora < 18) saudacao = "Boa tarde 🌿";
+  else saudacao = "Boa noite 🌙";
 
-  // Mensagem do dia dinâmica
-  const frases = [
-    "🌾 Que sua safra seja próspera hoje!",
-    "☀️ Clima estável favorece o plantio!",
-    "🚜 Lembre-se de revisar o maquinário.",
-    "🌱 O campo agradece bons cuidados.",
-  ];
-  mensagemDia.textContent =
-    frases[Math.floor(Math.random() * frases.length)];
+  const nomeUser = JSON.parse(localStorage.getItem("loggedUser"))?.nome || "";
+  const saudacaoEl = document.getElementById("saudacao");
+  const mensagemDiaEl = document.getElementById("mensagem-dia");
 
-  carregarNoticias();
-});
+  if (saudacaoEl) saudacaoEl.textContent = `${saudacao}${nomeUser ? ", " + nomeUser : ""}`;
+  if (mensagemDiaEl) mensagemDiaEl.textContent = "Tenha um ótimo dia no campo!";
+}
 
-// Função para simular notícias da região
+// 🌱 Carregar notícias simuladas (você pode futuramente integrar com API real)
 function carregarNoticias() {
-  const container = document.getElementById("lista-noticias");
+  const listaNoticias = document.getElementById("lista-noticias");
+  if (!listaNoticias) return;
+
   const noticias = [
     {
-      titulo: "Produtores comemoram boas chuvas",
-      texto: "Chuvas regulares impulsionam a produtividade de soja e milho nesta semana.",
-      data: "14/10/2025",
+      titulo: "🌾 Colheita recorde no interior de SP",
+      texto: "Produtores comemoram uma das maiores safras da década."
     },
     {
-      titulo: "Feira AgroTech movimenta o setor",
-      texto: "Evento reúne produtores e empresas de tecnologia agrícola com foco em sustentabilidade.",
-      data: "13/10/2025",
+      titulo: "🌱 Nova tecnologia auxilia irrigação inteligente",
+      texto: "Solução promete reduzir o consumo de água em até 30%."
     },
     {
-      titulo: "Clima deve favorecer colheita",
-      texto: "Previsão indica dias secos e ensolarados ideais para avanço da colheita.",
-      data: "12/10/2025",
-    },
+      titulo: "☀️ Previsão do tempo: clima seco favorece plantio",
+      texto: "Especialistas apontam janela ideal para o cultivo de milho."
+    }
   ];
 
-  noticias.forEach((noticia) => {
-    const card = document.createElement("div");
-    card.classList.add("card-noticia");
-    card.innerHTML = `
+  noticias.forEach((noticia, index) => {
+    const item = document.createElement("div");
+    item.classList.add("noticia-item");
+    item.style.opacity = "0";
+    item.style.transform = "translateY(20px)";
+
+    item.innerHTML = `
       <h4>${noticia.titulo}</h4>
       <p>${noticia.texto}</p>
-      <div class="data">📅 ${noticia.data}</div>
     `;
-    container.appendChild(card);
+
+    listaNoticias.appendChild(item);
+
+    // ⏳ Animação de entrada
+    setTimeout(() => {
+      item.style.transition = "all 0.4s ease";
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, 200 * index);
   });
 }
 
-// Função de logout — limpa nome salvo e volta para página inicial
+// 🚪 Logout
 function logout() {
-  localStorage.removeItem("usuario");
-  window.location.href = "/PaginaInicial.html";
+  localStorage.removeItem("loggedUser");
+  window.location.href = "/template/PaginaInicial.html";
 }
+
+// Inicialização
+window.addEventListener("DOMContentLoaded", () => {
+  saudacaoPersonalizada();
+  carregarNoticias();
+});
