@@ -3,19 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const data = document.getElementById("data").value;
-    const local = document.getElementById("local").value;
-    const profundidade = document.getElementById("profundidade").value;
-    const ph = document.getElementById("ph").value;
-    const nutrientes = document.getElementById("nutrientes").value;
+    const nomeAmostra = document.getElementById("nomeAmostra").value;
+    const analise = document.getElementById("analise").value;
+    const DataColeta = document.getElementById("DataColeta").value;
+    const nivelph = document.getElementById("nivelph").value;
     const observacoes = document.getElementById("observacoes").value;
     resultado.innerHTML = `
-<p><strong>Data da Coleta:</strong> ${data}</p>
-<p><strong>Local:</strong> ${local}</p>
-<p><strong>Profundidade:</strong> ${profundidade} cm</p>
-<p><strong>pH:</strong> ${ph}</p>
-<p><strong>Nutrientes:</strong> ${nutrientes}</p>
-<p><strong>Observações:</strong> ${observacoes || "Nenhuma observação"}</p>
+<p><strong>Nome da Amostra:</strong> ${nomeAmostra}</p>
+<p><strong>Tipo de analise desejada:</strong> ${analise}</p>
+<p><strong>Data da Coleta:</strong> ${DataColeta} cm</p>
+<p><strong>Nível de PH do solo:</strong> ${nivelph}</p>
+<p><strong>OPrincipais Nutrientes:</strong> ${observacoes || "Nenhuma observação"}</p>
        `;
     form.reset();
   });

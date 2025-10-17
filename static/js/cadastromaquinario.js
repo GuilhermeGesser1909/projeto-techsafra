@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const nome = document.getElementById("nome").value;
-    const tipo = document.getElementById("tipo").value;
-    const marca = document.getElementById("marca").value;
-    const modelo = document.getElementById("modelo").value;
-    const ano = document.getElementById("ano").value;
-    const situacao = document.getElementById("situacao").value;
+    const nomeMaquinario = document.getElementById("nomeMaquinario").value;
+    const tipomaquinario = document.getElementById("tipomaquinario").value;
+    const horadia = document.getElementById("horadia").value;
+    const horamanu = document.getElementById("horamanu").value;
+    const situacaomaquinario = document.getElementById("situacaomaquinario").value;
+    const observacoesmaquinario = document.getElementById("observacoesmaquinario").value;
     resultado.innerHTML = `
-<p><strong>Nome:</strong> ${nome}</p>
-<p><strong>Tipo:</strong> ${tipo}</p>
-<p><strong>Marca:</strong> ${marca}</p>
-<p><strong>Modelo:</strong> ${modelo}</p>
-<p><strong>Ano:</strong> ${ano}</p>
-<p><strong>Situação:</strong> ${situacao}</p>
+<p><strong>Nome da Máquinario:</strong> ${nomeMaquinario}</p>
+<p><strong>Tipo:</strong> ${tipomaquinario}</p>
+<p><strong>Horas trabalhadas por dia:</strong> ${horadia}</p>
+<p><strong>Horas previstas para manutenção:</strong> ${horamanu}</p>
+<p><strong>Situação:</strong> ${ansituacaomaquinarioo}</p>
+<p><strong>Observações:</strong> ${observacoesmaquinario}</p>
        `;
     form.reset();
   });
