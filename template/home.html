@@ -4,43 +4,73 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechSafra — Home</title>
+    <link rel="stylesheet" href="/static/css/PaginaInicial.css" />
     <link rel="stylesheet" href="/static/css/home.css" />
     <link rel="icon" href="/src/img/logo.png" />
   </head>
   <body>
-    <!-- 🟢 Cabeçalho -->
+    <!-- Cabeçalho -->
     <header class="container">
-      <div class="logo-area">
+      <div style="display: flex; align-items: center; gap: 18px">
         <img src="/src/img/logo.png" alt="TechSafra logo" />
         <h1>TechSafra</h1>
       </div>
       <nav class="nav">
         <a href="/template/dashboard.html">Dashboard</a>
-        <a href="/template/sobreotech.html">Sobre Nós</a>
-        <a href="#noticias">Notícias</a>
-        <a href="/template/PaginaInicial.html" class="botao-sair" onclick="logout()"
-          >Sair</a
-        >
+        <a href="#" class="botao-sair" onclick="logout()">Sair</a>
       </nav>
     </header>
 
-    <!-- 👋 Boas-vindas -->
-    <section class="hero container">
-      <div class="hero-text">
-        <h2 id="saudacao">Bem-vindo 👋</h2>
-        <p id="mensagem-dia">Tenha um ótimo dia no campo!</p>
-      </div>
-    </section>
+    <main>
+      <!-- Hero -->
+      <section class="hero container">
+        <div class="hero-left">
+          <h1 id="saudacao">Bem-vindo de volta 👨‍🌾</h1>
+          <p class="lead">
+            Acompanhe seus dados agrícolas em tempo real e tenha sua produção na
+            palma da mão.
+          </p>
+          <a class="cta" href="/template/dashboard.html">Ir para o Dashboard</a>
+        </div>
+        <div class="hero-card">
+          <img
+            class="hero-image"
+            src="/src/img/photocampo.jpeg"
+            alt="Campo cultivado"
+          />
+        </div>
+      </section>
 
-    <!-- 📰 Seção de Notícias -->
-    <section id="noticias" class="noticias container">
-      <h3>🌱 Notícias da Região</h3>
-      <div id="lista-noticias" class="lista-noticias">
-        <!-- Notícias serão inseridas via JS -->
-      </div>
-    </section>
+      <!-- Ações rápidas -->
+      <section class="acoes-rapidas container">
+        <h2>⚡ Ações Rápidas</h2>
+        <div class="acoes-grid">
+          <a href="/template/dashboard.html" class="acao-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="/template/cadastropropriedade.html" class="acao-item">
+            <i class="fas fa-tractor"></i>
+            <span>+ Propriedades</span>
+          </a>
+          <a href="/template/cadastroanalisesolo.html" class="acao-item">
+            <i class="fas fa-seedling"></i>
+            <span>+ Análise de Solo</span>
+          </a>
+          <a href="/template/cadastromaquinario.html" class="acao-item">
+            <i class="fas fa-cog"></i>
+            <span>+ Maquinário</span>
+          </a>
+        </div>
+      </section>
 
-    <!-- ⚪ Rodapé -->
+      <!-- Notícias -->
+      <section id="noticias" class="noticias container">
+        <h3>🌱 Notícias da Região</h3>
+        <div id="lista-noticias" class="lista-noticias"></div>
+      </section>
+    </main>
+
     <footer>
       <p>© 2025 TechSafra — Todos os direitos reservados.</p>
     </footer>
