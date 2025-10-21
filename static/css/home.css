@@ -308,3 +308,76 @@ footer {
 #noticias .cta:hover {
   background: #256b28;
 }
+
+/* Calendário Agrícola */
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.calendario-item {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 15px 20px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.calendario-item:hover {
+  transform: translateY(-5px);
+}
+.calendario-item strong {
+  color: #2a7a2e;
+  display: block;
+  margin-bottom: 8px;
+}
+/* Galeria da Fazenda */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+.galeria-grid img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 140px;
+  transition: transform 0.2s;
+}
+.galeria-grid img:hover {
+  transform: scale(1.05);
+}
+/* Vídeos Educativos */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.video-item iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+}
+.video-item p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: center;
+}
+/* Ranking de Produtividade */
+.ranking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.ranking-item {
+  background: #eef7ee;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.ranking-item strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #2a7a2e;
+}
