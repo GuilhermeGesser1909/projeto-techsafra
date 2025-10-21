@@ -19,7 +19,6 @@
         <a href="#" class="botao-sair" onclick="logout()">Sair</a>
       </nav>
     </header>
-
     <main>
       <!-- Hero -->
       <section class="hero container">
@@ -39,7 +38,6 @@
           />
         </div>
       </section>
-
       <!-- Ações rápidas -->
       <section class="acoes-rapidas container">
         <h2>⚡ Ações Rápidas</h2>
@@ -62,18 +60,96 @@
           </a>
         </div>
       </section>
-
       <!-- Notícias -->
       <section id="noticias" class="noticias container">
         <h3>🌱 Notícias da Região</h3>
-        <div id="lista-noticias" class="lista-noticias"></div>
+        <div id="lista-noticias" class="lista-noticias">
+          <div class="noticia-item">
+            <h4>Nova técnica de plantio sustentável</h4>
+            <p>
+              Produtores da região estão implementando técnicas que aumentam a
+              produtividade sem prejudicar o solo.
+            </p>
+          </div>
+          <div class="noticia-item">
+            <h4>Previsão de chuva aumenta esperanças</h4>
+            <p>
+              A meteorologia indica chuvas regulares nas próximas semanas,
+              beneficiando culturas de verão.
+            </p>
+          </div>
+        </div>
+        <a href="/template/noticias.html" class="cta">Ver todas as notícias</a>
+      </section>
+      <!-- Dicas agrícolas -->
+      <section class="dicas container">
+        <h3>💡 Dicas Agrícolas</h3>
+        <div class="dicas-grid">
+          <div class="dica-item">
+            <h4>Rotação de culturas</h4>
+            <p>
+              Evite o esgotamento do solo alternando diferentes tipos de cultivo
+              a cada temporada.
+            </p>
+          </div>
+          <div class="dica-item">
+            <h4>Adubação correta</h4>
+            <p>
+              Analise o solo antes de fertilizar para aplicar apenas o
+              necessário, reduzindo desperdício.
+            </p>
+          </div>
+          <div class="dica-item">
+            <h4>Irrigação eficiente</h4>
+            <p>
+              Utilize sistemas de gotejamento para economizar água e garantir
+              melhor crescimento das plantas.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Estatísticas rápidas -->
+      <section class="estatisticas container">
+        <h3>📊 Estatísticas da Fazenda</h3>
+        <div class="estatisticas-grid">
+          <div class="estatistica-item">
+            <h4>Área cultivada</h4>
+            <p>150 ha</p>
+          </div>
+          <div class="estatistica-item">
+            <h4>Produção anual</h4>
+            <p>320 toneladas</p>
+          </div>
+          <div class="estatistica-item">
+            <h4>Maquinário ativo</h4>
+            <p>12 equipamentos</p>
+          </div>
+        </div>
+      </section>
+      <!-- Depoimentos -->
+      <section class="depoimentos container">
+        <h3>🗣 Depoimentos</h3>
+        <div class="depoimentos-grid">
+          <div class="depoimento-item">
+            <p>
+              "O TechSafra facilitou muito o acompanhamento da produção da minha
+              fazenda!"
+            </p>
+            <strong>- João Silva</strong>
+          </div>
+          <div class="depoimento-item">
+            <p>
+              "Com os relatórios em tempo real, conseguimos tomar decisões muito
+              mais rápidas."
+            </p>
+            <strong>- Maria Oliveira</strong>
+          </div>
+        </div>
       </section>
     </main>
-
     <footer>
       <p>© 2025 TechSafra — Todos os direitos reservados.</p>
     </footer>
-
     <script
       src="https://kit.fontawesome.com/a2e0e9f6af.js"
       crossorigin="anonymous"

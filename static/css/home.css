@@ -220,3 +220,91 @@ footer {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
   background-color: var(--green-50);
 }
+
+/* Estrutura genérica para novas seções */
+.dicas,
+.estatisticas,
+.depoimentos {
+  margin-top: 60px;
+  padding: 20px 0;
+}
+.dicas h3,
+.estatisticas h3,
+.depoimentos h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: var(--cor-primaria, #2a7a2e);
+}
+/* Dicas Agrícolas */
+.dicas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.dica-item {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+.dica-item:hover {
+  transform: translateY(-5px);
+}
+.dica-item h4 {
+  color: #2a7a2e;
+  margin-bottom: 8px;
+}
+/* Estatísticas */
+.estatisticas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-around;
+  text-align: center;
+}
+.estatistica-item {
+  background: #eef7ee;
+  border-radius: 10px;
+  padding: 25px;
+  flex: 1 1 200px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.estatistica-item h4 {
+  color: #2a7a2e;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+/* Depoimentos */
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.depoimento-item {
+  background: #fafafa;
+  border-left: 5px solid #2a7a2e;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.depoimento-item p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.depoimento-item strong {
+  color: #333;
+}
+/* Botão Ver todas as notícias */
+#noticias .cta {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background: #2a7a2e;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+#noticias .cta:hover {
+  background: #256b28;
+}
