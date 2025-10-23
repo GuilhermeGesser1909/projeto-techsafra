@@ -411,3 +411,26 @@ h2 {
     text-align: center;
   }
 }
+footer {
+  background-color: var(--green-900); /* ou outra cor do tema */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.social-icons img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
