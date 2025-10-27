@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/static/css/home.css" />
     <link rel="icon" href="/src/img/logo.png" />
   </head>
+
   <body>
-    <!-- Cabeçalho -->
+    <!-- 🟢 Cabeçalho -->
     <header class="container">
       <div style="display: flex; align-items: center; gap: 18px">
         <img src="/src/img/logo.png" alt="TechSafra logo" />
@@ -19,9 +20,10 @@
         <a href="#" class="botao-sair" onclick="logout()">Sair</a>
       </nav>
     </header>
-    <main>
-      <!-- Hero -->
-      <section class="hero container">
+
+    <main class="container">
+      <!-- 🌄 Hero -->
+      <section class="hero">
         <div class="hero-left">
           <h1 id="saudacao">Bem-vindo de volta 👨‍🌾</h1>
           <p class="lead">
@@ -30,6 +32,7 @@
           </p>
           <a class="cta" href="/template/dashboard.html">Ir para o Dashboard</a>
         </div>
+
         <div class="hero-card">
           <img
             class="hero-image"
@@ -38,137 +41,153 @@
           />
         </div>
       </section>
-      <!-- Ações rápidas -->
-      <section class="acoes-rapidas container">
-        <h2>⚡ Ações Rápidas</h2>
-        <div class="acoes-grid">
-          <a href="/template/cadastroproduto.html" class="acao-item">
-            <i class="fas fa-chart-line"></i>
-            <span>+ Estoque</span>
-          </a>
-          <a href="/template/cadastropropriedade.html" class="acao-item">
-            <i class="fas fa-tractor"></i>
-            <span>+ Propriedades</span>
-          </a>
-          <a href="/template/cadastroanalisesolo.html" class="acao-item">
-            <i class="fas fa-seedling"></i>
-            <span>+ Análise de Solo</span>
-          </a>
-          <a href="/template/cadastromaquinario.html" class="acao-item">
-            <i class="fas fa-cog"></i>
-            <span>+ Maquinário</span>
-          </a>
+
+      <!-- 📰 Notícias + ⚡ Ações rápidas -->
+      <section class="section-grid">
+        <!-- Notícias -->
+        <div class="noticias">
+          <h3>🌱 Notícias da Região</h3>
+          <div class="lista-noticias">
+            <div class="noticia-item">
+              <h4>Nova técnica de plantio sustentável</h4>
+              <p>
+                Produtores da região estão implementando técnicas que aumentam a
+                produtividade sem prejudicar o solo.
+              </p>
+            </div>
+            <div class="noticia-item">
+              <h4>Previsão de chuva aumenta esperanças</h4>
+              <p>
+                A meteorologia indica chuvas regulares nas próximas semanas,
+                beneficiando culturas de verão.
+              </p>
+            </div>
+          </div>
+          <a href="/template/noticias.html" class="cta"
+            >Ver todas as notícias</a
+          >
         </div>
-      </section>
-      <!-- Notícias -->
-      <section id="noticias" class="noticias container">
-        <h3>🌱 Notícias da Região</h3>
-        <div id="lista-noticias" class="lista-noticias">
-          <div class="noticia-item">
-            <h4>Nova técnica de plantio sustentável</h4>
-            <p>
-              Produtores da região estão implementando técnicas que aumentam a
-              produtividade sem prejudicar o solo.
-            </p>
-          </div>
-          <div class="noticia-item">
-            <h4>Previsão de chuva aumenta esperanças</h4>
-            <p>
-              A meteorologia indica chuvas regulares nas próximas semanas,
-              beneficiando culturas de verão.
-            </p>
-          </div>
-        </div>
-        <a href="/template/noticias.html" class="cta">Ver todas as notícias</a>
-      </section>
-      <!-- Dicas agrícolas -->
-      <section class="dicas container">
-        <h3>💡 Dicas Agrícolas</h3>
-        <div class="dicas-grid">
-          <div class="dica-item">
-            <h4>Rotação de culturas</h4>
-            <p>
-              Evite o esgotamento do solo alternando diferentes tipos de cultivo
-              a cada temporada.
-            </p>
-          </div>
-          <div class="dica-item">
-            <h4>Adubação correta</h4>
-            <p>
-              Analise o solo antes de fertilizar para aplicar apenas o
-              necessário, reduzindo desperdício.
-            </p>
-          </div>
-          <div class="dica-item">
-            <h4>Irrigação eficiente</h4>
-            <p>
-              Utilize sistemas de gotejamento para economizar água e garantir
-              melhor crescimento das plantas.
-            </p>
+
+        <!-- Ações rápidas -->
+        <div class="acoes-rapidas">
+          <h2>⚡ Ações Rápidas</h2>
+          <div class="acoes-grid">
+            <a href="/template/cadastroproduto.html" class="acao-item">
+              <i class="fas fa-chart-line"></i>
+              <span>+ Estoque</span>
+            </a>
+            <a href="/template/cadastropropriedade.html" class="acao-item">
+              <i class="fas fa-tractor"></i>
+              <span>+ Propriedades</span>
+            </a>
+            <a href="/template/cadastroanalisesolo.html" class="acao-item">
+              <i class="fas fa-seedling"></i>
+              <span>+ Análise de Solo</span>
+            </a>
+            <a href="/template/cadastromaquinario.html" class="acao-item">
+              <i class="fas fa-cog"></i>
+              <span>+ Maquinário</span>
+            </a>
           </div>
         </div>
       </section>
-      <!-- Estatísticas rápidas -->
-      <section class="estatisticas container">
-        <h3>📊 Estatísticas da Fazenda</h3>
-        <div class="estatisticas-grid">
-          <div class="estatistica-item">
-            <h4>Área cultivada</h4>
-            <p>150 ha</p>
+
+      <!-- 💡 Dicas + 📊 Estatísticas -->
+      <section class="duo-grid">
+        <!-- Dicas -->
+        <div class="dicas">
+          <h3>💡 Dicas Agrícolas</h3>
+          <div class="dicas-grid">
+            <div class="dica-item">
+              <h4>Rotação de culturas</h4>
+              <p>
+                Evite o esgotamento do solo alternando diferentes tipos de
+                cultivo a cada temporada.
+              </p>
+            </div>
+            <div class="dica-item">
+              <h4>Adubação correta</h4>
+              <p>
+                Analise o solo antes de fertilizar para aplicar apenas o
+                necessário, reduzindo desperdício.
+              </p>
+            </div>
+            <div class="dica-item">
+              <h4>Irrigação eficiente</h4>
+              <p>
+                Utilize sistemas de gotejamento para economizar água e garantir
+                melhor crescimento das plantas.
+              </p>
+            </div>
           </div>
-          <div class="estatistica-item">
-            <h4>Produção anual</h4>
-            <p>320 toneladas</p>
-          </div>
-          <div class="estatistica-item">
-            <h4>Maquinário ativo</h4>
-            <p>12 equipamentos</p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="estatisticas">
+          <h3>📊 Estatísticas da Fazenda</h3>
+          <div class="estatisticas-grid">
+            <div class="estatistica-item">
+              <h4>Área cultivada</h4>
+              <p>150 ha</p>
+            </div>
+            <div class="estatistica-item">
+              <h4>Produção anual</h4>
+              <p>320 toneladas</p>
+            </div>
+            <div class="estatistica-item">
+              <h4>Maquinário ativo</h4>
+              <p>12 equipamentos</p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- Depoimentos -->
-      <section class="depoimentos container">
-        <h3>🗣 Depoimentos</h3>
-        <div class="depoimentos-grid">
-          <div class="depoimento-item">
-            <p>
-              "O TechSafra facilitou muito o acompanhamento da produção da minha
-              fazenda!"
-            </p>
-            <strong>- João Silva</strong>
+
+      <!-- 📅 Calendário + 🏆 Ranking -->
+      <section class="bottom-grid">
+        <!-- Calendário -->
+        <div class="calendario">
+          <h3>📅 Calendário Agrícola</h3>
+          <div class="calendario-grid">
+            <div class="calendario-item">
+              <strong>Milho</strong>
+              <p>Plantio: Março - Abril</p>
+              <p>Colheita: Julho - Agosto</p>
+            </div>
+            <div class="calendario-item">
+              <strong>Soja</strong>
+              <p>Plantio: Outubro - Novembro</p>
+              <p>Colheita: Janeiro - Fevereiro</p>
+            </div>
+            <div class="calendario-item">
+              <strong>Trigo</strong>
+              <p>Plantio: Maio - Junho</p>
+              <p>Colheita: Setembro - Outubro</p>
+            </div>
           </div>
-          <div class="depoimento-item">
-            <p>
-              "Com os relatórios em tempo real, conseguimos tomar decisões muito
-              mais rápidas."
-            </p>
-            <strong>- Maria Oliveira</strong>
+        </div>
+
+        <!-- Ranking -->
+        <div class="ranking">
+          <h3>🏆 Ranking de Produtividade</h3>
+          <div class="ranking-grid">
+            <div class="ranking-item">
+              <strong>João Silva</strong>
+              <p>Produção de Milho: 120t</p>
+            </div>
+            <div class="ranking-item">
+              <strong>Maria Oliveira</strong>
+              <p>Produção de Soja: 95t</p>
+            </div>
+            <div class="ranking-item">
+              <strong>Carlos Pereira</strong>
+              <p>Produção de Trigo: 80t</p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- Calendário Agrícola -->
-      <section class="calendario container">
-        <h3>📅 Calendário Agrícola</h3>
-        <div class="calendario-grid">
-          <div class="calendario-item">
-            <strong>Milho</strong>
-            <p>Plantio: Março - Abril</p>
-            <p>Colheita: Julho - Agosto</p>
-          </div>
-          <div class="calendario-item">
-            <strong>Soja</strong>
-            <p>Plantio: Outubro - Novembro</p>
-            <p>Colheita: Janeiro - Fevereiro</p>
-          </div>
-          <div class="calendario-item">
-            <strong>Trigo</strong>
-            <p>Plantio: Maio - Junho</p>
-            <p>Colheita: Setembro - Outubro</p>
-          </div>
-        </div>
-      </section>
-      <!-- Galeria da Fazenda -->
-      <section class="galeria container">
+
+      <!-- 📸 Galeria -->
+      <section class="galeria">
         <h3>📸 Galeria da Fazenda</h3>
         <div class="galeria-grid">
           <img src="/src/img/campo1.jpg" alt="Plantação de milho" />
@@ -177,8 +196,9 @@
           <img src="/src/img/campo4.jpg" alt="Irrigação do campo" />
         </div>
       </section>
-      <!-- Vídeos Educativos -->
-      <section class="videos container">
+
+      <!-- 🎥 Vídeos -->
+      <section class="videos">
         <h3>🎥 Vídeos Educativos</h3>
         <div class="videos-grid">
           <div class="video-item">
@@ -210,28 +230,33 @@
           </div>
         </div>
       </section>
-      <!-- Ranking de Produtividade -->
-      <section class="ranking container">
-        <h3>🏆 Ranking de Produtividade</h3>
-        <div class="ranking-grid">
-          <div class="ranking-item">
-            <strong>João Silva</strong>
-            <p>Produção de Milho: 120t</p>
+
+      <!-- 💬 Depoimentos -->
+      <section class="depoimentos">
+        <h3>🗣 Depoimentos</h3>
+        <div class="depoimentos-grid">
+          <div class="depoimento-item">
+            <p>
+              "O TechSafra facilitou muito o acompanhamento da produção da minha
+              fazenda!"
+            </p>
+            <strong>- João Silva</strong>
           </div>
-          <div class="ranking-item">
-            <strong>Maria Oliveira</strong>
-            <p>Produção de Soja: 95t</p>
-          </div>
-          <div class="ranking-item">
-            <strong>Carlos Pereira</strong>
-            <p>Produção de Trigo: 80t</p>
+          <div class="depoimento-item">
+            <p>
+              "Com os relatórios em tempo real, conseguimos tomar decisões muito
+              mais rápidas."
+            </p>
+            <strong>- Maria Oliveira</strong>
           </div>
         </div>
       </section>
     </main>
+
     <footer>
       <p>© 2025 TechSafra — Todos os direitos reservados.</p>
     </footer>
+
     <script
       src="https://kit.fontawesome.com/a2e0e9f6af.js"
       crossorigin="anonymous"
