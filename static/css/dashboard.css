@@ -12,35 +12,6 @@
     "Helvetica Neue", Arial;
 }
 
-#forecast {
-  margin-top: 2rem;
-}
-
-#forecast-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.forecast-day {
-  background: #f7f9fb;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-}
-
-.forecast-day h4 {
-  margin-bottom: 0.5rem;
-}
-
-.forecast-day img {
-  width: 50px;
-  height: 50px;
-}
-
-
 header {
   /* organiza os botões superiores */
   display: flex;
@@ -140,7 +111,7 @@ body {
   width: 90%;
   margin-left: 250px;
   margin-right: 50px;
-  margin-top: -520px;
+  margin-top: -500px;
   margin-bottom: 25px;
   border: 1px solid #e0e0e0;
   transition: transform 0.2s;
@@ -396,24 +367,58 @@ body {
 
 .day-forecast .temperature {
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .day-forecast .condition {
   display: block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: 5px;
   color: #666;
 }
 
 .day-forecast .humidity-percentage {
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Detalhes extras */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.detail-item {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.detail-item:hover {
+  background: #eef6f9;
+}
+
+.detail-item i {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #117081;
+}
+
+.detail-item .detail-value {
   display: block;
-  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 5px;
-  
+  color: #333;
+}
+
+.detail-item .detail-text {
+  font-size: 0.9rem;
+  color: #666;
 }
 -----------------------------------------------------------------
 /* section propriedades */

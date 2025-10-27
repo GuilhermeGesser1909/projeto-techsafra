@@ -1,7 +1,7 @@
 document.querySelector('#search').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const cityName = document.querySelector('#city_Name').value.trim();
+    const cityName = document.querySelector('#city_Name').value;
 
     if (!cityName) {
         document.querySelector("#weather").classList.remove('show');
@@ -9,100 +9,61 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return;
     }
 
-    const apiKey = '5049a84272b2c2ce54f8202e65407d11';
+    const apiKey = `5049a84272b2c2ce54f8202e65407d11`
+const apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${`5049a84272b2c2ce54f8202e65407d11`}&units=metric&lang=pt_br`;
 
-    try {
-        // 🌤️ Buscar clima atual
-        const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
-        const currentRes = await fetch(currentUrl);
-        const currentData = await currentRes.json();
+    const results = await fetch(apiurl);
+    const json = await results.json();
 
-        if (currentData.cod !== 200) {
-            showAlert(`
-                Não foi possível localizar...
-                <img src="\\projeto-techsafra\\src\\img\\undraw_location-tracking_q3yd.svg">
-            `);
-            return;
-        }
+    console.log(json);
 
-        // Exibir informações atuais
+    if (json.cod === 200) {
         showInfo({
-            city: currentData.name,
-            country: currentData.sys.country,
-            temp: currentData.main.temp,
-            tempMax: currentData.main.temp_max,
-            tempMin: currentData.main.temp_min,
-            description: currentData.weather[0].description,
-            tempIcon: currentData.weather[0].icon,
-            windSpeed: currentData.wind.speed,
-            humidity: currentData.main.humidity,
-        });
+        city: json.name,
+        country: json.sys.country,
+        temp: json.main.temp,
+        tempMax: json.main.temp_max,
+        tempMin: json.main.temp_min,
+        description: json.weather[0].description,
+        tempIcon: json.weather[0].icon,
+        windSpeed: json.wind.speed,
+        humidity: json.main.humidity,
 
-        // 📅 Buscar previsão dos próximos 5 dias (3h em 3h)
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
-        const forecastRes = await fetch(forecastUrl);
-        const forecastData = await forecastRes.json();
-
-        // Exibir previsão diária (agrupando por dia)
-        showForecast(forecastData.list);
-
-    } catch (error) {
-        console.error("Erro:", error);
-        showAlert("Erro ao buscar dados do clima.");
+    });
+    } else {
+        showAlert(`
+            Não foi possível localizar...
+            <img src="\\projeto-techsafra\\src\\img\\undraw_location-tracking_q3yd.svg">
+        `);
     }
+
 });
 
 function showInfo(json) {
-    const weatherDiv = document.querySelector("#weather");
-    weatherDiv.classList.remove('show');
+
+    document.querySelector("#weather").classList.remove('show');
+    
     showAlert('');
-    weatherDiv.classList.add('show');
 
-    document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`;
-    document.querySelector('#temp_value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')} <sup>°C</sup>`;
-    document.querySelector('#temp_description').innerHTML = json.description;
-    document.querySelector('#temp_img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
-    document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')}°C`;
-    document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}°C`;
-    document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1)} km/h`;
-    document.querySelector('#humidity').innerHTML = `${json.humidity}%`;
-}
 
-function showForecast(list) {
-    const forecastGrid = document.querySelector("#forecast-grid");
-    if (!forecastGrid) return;
+    document.querySelector("#weather").classList.add('show');
 
-    forecastGrid.innerHTML = ""; // limpar conteúdo anterior
+document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`;
 
-    // Agrupar por data (para pegar só 1 previsão por dia)
-    const daily = {};
-    list.forEach((item) => {
-        const date = item.dt_txt.split(" ")[0];
-        if (!daily[date]) daily[date] = item;
-    });
+document.querySelector('#temp_value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')} <sup>°C</sup>`;
 
-    const days = Object.values(daily).slice(0, 7);
-    const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+document.querySelector('#temp_description').innerHTML = `${json.description}`;
 
-    days.forEach((day) => {
-        const date = new Date(day.dt_txt);
-        const weekday = weekdays[date.getDay()];
-        const icon = day.weather[0].icon;
-        const desc = day.weather[0].description;
-        const max = day.main.temp_max;
-        const min = day.main.temp_min;
+document.querySelector('#temp_img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
 
-        const card = document.createElement("div");
-        card.classList.add("forecast-day");
-        card.innerHTML = `
-            <h4>${weekday}</h4>
-            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}">
-            <p>${desc}</p>
-            <p><strong>Máx:</strong> ${Math.round(max)}°C</p>
-            <p><strong>Mín:</strong> ${Math.round(min)}°C</p>
-        `;
-        forecastGrid.appendChild(card);
-    });
+document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')}`;
+
+document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}`;
+
+document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1)}km/h`;
+
+document.querySelector('#humidity').innerHTML = `${json.humidity}%`;
+
 }
 
 function showAlert(msg) {
