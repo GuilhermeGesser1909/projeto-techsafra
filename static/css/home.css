@@ -359,3 +359,50 @@ footer {
   margin-top: 3rem;
   border-top: 1px solid #ddd;
 }
+/* ===============================
+   🌿 Correção de alinhamento — Notícias + Ações Rápidas
+================================= */
+.section-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start; /* garante topo alinhado */
+  margin-top: 3rem;
+}
+
+.noticias,
+.acoes-rapidas {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+/* 🔹 Corrige títulos e espaçamentos */
+.noticias h3,
+.acoes-rapidas h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* 🔹 Faz ações rápidas se ajustar à altura das notícias sem “flutuar” */
+.acoes-rapidas {
+  height: fit-content;
+  align-self: start;
+}
+
+/* 🔹 Ajuste sutil para visual mais alinhado */
+.lista-noticias {
+  margin-bottom: 1.5rem;
+}
+
+/* 🔹 Responsividade */
+@media (max-width: 900px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acoes-rapidas {
+    margin-top: 2rem;
+  }
+}
