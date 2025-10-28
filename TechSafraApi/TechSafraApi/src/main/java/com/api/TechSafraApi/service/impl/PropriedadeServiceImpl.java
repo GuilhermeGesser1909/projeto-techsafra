@@ -4,10 +4,9 @@ import com.api.TechSafraApi.model.PropriedadeModel;
 import com.api.TechSafraApi.repository.PropriedadeRepository;
 import com.api.TechSafraApi.service.PropriedadeService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class PropriedadeServiceImpl implements PropriedadeService {
@@ -19,24 +18,32 @@ public class PropriedadeServiceImpl implements PropriedadeService {
     }
 
     @Override
-    public List<PropriedadeModel> findAll() {
+    public List<PropriedadeModel> listarTodas() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<PropriedadeModel> findById(UUID id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    @Transactional
-    public PropriedadeModel save(PropriedadeModel propriedade) {
+    public PropriedadeModel salvar(PropriedadeModel propriedade) {
         return repository.save(propriedade);
     }
 
     @Override
-    @Transactional
-    public void delete(PropriedadeModel propriedade) {
-        repository.delete(propriedade);
+    public PropriedadeModel buscarPorId(Long id) {
+        Optional<PropriedadeModel> propriedade = repository.findById(id);
+        return propriedade.orElse(null);
+    }
+
+    @Override
+    public void deletar(Long id) {
+        repository.deleteById(id);
+    }
+    
+    @Override
+    public PropriedadeModel salvar(PropriedadeDto dto) {
+        PropriedadeModel model = new PropriedadeModel();
+        model.setNome(dto.getNome());
+        model.setLocalizacao(dto.getLocalizacao());
+        model.setArea(dto.getArea());
+        return repository.save(model);
     }
 }

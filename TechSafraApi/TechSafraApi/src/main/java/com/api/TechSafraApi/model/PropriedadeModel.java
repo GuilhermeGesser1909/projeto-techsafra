@@ -1,10 +1,13 @@
 package com.api.TechSafraApi.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
+@Data
 @Table(name = "TB_PROPRIEDADE")
 public class PropriedadeModel implements Serializable {
     private static final long serialVersionUID = 1L;
