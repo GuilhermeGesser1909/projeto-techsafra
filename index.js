@@ -1,16 +1,19 @@
-// Importa o módulo nativo 'http'
-const http = require("http");
+// server.js
+const express = require("express");
+const path = require("path");
 
-// Define a porta e cria o servidor
-const port = 3000;
+const app = express();
+const PORT = 3000; // Porta diferente da 8080 (Spring Boot)
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Servidor Node.js puro rodando! 🚀");
+// Servir arquivos estáticos da pasta "public"
+app.use(express.static(path.join(__dirname, "src")));
+
+// Rota padrão (abre o index.html)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "template", "PaginaInicial.html"));
 });
 
 // Inicia o servidor
-server.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Frontend rodando em http://localhost:${PORT}`);
 });
