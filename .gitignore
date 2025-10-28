@@ -1,0 +1,19 @@
+# Spring Boot / Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+/logs/
+*.log
+*.tmp
+
+# IntelliJ / Eclipse / VSCode
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
