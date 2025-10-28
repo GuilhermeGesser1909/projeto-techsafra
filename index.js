@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, "src")));
 
 // Rota padrão (abre o index.html)
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "template", "PaginaInicial.html"));
+  res.sendFile(path.join(__dirname, "src", "PaginaInicial.html"));
 });
 
 // Inicia o servidor
