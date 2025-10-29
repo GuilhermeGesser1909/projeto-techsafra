@@ -1,5 +1,6 @@
 package com.api.TechSafraApi.service.impl;
 
+import com.api.TechSafraApi.dtos.PropriedadeDto;
 import com.api.TechSafraApi.model.PropriedadeModel;
 import com.api.TechSafraApi.repository.PropriedadeRepository;
 import com.api.TechSafraApi.service.PropriedadeService;

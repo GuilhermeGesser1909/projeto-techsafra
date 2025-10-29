@@ -36,4 +36,8 @@ public class PropriedadeModel implements Serializable {
 
     public double getAreaHectares() { return areaHectares; }
     public void setAreaHectares(double areaHectares) { this.areaHectares = areaHectares; }
+	public void setArea(Object area) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -9,4 +9,19 @@ public record PropriedadeDto(
         @NotBlank String nome,
         @NotBlank String localizacao,
         @Positive double areaHectares
-) {}
+) {
+
+	public String getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getLocalizacao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getArea() {
+		// TODO Auto-generated method stub
+		return null;
+	}}

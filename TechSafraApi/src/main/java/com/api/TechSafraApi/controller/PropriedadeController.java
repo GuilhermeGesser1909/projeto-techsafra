@@ -1,5 +1,6 @@
 package com.api.TechSafraApi.controller;
 
+import com.api.TechSafraApi.dtos.PropriedadeDto;
 import com.api.TechSafraApi.model.PropriedadeModel;
 import com.api.TechSafraApi.service.PropriedadeService;
 import org.springframework.web.bind.annotation.*;
