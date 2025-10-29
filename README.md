@@ -50,4 +50,4 @@ TechSafraApi/
 ```
 
 ---
-💻 Desenvolvido por **Sofia - TechSafra** 🚀
+
