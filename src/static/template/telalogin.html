@@ -1,115 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>TechSafra — Entrar</title>
-    <link rel="icon" href="/src/img/logo.png" />
-    <link rel="stylesheet" href="/src/static/css/telalogin.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <body>
-    <main class="login-page">
-      <aside class="login-visual">
-        <img
-          src="/src/img/photocampo.jpeg"
-          alt="Imagem de fundo agrícola"
-          class="visual-image"
-        />
-        <div class="visual-overlay">
-          <img src="/src/img/logo.png" alt="TechSafra" class="logo-small" />
-          <h1>TechSafra</h1>
-          <p>Conectando fazendas, dados e decisões.</p>
-        </div>
-      </aside>
+  <title>TechSafra — Entrar</title>
+  <link rel="icon" href="/img/logo.png" />
+  <link rel="stylesheet" href="/static/css/telalogin.css" />
+</head>
 
-      <section class="login-form-wrap">
-        <div class="card">
-          <header class="card-header">
-            <img src="/src/img/logo.png" alt="TechSafra" class="logo-inline" />
-            <h2>Faça seu login</h2>
-            <p class="muted">
-              Acesse sua conta para gerenciar suas propriedades.
-            </p>
-          </header>
+<body>
+  <main class="login-page">
+    <aside class="login-visual">
+      <img src="/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image" />
+      <div class="visual-overlay">
+        <img src="/img/logo.png" alt="TechSafra" class="logo-small" />
+        <h1>TechSafra</h1>
+        <p>Conectando fazendas, dados e decisões.</p>
+      </div>
+    </aside>
 
-          <form id="login-form" class="login-form" autocomplete="on">
-            <label class="input-group">
-              <span class="label">Email</span>
-              <input
-                type="email"
-                id="usuario"
-                name="email"
-                placeholder="seu@exemplo.com"
-                required
-              />
-            </label>
+    <section class="login-form-wrap">
+      <div class="card">
+        <header class="card-header">
+          <img src="/img/logo.png" alt="TechSafra" class="logo-inline" />
+          <h2>Faça seu login</h2>
+          <p class="muted">
+            Acesse sua conta para gerenciar suas propriedades.
+          </p>
+        </header>
 
-            <label class="input-group">
-              <span class="label">Senha</span>
-              <div class="password-row">
-                <input
-                  type="password"
-                  name="senha"
-                  placeholder="••••••••"
-                  required
-                  id="password"
-                />
-                <button
-                  type="button"
-                  class="toggle-pass"
-                  aria-label="Mostrar senha"
-                  onclick="togglePassword('password')"
-                >
-                  Mostrar
-                </button>
-              </div>
-            </label>
+        <form id="login-form" class="login-form" autocomplete="on">
+          <label class="input-group">
+            <span class="label">Email</span>
+            <input type="email" id="usuario" name="email" placeholder="seu@exemplo.com" required />
+          </label>
 
-            <div class="form-actions">
-              <label class="checkbox">
-                <input type="checkbox" name="remember" />
-                <span>Manter-me conectado</span>
-              </label>
-              <a class="forgot" href="./recuperarsenha.html"
-                >Esqueceu a senha?</a
-              >
+          <label class="input-group">
+            <span class="label">Senha</span>
+            <div class="password-row">
+              <input type="password" name="senha" placeholder="••••••••" required id="password">
+              <button type="button" class="toggle-pass" aria-label="Mostrar senha"
+                onclick="togglePassword('password')">Mostrar</button>
             </div>
+          </label>
 
-            <button class="btn primary" a ref="#">Entrar</button>
+          <div class="form-actions">
+            <label class="checkbox">
+              <input type="checkbox" name="remember" />
+              <span>Manter-me conectado</span>
+            </label>
+            <a class="forgot" href="./recuperarsenha.html">Esqueceu a senha?</a>
+          </div>
 
-            <div class="divider"><span>ou</span></div>
+          <button class="btn primary" a ref="#">Entrar</button>
 
-            <div class="social-row">
-              <button type="button" class="btn social google">
-                Entrar com Google
-              </button>
-              <button type="button" class="btn social apple">
-                Entrar com Apple
-              </button>
-            </div>
+          <div class="divider"><span>ou</span></div>
 
-            <p class="signup">
-              Não tem uma conta?
-              <a href="./telacadastro.html">Crie gratuitamente</a>
-            </p>
-            <p class="signup">
-              testar para entrar tela home
-              <a href="./home.html">HOME</a>
-            </p>
-          </form>
+          <div class="social-row">
+            <button type="button" class="btn social google">
+              Entrar com Google
+            </button>
+            <button type="button" class="btn social apple"> 
+              Entrar com Apple
+            </button>
+          </div>
 
-          <footer class="card-foot muted">
-            <small
-              >© <span id="year"></span> TechSafra — Todos os direitos
-              reservados.</small
-            >
-          </footer>
-        </div>
-      </section>
-    </main>
+          <p class="signup">
+            Não tem uma conta?
+            <a href="./telacadastro.html">Crie gratuitamente</a>
+          </p>
+          <p class="signup">
+            testar para entrar tela home
+            <a href="./home.html">HOME</a>
+          </p>
+        </form>
 
-    <script src="/src/static/js/telalogin.js"></script>
-  </body>
+        <footer class="card-foot muted">
+          <small>© <span id="year"></span> TechSafra — Todos os direitos
+            reservados.</small>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="/src/static/js/telalogin.js"></script>
+</body>
+
 </html>
