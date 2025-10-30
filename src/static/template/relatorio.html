@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relatório de Gestão Agrícola - Relatório de Produção</title>
-    <link rel="stylesheet" href="/src/static/css/relatorio.css" />
+    <link rel="stylesheet" href="/static/css/relatorio.css" />
   </head>
   <body>
     <header class="dashboard-header" role="banner">
@@ -15,18 +15,13 @@
     </header>
 
     <main class="main-content">
-      <section
-        class="controls-panel"
-        aria-label="Painel de Filtros do Relatório"
-      >
+      <section class="controls-panel" aria-label="Painel de Filtros do Relatório">
         <form class="filters-form">
           <div class="filter-group">
             <label for="ciclo-periodo">Ciclo/Período:</label>
             <select id="ciclo-periodo" name="ciclo-periodo">
               <option value="atual">Ciclo Atual (2025/2026)</option>
-              <option value="ultima-colheita">
-                Última Colheita (2024/2025)
-              </option>
+              <option value="ultima-colheita">Última Colheita (2024/2025)</option>
               <option value="mes">Mês Atual</option>
               <option value="trimestre">Trimestre</option>
             </select>
@@ -57,10 +52,7 @@
         </form>
       </section>
 
-      <section
-        class="kpi-summary"
-        aria-label="Indicadores Chave de Performance (KPIs)"
-      >
+      <section class="kpi-summary" aria-label="Indicadores Chave de Performance (KPIs)">
         <figure class="kpi-card">
           <figcaption>Área Plantada (ha)</figcaption>
           <p class="kpi-value">350 ha</p>
@@ -74,9 +66,7 @@
         <figure class="kpi-card">
           <figcaption>Previsão de Colheita (Ton)</figcaption>
           <p class="kpi-value">227,5 Ton</p>
-          <span class="kpi-trend trend-negative"
-            >▼ 10% Abaixo da Estimativa</span
-          >
+          <span class="kpi-trend trend-negative">▼ 10% Abaixo da Estimativa</span>
         </figure>
         <figure class="kpi-card">
           <figcaption>Índice de Chuva Acumulado (mm)</figcaption>
@@ -167,10 +157,8 @@
     </main>
 
     <footer class="dashboard-footer" role="contentinfo">
-      <p>
-        &copy; 2025 Agribusiness Solutions. Todos os direitos reservados. |
-        Última Atualização: 11/10/2025
-      </p>
+        <p>&copy; 2025 Agribusiness Solutions. Todos os direitos reservados. | Última Atualização: 11/10/2025</p>
     </footer>
+
   </body>
 </html>
