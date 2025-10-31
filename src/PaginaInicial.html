@@ -4,133 +4,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechSafra — Página Inicial</title>
-    <link rel="stylesheet" href="./static/css/PaginaInicial.css" />
-    <link rel="icon" href="./img/logo.png" />
+    <link rel="stylesheet" href="static/css/PaginaInicial.css" />
+    <link rel="icon" href="static/img/logo.png" />
   </head>
 
   <body>
-    <header class="container">
-      <div style="display: flex; align-items: center; gap: 18px">
-        <img rel="class" src="./img/logo.png" alt="TechSafra logo">
+    <!-- HEADER -->
+    <header>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <img src="static/img/logo.png" alt="TechSafra Logo" />
       </div>
       <nav class="nav">
-        <a href="./static/template/sobreotech.html">Sobre</a>
-        <a href="./static/template/telalogin.html" class="botão">Entrar</a>
-        <a href="./static/template/telacadastro.html" class="botão">Cadastre-se</a>
+        <a href="../static/template/sobreotech.html">Sobre</a>
+        <a href="../static/template/telalogin.html">Entrar</a>
+        <a href="../static/template/telacadastro.html">Cadastre-se</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero container">
-        <div class="hero-left">
-          <h1>TechSafra</h1>
-          <h2>
-            Gestão <strong>fácil</strong>, produção <strong>forte.</strong>
-          </h2>
-          <p class="lead">
-            Desenvolvida para apoiar pequenos e médios produtores rurais de
-            todas as regiões do Brasil na gestão completa de suas lavouras.
-          </p>
-          <a class="cta" href="./static/template/telalogin.html">Começar</a>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>TechSafra</h1>
+        <h2>Gestão <strong>fácil</strong>, produção <strong>forte</strong>.</h2>
+        <p>
+          Desenvolvida para apoiar pequenos e médios produtores rurais em todas
+          as regiões do Brasil na gestão completa de suas lavouras.
+        </p>
+        <a href="../static/template/telalogin.html" class="cta">Começar</a>
+      </div>
+      <div class="hero-card">
+        <img
+          src="./static/img/photocampo.jpeg"
+          alt="Campo de plantação verde"
+        />
+      </div>
+    </section>
 
-        <div class="hero-card">
-          <img
-            class="hero-image"
-            src="./img/photocampo.jpeg"
-            alt="Campo cultivado"
-          />
-        </div>
-      </section>
-
-      <section class="features container">
-        <article class="feature">
-          <div class="feature-icon">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="3"
-                y="4"
-                width="18"
-                height="12"
-                rx="2"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-              />
-              <path
-                d="M8 20h8"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
-          <h3>Monitoramento</h3>
-          <p>Acompanhe o crescimento e a saúde das suas plantas</p>
-        </article>
-
-        <article class="feature">
-          <div class="feature-icon">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 3s-4 4-4 6a4 4 0 008 0c0-2-4-6-4-6z"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M3 21h18"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
-          <h3>Irrigação</h3>
-          <p>Gerencie o uso de água com eficiência</p>
-        </article>
-
-        <article class="feature">
-          <div class="feature-icon">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 18a4 4 0 014-4h1"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-              />
-              <path
-                d="M20 16a3.5 3.5 0 00-3.5-3.5 4 4 0 10-7.7.5"
-                stroke="var(--green-900)"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <h3>Previsão</h3>
-          <p>Preveja condições climáticas e planeje sua safra</p>
-        </article>
-      </section>
-    </main>
     <!-- COMO FUNCIONA -->
     <section class="como-funciona container">
       <h2>Como o TechSafra funciona</h2>
@@ -141,19 +50,15 @@
         </div>
         <div class="step">
           <h3>2. Registre suas atividades</h3>
-          <p>
-            Controle plantios, tratos culturais, colheitas e insumos utilizados.
-          </p>
+          <p>Controle plantios, tratos culturais, colheitas e insumos.</p>
         </div>
         <div class="step">
           <h3>3. Acompanhe os resultados</h3>
-          <p>
-            Visualize relatórios e gráficos de produtividade e custos em tempo
-            real.
-          </p>
+          <p>Visualize relatórios e gráficos de produtividade em tempo real.</p>
         </div>
       </div>
     </section>
+
     <!-- RECURSOS -->
     <section class="recursos container">
       <h2>Recursos do TechSafra</h2>
@@ -164,48 +69,46 @@
         </div>
         <div class="card">
           <h3>💧 Gestão de Insumos</h3>
-          <p>
-            Controle de estoque, custos e uso de defensivos e fertilizantes.
-          </p>
+          <p>Controle estoque, custos e uso de defensivos e fertilizantes.</p>
         </div>
         <div class="card">
           <h3>📈 Relatórios Inteligentes</h3>
-          <p>Tenha acesso a indicadores de produtividade e rentabilidade.</p>
+          <p>Acompanhe indicadores de produtividade e rentabilidade.</p>
         </div>
         <div class="card">
           <h3>📍 Mapeamento de Áreas</h3>
           <p>
-            Visualize talhões e acompanhe sua lavoura por imagens de satélite.
+            Visualize talhões e acompanhe a lavoura por imagens de satélite.
           </p>
         </div>
         <div class="card">
           <h3>👥 Multiusuário</h3>
-          <p>
-            Permita que técnicos e funcionários acessem o sistema em conjunto.
-          </p>
+          <p>Permita que técnicos e funcionários acessem o sistema juntos.</p>
         </div>
       </div>
     </section>
+
     <!-- DEPOIMENTOS -->
     <section class="depoimentos container">
       <h2>O que dizem os produtores</h2>
       <div class="depoimentos-grid">
         <div class="depoimento">
           <p>
-            "Com o TechSafra consegui reduzir em 20% o uso de insumos e
-            organizar toda a fazenda."
+            “Com o TechSafra consegui reduzir em 20% o uso de insumos e
+            organizar toda a fazenda.”
           </p>
           <span>— Carlos Nunes, produtor de soja (MT)</span>
         </div>
         <div class="depoimento">
           <p>
-            "Hoje sei exatamente quanto gasto e quanto produzo em cada talhão.
-            Simples e eficiente!"
+            “Hoje sei exatamente quanto gasto e quanto produzo em cada talhão.
+            Simples e eficiente!”
           </p>
           <span>— Ana Ribeiro, produtora de milho (PR)</span>
         </div>
       </div>
     </section>
+
     <!-- MÉTRICAS -->
     <section class="metricas container">
       <h2>TechSafra em números</h2>
@@ -221,7 +124,8 @@
         </div>
       </div>
     </section>
-    <!-- POR QUE ESCOLHER -->
+
+    <!-- COMPARATIVO -->
     <section class="comparativo container">
       <h2>Por que escolher o TechSafra?</h2>
       <table>
@@ -243,7 +147,8 @@
         </tr>
       </table>
     </section>
-    <!-- NOSSO COMPROMISSO -->
+
+    <!-- PROPÓSITO -->
     <section class="proposito container">
       <h2>Nosso compromisso com o agro</h2>
       <p>
@@ -252,31 +157,38 @@
         feita para o produtor rural.
       </p>
     </section>
-    <!-- RODAPÉ -->
+
+    <!-- FOOTER -->
     <footer class="footer">
-      <div class="footer-content container">
+      <div class="footer-content">
         <div class="footer-logo">
-          <img src="./img/logo.png" alt="TechSafra logo" />
+          <img src="./static/img/logo.png" alt="TechSafra logo" />
           <p>Gestão fácil, produção forte.</p>
         </div>
+
         <div class="footer-links">
-          <a href="./static/template/sobreotech.html">Sobre</a>
-          <a href="./static/template/telalogin.html">Contato</a>
-          <a href="./static/template/telacadastro.html">Política de Privacidade</a>
+          <a href="../static/template/sobreotech.html">Sobre</a>
+          <a href="../static/template/telalogin.html">Contato</a>
+          <a href="../static/template/telacadastro.html"
+            >Política de Privacidade</a
+          >
         </div>
+
         <div class="social-icons">
           <a href="https://facebook.com/techsafra" target="_blank">
-            <img src="./img/facebook.png" alt="Facebook" />
+            <img src="./static/img/facebook.png" alt="Facebook" />
           </a>
           <a href="https://instagram.com/techsafra" target="_blank">
-            <img src="./img/instagram.png" alt="Instagram" />
+            <img src="./static/img/instagram.png" alt="Instagram" />
           </a>
           <a href="https://web.whatsapp.com/" target="_blank">
-            <img src="./img/whatsapp.png" alt="Whatsapp" />
+            <img src="./static/img/whatsapp.png" alt="Whatsapp" />
           </a>
         </div>
       </div>
       <p class="footer-copy">© 2025 TechSafra. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="/src/static/js/paginainicial.js"></script>
   </body>
 </html>
