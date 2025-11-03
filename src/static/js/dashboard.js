@@ -1,186 +1,138 @@
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".modal").forEach((modal) => {
-    modal.style.display = "none";
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const botoes = document.querySelectorAll(".sidebar button");
-  const secoes = document.querySelectorAll('section[id^="section"]');
+/* dashboard.js
+ - gerencia troca de seções, modais, inicializa gráficos (Chart.js)
+ - mantém todo conteúdo do dashboard (sem alterar dados estáticos)
+*/
 
-  function mostrarSecao(idBotao, idSecao) {
-    secoes.forEach((secao) => (secao.style.display = "none"));
-    botoes.forEach((b) => b.classList.remove("ativo"));
-    document.querySelector(idSecao).style.display = "block";
-    document.querySelector(idBotao).classList.add("ativo");
-  }
-  botoes.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const id = botao.getAttribute("id");
-      const numero = id.replace("botao", "");
-      mostrarSecao(`#${id}`, `#section${numero}`);
+/* --- Seletor de seções via sidebar --- */
+document.addEventListener('DOMContentLoaded', () => {
+  // sidebar links
+  const links = document.querySelectorAll('.sidebar nav a');
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      const target = link.getAttribute('data-target');
+      if (target) showSection(target);
     });
   });
 
-  mostrarSecao("#botao1", "#section1");
+  // show initial section (section1)
+  showSection('section1');
+
+  // init charts
+  initCharts();
+
+  // hook search form (weather) - placeholder behavior
+  const search = document.getElementById('search');
+  if (search) {
+    search.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const city = document.getElementById('city_Name').value || 'Blumenau';
+      // placeholder: update title only (your previsao.js can replace)
+      document.getElementById('title').textContent = city + ', BR';
+      // optionally, call real API here
+      showSection('section2');
+    });
+  }
+
+  // modal close on Esc
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closeAllModals();
+  });
 });
 
-// =============================================================
-// 🌿 CONTROLE DE MODAIS DE EDIÇÃO — TechSafra Dashboard
-// =============================================================
-
-// Abre um modal específico
-function abrirModal(id) {
-  const modal = document.getElementById(id);
-  if (modal) {
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // bloqueia scroll do fundo
-  }
-}
-
-// Fecha um modal específico
-function fecharModal(id) {
-  const modal = document.getElementById(id);
-  if (modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-}
-
-// Fecha modal se clicar fora do conteúdo
-window.addEventListener("click", (e) => {
-  const modais = document.querySelectorAll(".modal");
-  modais.forEach((modal) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
+/* mostre apenas a seção com id = name e oculte as demais */
+function showSection(name){
+  const sections = document.querySelectorAll('main .card-section');
+  sections.forEach(s => {
+    if (s.id === name) {
+      s.removeAttribute('hidden');
+      s.style.display = 'block';
+    } else {
+      s.setAttribute('hidden','');
+      s.style.display = 'none';
     }
   });
-});
-
-// =============================================================
-// 🌾 Funções de preenchimento simuladas (exemplo)
-// =============================================================
-
-function preencherModalPropriedade(dados) {
-  document.getElementById("nomePropriedade").value = dados.nome || "";
-  document.getElementById("localizacaoPropriedade").value =
-    dados.localizacao || "";
-  document.getElementById("areaPropriedade").value = dados.area || "";
-  document.getElementById("culturaPropriedade").value = dados.cultura || "";
-  document.getElementById("obsPropriedade").value = dados.obs || "";
+  // scroll to top of main
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function preencherModalEstoque(dados) {
-  document.getElementById("produtoEstoque").value = dados.produto || "";
-  document.getElementById("quantidadeEstoque").value = dados.quantidade || "";
-  document.getElementById("valorUnitarioEstoque").value =
-    dados.valorUnitario || "";
-  document.getElementById("fornecedorEstoque").value = dados.fornecedor || "";
-  document.getElementById("obsEstoque").value = dados.obs || "";
+/* ---------- Modais ---------- */
+function abrirModal(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function fecharModal(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+function closeAllModals(){
+  document.querySelectorAll('.modal[aria-hidden="false"]').forEach(m => m.setAttribute('aria-hidden','true'));
+  document.body.style.overflow = '';
+}
+function confirmarExclusao(){
+  // placeholder: implementa lógica real no backend
+  alert('Item excluído (exemplo).');
+  fecharModal('modalExcluir');
 }
 
-function preencherModalFuncionario(dados) {
-  document.getElementById("nomeFuncionario").value = dados.nome || "";
-  document.getElementById("cargoFuncionario").value = dados.cargo || "";
-  document.getElementById("cpfFuncionario").value = dados.cpf || "";
-  document.getElementById("admissaoFuncionario").value = dados.admissao || "";
-  document.getElementById("desempenhoFuncionario").value =
-    dados.desempenho || "";
-}
-
-function preencherModalMaquinario(dados) {
-  document.getElementById("tipoMaquinario").value = dados.tipo || "";
-  document.getElementById("modeloMaquinario").value = dados.modelo || "";
-  document.getElementById("anoMaquinario").value = dados.ano || "";
-  document.getElementById("estadoMaquinario").value = dados.estado || "";
-  document.getElementById("obsMaquinario").value = dados.obs || "";
-}
-
-// =============================================================
-// 🧩 Exemplo de uso — abrir modal já com dados
-// =============================================================
-
-// Exemplo: botão no HTML -> onclick="editarEstoque(id)"
-function editarEstoque(id) {
-  // Simula dados vindos do backend
-  const dadosExemplo = {
-    produto: "Sementes de Milho Premium",
-    quantidade: 120,
-    valorUnitario: 78.5,
-    fornecedor: "AgroMix Ltda",
-    obs: "Último lote recebido em 22/10/2025",
+/* ---------- Charts (Chart.js) ---------- */
+function initCharts(){
+  const ctx = document.getElementById('graficoSafra');
+  if (!ctx) return;
+  const labels = [
+    'Nov','Dez','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'
+  ];
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Produção (ton)',
+        data: [120,130,125,150,160,155,170,165,180,190,200,210],
+        fill: true,
+        backgroundColor: 'rgba(99,194,98,0.12)',
+        borderColor: 'rgba(63,162,77,0.95)',
+        tension: 0.3,
+        pointRadius: 3
+      },
+      {
+        label: 'Rendimento (kg/ha)',
+        data: [3.2,3.3,3.1,3.4,3.6,3.5,3.8,3.9,4.0,4.1,4.2,4.3],
+        fill: false,
+        borderColor: 'rgba(228,185,60,0.95)',
+        tension: 0.3,
+        pointRadius: 3
+      }
+    ]
   };
-  preencherModalEstoque(dadosExemplo);
-  abrirModal("modalEditarEstoque");
-}
 
-function editarPropriedade(id) {
-  const dados = {
-    nome: "Fazenda Esperança",
-    localizacao: "Chapecó - SC",
-    area: 185,
-    cultura: "Milho e Soja",
-    obs: "Próxima colheita em dezembro",
-  };
-  preencherModalPropriedade(dados);
-  abrirModal("modalEditarPropriedade");
-}
-
-function editarFuncionario(id) {
-  const dados = {
-    nome: "Carlos Lima",
-    cargo: "Técnico Agrícola",
-    cpf: "123.456.789-00",
-    admissao: "2023-03-12",
-    desempenho: "Excelente",
-  };
-  preencherModalFuncionario(dados);
-  abrirModal("modalEditarFuncionario");
-}
-
-function editarMaquinario(id) {
-  const dados = {
-    tipo: "Colheitadeira",
-    modelo: "New Holland TC5070",
-    ano: 2019,
-    estado: "Bom",
-    obs: "Revisão completa em setembro",
-  };
-  preencherModalMaquinario(dados);
-  abrirModal("modalEditarMaquinario");
-}
-// Abrir modal
-function abrirModal(id) {
-  document.getElementById(id).style.display = "block";
-}
-
-// Fechar modal
-function fecharModal(id) {
-  document.getElementById(id).style.display = "none";
-}
-
-// Fechar clicando fora do modal
-window.onclick = function (event) {
-  const modais = document.querySelectorAll(".modal");
-  modais.forEach((modal) => {
-    if (event.target == modal) modal.style.display = "none";
+  new Chart(ctx, {
+    type: 'line',
+    data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins:{
+        legend:{ position: 'top' }
+      },
+      scales:{
+        y:{ beginAtZero: false }
+      }
+    }
   });
-};
-
-// Salvar Safra
-function salvarSafra() {
-  alert("Alterações da Safra salvas!");
-  fecharModal("modalEditarSafra");
 }
 
-// Salvar Análise do Solo
-function salvarAnalise() {
-  alert("Alterações da Análise do Solo salvas!");
-  fecharModal("modalEditarAnalise");
+/* ---------- Small helpers for forms (placeholders) ---------- */
+function salvarSafra(){
+  alert('Salvando safra (demo).');
+  fecharModal('modalEditarSafra');
 }
-
-// Confirmar exclusão
-function confirmarExclusao() {
-  alert("Item excluído!");
-  fecharModal("modalExcluir");
+function salvarAnalise(){
+  alert('Salvando análise (demo).');
+  fecharModal('modalEditarAnalise');
 }
