@@ -1,30 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("login-form");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // impede envio real do formulário
+const formLogin = document.getElementById("login-form");
 
-    const usuario = document.getElementById("usuario").value.trim();
-    const senha = document.getElementById("senha").value.trim();
+// Evento de envio do formulário
+formLogin.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Impede o comportamento padrão do formulário
 
-    if (usuario && senha) {
-      // redireciona para a home
+  // Captura os dados dos campos
+  const email = document.getElementById("usuario").value.trim();
+  const senha = document.getElementById("password").value.trim();
+
+  // Monta o objeto para enviar ao backend
+  const usuario = { email, senha };
+
+  try {
+    // Faz a requisição para o backend (ajuste a URL se seu backend estiver em outro lugar)
+    const response = await fetch("http://localhost:8080/api/usuarios/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+
+    // Se o login for bem-sucedido
+    if (response.ok) {
+      const mensagem = await response.text();
+
+      // Exibe uma mensagem rápida antes do redirecionamento
+      alert("✅ " + mensagem);
+
+      // Redireciona para a tela home
       window.location.href = "./home.html";
     } else {
-      alert("Por favor, preencha usuário e senha!");
+      // Caso o login falhe
+      const erro = await response.text();
+      alert("❌ " + erro);
     }
-  });
+  } catch (error) {
+    console.error("Erro ao conectar com o servidor:", error);
+    alert("🚫 Falha ao conectar ao servidor. Verifique se o backend está rodando.");
+  }
 });
 
-function togglePassword() {
-    const pw = document.getElementById('password');
-    const btn = document.querySelector('.toggle-pass');
-    if (pw.type === 'password') {
-        pw.type = 'text';
-        btn.textContent = 'Ocultar';
-    } else {
-        pw.type = 'password';
-        btn.textContent = 'Mostrar';
-    }
+// Função para mostrar/ocultar senha
+function togglePassword(idCampo) {
+  const campo = document.getElementById(idCampo);
+  const tipo = campo.getAttribute("type") === "password" ? "text" : "password";
+  campo.setAttribute("type", tipo);
 }
-document.getElementById('year').textContent = new Date().getFullYear();
+

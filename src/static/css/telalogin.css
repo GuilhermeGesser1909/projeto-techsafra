@@ -28,6 +28,16 @@ html {
     min-height: 100vh;
     
 }
+a {
+  color: inherit;          /* herda a cor do texto ao redor */
+  text-decoration: none;   /* remove o sublinhado */
+}
+
+/* Adiciona um efeito visual ao passar o mouse (opcional) */
+a:hover {
+  color: #2e7a3e;          /* muda a cor no hover (verde TechSafra, por exemplo) */
+  text-decoration: underline; /* pode sublinhar só no hover */
+}
 
 
 .login-visual {

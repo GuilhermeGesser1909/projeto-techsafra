@@ -73,3 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
   saudacaoPersonalizada();
   carregarNoticias();
 });
+
+// Função de logout simples 
+function logout() {
+   // Remove qualquer dado salvo do usuário (se houver) 
+   localStorage.removeItem("usuarioLogado"); 
+   sessionStorage.removeItem("usuarioLogado");
+    // Mostra mensagem rápida alert("Você saiu da sua conta.");
+//  // Redireciona para a tela de login
+ window.location.href = "http://localhost:3000"; }
