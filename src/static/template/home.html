@@ -3,264 +3,141 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechSafra — Home</title>
-    <link rel="stylesheet" href="/static/css/PaginaInicial.css" />
+    <title>TechSafra — Inovação no Campo</title>
     <link rel="stylesheet" href="/static/css/home.css" />
     <link rel="icon" href="/img/logo.png" />
   </head>
 
   <body>
-    <!-- 🟢 Cabeçalho -->
-    <header class="container">
-      <div style="display: flex; align-items: center; gap: 18px">
-        <img src="/img/logo.png" alt="TechSafra logo" />
+    <!-- 🔝 Cabeçalho -->
+    <header class="topbar">
+      <div class="logo-area">
+        <img src="/img/logo.png" alt="TechSafra logo" class="logo" />
         <h1>TechSafra</h1>
       </div>
-      <nav class="nav">
-        <a href="#" class="botao-sair" onclick="logout()">Sair</a>
+      <nav>
+        <a href="http://localhost:3000/" class="btn-sair" onclick="logout()"
+          >Sair</a
+        >
       </nav>
     </header>
 
-    <main class="container">
-      <!-- 🌄 Hero -->
-      <section class="hero">
-        <div class="hero-left">
-          <h1 id="saudacao">Bem-vindo de volta 👨‍🌾</h1>
-          <p class="lead">
-            Acompanhe seus dados agrícolas em tempo real e tenha sua produção na
-            palma da mão.
-          </p>
-          <a class="cta" href="./dashboard.html">Ir para o Dashboard</a>
-        </div>
+    <!-- 🌾 Hero informativo -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1>Transformando o campo com tecnologia</h1>
+        <p>
+          Acompanhe as principais notícias, inovações e tendências do
+          agronegócio brasileiro e mundial.
+        </p>
+        <a href="#noticias" class="btn-entrar">Saiba mais</a>
+      </div>
+    </section>
 
-        <div class="hero-card">
+    <!-- 🌱 Destaques informativos -->
+    <section class="cards">
+      <div class="card">
+        <div
+          class="icon-area"
+          style="background: linear-gradient(135deg, #81c784, #43a047)"
+        >
+          🌦️
+        </div>
+        <h3>Previsão do Tempo</h3>
+        <p>
+          Confira o clima atualizado e planeje suas atividades rurais com mais
+          precisão e segurança.
+        </p>
+      </div>
+
+      <div class="card">
+        <div
+          class="icon-area"
+          style="background: linear-gradient(135deg, #a5d6a7, #2e7d32)"
+        >
+          🌱
+        </div>
+        <h3>Tecnologia no Campo</h3>
+        <p>
+          Drones, sensores, IA e inovação digital estão mudando a forma de
+          produzir no agro.
+        </p>
+      </div>
+
+      <div class="card">
+        <div
+          class="icon-area"
+          style="background: linear-gradient(135deg, #c5e1a5, #8bc34a)"
+        >
+          📊
+        </div>
+        <h3>Gestão Inteligente</h3>
+        <p>
+          Tenha controle total da sua produção com dados, gráficos e relatórios
+          fáceis de entender.
+        </p>
+      </div>
+
+      <div class="card">
+        <div
+          class="icon-area"
+          style="background: linear-gradient(135deg, #aed581, #689f38)"
+        >
+          🌍
+        </div>
+        <h3>Sustentabilidade</h3>
+        <p>
+          Práticas sustentáveis garantem o futuro do agronegócio e do planeta.
+          Descubra como aplicar.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📰 Últimas do Campo -->
+    <section id="noticias" class="noticias">
+      <h2>Últimas do campo</h2>
+      <div class="news-grid">
+        <article class="news-card">
           <img
-            class="hero-image"
-            src="/img/photocampo.jpeg"
-            alt="Campo cultivado"
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=60"
+            alt="Agro Tech"
           />
-        </div>
-      </section>
+          <h3>IA ajuda produtores a prever rendimento de safra</h3>
+          <p>
+            Pesquisadores desenvolvem modelo que analisa clima, solo e histórico
+            da lavoura para antecipar resultados.
+          </p>
+        </article>
 
-      <!-- 📰 Notícias + ⚡ Ações rápidas -->
-      <section class="section-grid">
-        <!-- Notícias -->
-        <div class="noticias">
-          <h3>🌱 Notícias da Região</h3>
-          <div class="lista-noticias">
-            <div class="noticia-item">
-              <h4>Nova técnica de plantio sustentável</h4>
-              <p>
-                Produtores da região estão implementando técnicas que aumentam a
-                produtividade sem prejudicar o solo.
-              </p>
-            </div>
-            <div class="noticia-item">
-              <h4>Previsão de chuva aumenta esperanças</h4>
-              <p>
-                A meteorologia indica chuvas regulares nas próximas semanas,
-                beneficiando culturas de verão.
-              </p>
-            </div>
-          </div>
-          <a href="./noticias.html" class="cta"
-            >Ver todas as notícias</a
-          >
-        </div>
+        <article class="news-card">
+          <img
+            src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?auto=format&fit=crop&w=900&q=60"
+            alt="Trator autônomo"
+          />
+          <h3>Tratores autônomos chegam ao Brasil</h3>
+          <p>
+            Novas tecnologias prometem aumentar a produtividade e reduzir custos
+            operacionais em grandes fazendas.
+          </p>
+        </article>
 
-        <!-- Ações rápidas -->
-        <div class="acoes-rapidas">
-          <h2>⚡ Ações Rápidas</h2>
-          <div class="acoes-grid">
-            <a href="./cadastroproduto.html" class="acao-item">
-              <i class="fas fa-chart-line"></i>
-              <span>+ Estoque</span>
-            </a>
-            <a href="./cadastropropriedade.html" class="acao-item">
-              <i class="fas fa-tractor"></i>
-              <span>+ Propriedades</span>
-            </a>
-            <a href="./cadastroanalisesolo.html" class="acao-item">
-              <i class="fas fa-seedling"></i>
-              <span>+ Análise de Solo</span>
-            </a>
-            <a href="./cadastromaquinario.html" class="acao-item">
-              <i class="fas fa-cog"></i>
-              <span>+ Maquinário</span>
-            </a>
-          </div>
-        </div>
-      </section>
+        <article class="news-card">
+          <img
+            src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=900&q=60"
+            alt="Sustentabilidade"
+          />
+          <h3>Agro sustentável cresce 30% em 2025</h3>
+          <p>
+            Uso racional de recursos naturais impulsiona novos modelos de
+            negócios e abre oportunidades globais.
+          </p>
+        </article>
+      </div>
+    </section>
 
-      <!-- 💡 Dicas + 📊 Estatísticas -->
-      <section class="duo-grid">
-        <!-- Dicas -->
-        <div class="dicas">
-          <h3>💡 Dicas Agrícolas</h3>
-          <div class="dicas-grid">
-            <div class="dica-item">
-              <h4>Rotação de culturas</h4>
-              <p>
-                Evite o esgotamento do solo alternando diferentes tipos de
-                cultivo a cada temporada.
-              </p>
-            </div>
-            <div class="dica-item">
-              <h4>Adubação correta</h4>
-              <p>
-                Analise o solo antes de fertilizar para aplicar apenas o
-                necessário, reduzindo desperdício.
-              </p>
-            </div>
-            <div class="dica-item">
-              <h4>Irrigação eficiente</h4>
-              <p>
-                Utilize sistemas de gotejamento para economizar água e garantir
-                melhor crescimento das plantas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Estatísticas -->
-        <div class="estatisticas">
-          <h3>📊 Estatísticas da Fazenda</h3>
-          <div class="estatisticas-grid">
-            <div class="estatistica-item">
-              <h4>Área cultivada</h4>
-              <p>150 ha</p>
-            </div>
-            <div class="estatistica-item">
-              <h4>Produção anual</h4>
-              <p>320 toneladas</p>
-            </div>
-            <div class="estatistica-item">
-              <h4>Maquinário ativo</h4>
-              <p>12 equipamentos</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 📅 Calendário + 🏆 Ranking -->
-      <section class="bottom-grid">
-        <!-- Calendário -->
-        <div class="calendario">
-          <h3>📅 Calendário Agrícola</h3>
-          <div class="calendario-grid">
-            <div class="calendario-item">
-              <strong>Milho</strong>
-              <p>Plantio: Março - Abril</p>
-              <p>Colheita: Julho - Agosto</p>
-            </div>
-            <div class="calendario-item">
-              <strong>Soja</strong>
-              <p>Plantio: Outubro - Novembro</p>
-              <p>Colheita: Janeiro - Fevereiro</p>
-            </div>
-            <div class="calendario-item">
-              <strong>Trigo</strong>
-              <p>Plantio: Maio - Junho</p>
-              <p>Colheita: Setembro - Outubro</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ranking -->
-        <div class="ranking">
-          <h3>🏆 Ranking de Produtividade</h3>
-          <div class="ranking-grid">
-            <div class="ranking-item">
-              <strong>João Silva</strong>
-              <p>Produção de Milho: 120t</p>
-            </div>
-            <div class="ranking-item">
-              <strong>Maria Oliveira</strong>
-              <p>Produção de Soja: 95t</p>
-            </div>
-            <div class="ranking-item">
-              <strong>Carlos Pereira</strong>
-              <p>Produção de Trigo: 80t</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 📸 Galeria -->
-      <section class="galeria">
-        <h3>📸 Galeria da Fazenda</h3>
-        <div class="galeria-grid">
-          <img src="/img/campo1.jpg" alt="Plantação de milho" />
-          <img src="/img/campo2.jpg" alt="Colheita de soja" />
-          <img src="/img/campo3.jpg" alt="Maquinário em operação" />
-          <img src="/img/campo4.jpg" alt="Irrigação do campo" />
-        </div>
-      </section>
-
-      <!-- 🎥 Vídeos -->
-      <section class="videos">
-        <h3>🎥 Vídeos Educativos</h3>
-        <div class="videos-grid">
-          <div class="video-item">
-            <iframe
-              src="https://www.youtube.com/embed/vOXsIvqApVY"
-              title="Manejo de solo"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-            <p>Manejo de Solo Sustentável</p>
-          </div>
-          <div class="video-item">
-            <iframe
-              src="https://www.youtube.com/embed/lfnEqUbBmkE"
-              title="Irrigação eficiente"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-            <p>Irrigação Eficiente</p>
-          </div>
-          <div class="video-item">
-            <iframe
-              src="https://www.youtube.com/embed/2s4MgvvXgrI"
-              title="Controle de pragas"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-            <p>Controle de Pragas</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 💬 Depoimentos -->
-      <section class="depoimentos">
-        <h3>🗣 Depoimentos</h3>
-        <div class="depoimentos-grid">
-          <div class="depoimento-item">
-            <p>
-              "O TechSafra facilitou muito o acompanhamento da produção da minha
-              fazenda!"
-            </p>
-            <strong>- João Silva</strong>
-          </div>
-          <div class="depoimento-item">
-            <p>
-              "Com os relatórios em tempo real, conseguimos tomar decisões muito
-              mais rápidas."
-            </p>
-            <strong>- Maria Oliveira</strong>
-          </div>
-        </div>
-      </section>
-    </main>
-
+    <!-- ⚙️ Rodapé -->
     <footer>
-      <p>© 2025 TechSafra — Todos os direitos reservados.</p>
+      <p>© 2025 TechSafra — Informação e Inovação para o Agronegócio</p>
     </footer>
-
-    <script
-      src="https://kit.fontawesome.com/a2e0e9f6af.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/static/js/home.js"></script>
   </body>
 </html>
