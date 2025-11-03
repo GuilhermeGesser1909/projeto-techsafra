@@ -25,7 +25,17 @@
       </nav>
     </header>
 
-    <!-- 🌾 Hero informativo -->
+    <!-- 👋 Saudação -->
+    <section
+      class="saudacao"
+      id="saudacao-section"
+      style="text-align: center; padding: 2rem"
+    >
+      <h2 id="saudacao">Bem-vindo 👋</h2>
+      <p id="mensagem-dia">Tenha um ótimo dia no campo!</p>
+    </section>
+
+    <!-- 🌾 Hero -->
     <section class="hero">
       <div class="hero-overlay">
         <h1>Transformando o campo com tecnologia</h1>
@@ -37,6 +47,20 @@
       </div>
     </section>
 
+    <!-- 🌤️ Previsão do Tempo -->
+    <section id="clima" class="weather-widget">
+      <h3>🌤️ Previsão do Tempo</h3>
+      <p id="weather-info">Carregando previsão...</p>
+    </section>
+
+    <!-- 💰 Cotações -->
+    <section class="cotacoes">
+      <h2>💰 Cotações do Agro</h2>
+      <div class="cotacoes-grid" id="cotacoes-grid">
+        <!-- Populado dinamicamente -->
+      </div>
+    </section>
+
     <!-- 🌱 Destaques informativos -->
     <section class="cards">
       <div class="card">
@@ -44,12 +68,12 @@
           class="icon-area"
           style="background: linear-gradient(135deg, #81c784, #43a047)"
         >
-          🌦️
+          🌾
         </div>
-        <h3>Previsão do Tempo</h3>
+        <h3>Gestão da Lavoura</h3>
         <p>
-          Confira o clima atualizado e planeje suas atividades rurais com mais
-          precisão e segurança.
+          Planeje cada etapa da produção com ferramentas inteligentes e dados do
+          seu campo.
         </p>
       </div>
 
@@ -58,12 +82,12 @@
           class="icon-area"
           style="background: linear-gradient(135deg, #a5d6a7, #2e7d32)"
         >
-          🌱
+          🚜
         </div>
-        <h3>Tecnologia no Campo</h3>
+        <h3>Tecnologia no Agro</h3>
         <p>
-          Drones, sensores, IA e inovação digital estão mudando a forma de
-          produzir no agro.
+          Conheça soluções com IA, sensores e drones para aumentar sua
+          produtividade.
         </p>
       </div>
 
@@ -74,10 +98,10 @@
         >
           📊
         </div>
-        <h3>Gestão Inteligente</h3>
+        <h3>Controle Financeiro</h3>
         <p>
-          Tenha controle total da sua produção com dados, gráficos e relatórios
-          fáceis de entender.
+          Visualize custos, lucros e margens com relatórios fáceis de
+          interpretar.
         </p>
       </div>
 
@@ -90,51 +114,35 @@
         </div>
         <h3>Sustentabilidade</h3>
         <p>
-          Práticas sustentáveis garantem o futuro do agronegócio e do planeta.
-          Descubra como aplicar.
+          Práticas sustentáveis que garantem o futuro do agronegócio e do
+          planeta.
         </p>
+      </div>
+    </section>
+
+    <!-- 🧑‍🌾 Produtor da Semana -->
+    <section class="destaque-produtor">
+      <h2>Produtor da Semana 🧑‍🌾</h2>
+      <p>
+        Destaque para <strong>Maria Silva</strong>, produtora de soja em Mato
+        Grosso, que reduziu 25% do consumo de água utilizando sensores de
+        irrigação.
+      </p>
+    </section>
+
+    <!-- 💡 Curiosidades -->
+    <section class="curiosidades">
+      <h2>Você sabia?</h2>
+      <div class="curiosidades-grid" id="curiosidades-grid">
+        <!-- JS insere curiosidades -->
       </div>
     </section>
 
     <!-- 📰 Últimas do Campo -->
     <section id="noticias" class="noticias">
       <h2>Últimas do campo</h2>
-      <div class="news-grid">
-        <article class="news-card">
-          <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=60"
-            alt="Agro Tech"
-          />
-          <h3>IA ajuda produtores a prever rendimento de safra</h3>
-          <p>
-            Pesquisadores desenvolvem modelo que analisa clima, solo e histórico
-            da lavoura para antecipar resultados.
-          </p>
-        </article>
-
-        <article class="news-card">
-          <img
-            src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?auto=format&fit=crop&w=900&q=60"
-            alt="Trator autônomo"
-          />
-          <h3>Tratores autônomos chegam ao Brasil</h3>
-          <p>
-            Novas tecnologias prometem aumentar a produtividade e reduzir custos
-            operacionais em grandes fazendas.
-          </p>
-        </article>
-
-        <article class="news-card">
-          <img
-            src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=900&q=60"
-            alt="Sustentabilidade"
-          />
-          <h3>Agro sustentável cresce 30% em 2025</h3>
-          <p>
-            Uso racional de recursos naturais impulsiona novos modelos de
-            negócios e abre oportunidades globais.
-          </p>
-        </article>
+      <div class="news-grid" id="lista-noticias">
+        <!-- Notícias via JS -->
       </div>
     </section>
 
@@ -142,5 +150,7 @@
     <footer>
       <p>© 2025 TechSafra — Informação e Inovação para o Agronegócio</p>
     </footer>
+
+    <script src="/js/home.js"></script>
   </body>
 </html>

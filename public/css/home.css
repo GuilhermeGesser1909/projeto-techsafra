@@ -205,6 +205,112 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* 🌤️ Previsão do tempo */
+.weather-widget {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  text-align: center;
+  width: 300px;
+  margin: 2rem auto;
+  animation: fadeIn 0.8s ease;
+}
+
+.weather-widget h3 {
+  color: var(--green-primary);
+  margin-bottom: 0.6rem;
+}
+
+.weather-widget p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 💰 Cotações */
+.cotacoes {
+  padding: 3rem;
+  text-align: center;
+  background: var(--gray);
+}
+
+.cotacoes h2 {
+  color: var(--green-primary);
+  margin-bottom: 1.5rem;
+}
+
+.cotacoes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cotacao-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  min-width: 180px;
+  transition: 0.3s ease;
+}
+
+.cotacao-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 🧑‍🌾 Produtor da semana */
+.destaque-produtor {
+  background: linear-gradient(90deg, var(--green-light), var(--green-primary));
+  color: var(--white);
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 3rem 0;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.destaque-produtor h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.destaque-produtor p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 💡 Curiosidades */
+.curiosidades {
+  background: #ffffff;
+  padding: 3rem;
+  text-align: center;
+}
+
+.curiosidades h2 {
+  color: var(--green-primary);
+  margin-bottom: 1.5rem;
+}
+
+.curiosidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.curiosidade-item {
+  background: var(--gray);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.curiosidade-item:hover {
+  transform: translateY(-6px);
+}
+
 /* Rodapé */
 footer {
   background: var(--green-primary);
@@ -215,7 +321,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Animação */
+/* Animações e ajustes gerais */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -225,4 +331,12 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+section {
+  animation: fadeIn 0.8s ease;
+}
+
+a {
+  cursor: pointer;
 }
