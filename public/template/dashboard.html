@@ -18,7 +18,7 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,8 +27,8 @@
     <!-- SIDEBAR -->
     <aside class="sidebar" aria-label="Barra lateral">
       <div class="logo">
-        <a href="/static/template/home.html"
-          ><img src="/static/img/logo.png" alt="TechSafra logo"
+        <a href="/template/home.html"
+          ><img src="/img/logo.png" alt="TechSafra logo"
         /></a>
       </div>
 
@@ -47,7 +47,7 @@
       <div class="sidebar-footer">
         <button
           class="btn btn-gold"
-          onclick="location.href='/src/PaginaInicial.html'"
+          onclick="location.href='/PaginaInicial.html'"
         >
           Sair
         </button>
@@ -59,7 +59,7 @@
       <h1>TechSafra Dashboard</h1>
       <div class="user-info">
         <span>Olá, Produtor</span>
-        <img src="/static/img/user-placeholder.png" alt="Usuário" />
+        <img src="/img/user-placeholder.png" alt="Usuário" />
       </div>
     </header>
 
@@ -75,7 +75,7 @@
           <div class="actions-grid">
             <div
               class="action-item"
-              onclick="location.href='./cadastropropriedade.html'"
+              onclick="location.href='/template/cadastropropriedade.html'"
             >
               <i class="fas fa-plus-circle"></i>
               <span>Nova Propriedade</span>
@@ -83,7 +83,7 @@
 
             <div
               class="action-item"
-              onclick="location.href='./cadastrosafra.html'"
+              onclick="location.href='/template/cadastrosafra.html'"
             >
               <i class="fas fa-seedling"></i>
               <span>Registrar Plantio</span>
@@ -91,20 +91,23 @@
 
             <div
               class="action-item"
-              onclick="location.href='./cadastromaquinario.html'"
+              onclick="location.href='/template/cadastromaquinario.html'"
             >
               <i class="fas fa-tractor"></i>
               <span>Adicionar Maquinário</span>
             </div>
 
-            <div class="action-item" onclick="location.href='./relatorio.html'">
+            <div
+              class="action-item"
+              onclick="location.href='/template/relatorio.html'"
+            >
               <i class="fas fa-file-alt"></i>
               <span>Gerar Relatório</span>
             </div>
 
             <div
               class="action-item"
-              onclick="location.href='./cadastroanalisesolo.html'"
+              onclick="location.href='/template/cadastroanalisesolo.html'"
             >
               <i class="fas fa-vials"></i>
               <span>Análise de Solo</span>
@@ -200,7 +203,7 @@
 
             <div id="infos" class="info-grid">
               <div id="temp" class="temp-block">
-                <img id="temp_img" src="/static/img/sun.png" alt="" />
+                <img id="temp_img" src="/img/sun.png" alt="" />
                 <div>
                   <p id="temp_value">32 <sup>°C</sup></p>
                   <p id="temp_description">Ensolarado</p>
@@ -259,7 +262,7 @@
           <h3>🚜 Status do Maquinário</h3>
 
           <div class="card-actions">
-            <a class="btn add-btn" href="./cadastromaquinario.html"
+            <a class="btn add-btn" href="/template/cadastromaquinario.html"
               ><i class="fas fa-plus"></i> Novo Maquinário</a
             >
             <button
@@ -309,7 +312,7 @@
           <div class="card-actions">
             <button
               class="btn add-btn"
-              onclick="location.href='./cadastropropriedade.html'"
+              onclick="location.href='/template/cadastropropriedade.html'"
             >
               <i class="fas fa-plus"></i> Nova Propriedade
             </button>
@@ -468,7 +471,7 @@
           <div class="card-actions">
             <button
               class="btn add-btn"
-              onclick="location.href='./cadastroanalisesolo.html'"
+              onclick="location.href='/template/cadastroanalisesolo.html'"
             >
               Nova Análise
             </button>
@@ -513,7 +516,7 @@
           <div class="card-actions">
             <button
               class="btn add-btn"
-              onclick="location.href='./cadastrosafra.html'"
+              onclick="location.href='/template/cadastrosafra.html'"
             >
               Nova Safra
             </button>
@@ -593,7 +596,7 @@
           <h3>📑 Relatórios e Estatísticas</h3>
 
           <div class="card-actions">
-            <a href="./relatorio.html" class="btn generate-report-btn"
+            <a href="/template/relatorio.html" class="btn generate-report-btn"
               ><i class="fas fa-file-alt"></i> Gerar Novo Relatório</a
             >
             <button class="btn export-btn">
@@ -840,6 +843,6 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="/static/js/dashboard.js"></script>
+    <script src="/js/dashboard.js"></script>
   </body>
 </html>
