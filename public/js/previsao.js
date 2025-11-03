@@ -1,110 +1,95 @@
-document.querySelector('#search').addEventListener('submit', async (event) => {
-    event.preventDefault();
+// ===============================
+// Previsão do Tempo - TechSafra
+// ===============================
 
-    const cityName = document.querySelector('#city_Name').value.trim();
+const apiKey = "e2c52125e70b3fc87ef41d80f29f37fd";
 
-    if (!cityName) {
-        document.querySelector("#weather").classList.remove('show');
-        alert('Por favor, insira o nome de uma cidade...');
-        return;
-    }
+// Referências do DOM
+const form = document.getElementById("search");
+const cityInput = document.getElementById("city_Name");
+const title = document.getElementById("title");
+const tempValue = document.getElementById("temp_value");
+const tempDescription = document.getElementById("temp_description");
+const tempImg = document.getElementById("temp_img");
+const tempMax = document.getElementById("temp_max");
+const tempMin = document.getElementById("temp_min");
+const humidity = document.getElementById("humidity");
+const wind = document.getElementById("wind");
+const forecastGrid = document.getElementById("forecast-grid");
 
-    const apiKey = '5049a84272b2c2ce54f8202e65407d11';
-
-    try {
-        // 🌤️ Buscar clima atual
-        const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
-        const currentRes = await fetch(currentUrl);
-        const currentData = await currentRes.json();
-
-        if (currentData.cod !== 200) {
-            showAlert(`
-                Não foi possível localizar...
-                <img src="\\projeto-techsafra\\src\\img\\undraw_location-tracking_q3yd.svg">
-            `);
-            return;
-        }
-
-        // Exibir informações atuais
-        showInfo({
-            city: currentData.name,
-            country: currentData.sys.country,
-            temp: currentData.main.temp,
-            tempMax: currentData.main.temp_max,
-            tempMin: currentData.main.temp_min,
-            description: currentData.weather[0].description,
-            tempIcon: currentData.weather[0].icon,
-            windSpeed: currentData.wind.speed,
-            humidity: currentData.main.humidity,
-        });
-
-        // 📅 Buscar previsão dos próximos 5 dias (3h em 3h)
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
-        const forecastRes = await fetch(forecastUrl);
-        const forecastData = await forecastRes.json();
-
-        // Exibir previsão diária (agrupando por dia)
-        showForecast(forecastData.list);
-
-    } catch (error) {
-        console.error("Erro:", error);
-        showAlert("Erro ao buscar dados do clima.");
-    }
+// Ao enviar o formulário
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const city = cityInput.value.trim();
+  if (city !== "") {
+    buscarPrevisao(city);
+  }
 });
 
-function showInfo(json) {
-    const weatherDiv = document.querySelector("#weather");
-    weatherDiv.classList.remove('show');
-    showAlert('');
-    weatherDiv.classList.add('show');
+// Função principal
+async function buscarPrevisao(city) {
+  try {
+    // Primeira requisição: busca dados atuais
+    const responseCurrent = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=pt_br&appid=${apiKey}`
+    );
+    if (!responseCurrent.ok) throw new Error("Cidade não encontrada.");
 
-    document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`;
-    document.querySelector('#temp_value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')} <sup>°C</sup>`;
-    document.querySelector('#temp_description').innerHTML = json.description;
-    document.querySelector('#temp_img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
-    document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')}°C`;
-    document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}°C`;
-    document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1)} km/h`;
-    document.querySelector('#humidity').innerHTML = `${json.humidity}%`;
+    const data = await responseCurrent.json();
+
+    // Atualiza infos principais
+    title.textContent = `${data.name}, ${data.sys.country}`;
+    tempValue.innerHTML = `${Math.round(data.main.temp)} <sup>°C</sup>`;
+    tempDescription.textContent = data.weather[0].description
+      .charAt(0)
+      .toUpperCase() + data.weather[0].description.slice(1);
+    tempImg.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    tempImg.alt = data.weather[0].description;
+
+    tempMax.textContent = `${Math.round(data.main.temp_max)}°C`;
+    tempMin.textContent = `${Math.round(data.main.temp_min)}°C`;
+    humidity.textContent = `${data.main.humidity}%`;
+    wind.textContent = `${Math.round(data.wind.speed * 3.6)} km/h`;
+
+    // Pega coordenadas para previsão de 7 dias
+    const { lat, lon } = data.coord;
+
+    // Segunda requisição: previsão estendida
+    const responseForecast = await fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&lang=pt_br&appid=${apiKey}`
+    );
+    const forecastData = await responseForecast.json();
+
+    mostrarPrevisao7Dias(forecastData.daily);
+  } catch (error) {
+    console.error("Erro:", error);
+    alert("Não foi possível obter os dados da cidade.");
+  }
 }
 
-function showForecast(list) {
-    const forecastGrid = document.querySelector("#forecast-grid");
-    if (!forecastGrid) return;
+// Função para renderizar cards de 7 dias
+function mostrarPrevisao7Dias(dailyData) {
+  forecastGrid.innerHTML = ""; // limpa o grid
 
-    forecastGrid.innerHTML = ""; // limpar conteúdo anterior
+  // Pega apenas os 7 próximos dias
+  const dias = dailyData.slice(1, 8);
 
-    // Agrupar por data (para pegar só 1 previsão por dia)
-    const daily = {};
-    list.forEach((item) => {
-        const date = item.dt_txt.split(" ")[0];
-        if (!daily[date]) daily[date] = item;
-    });
+  dias.forEach((dia) => {
+    const date = new Date(dia.dt * 1000);
+    const dayName = date.toLocaleDateString("pt-BR", { weekday: "short" });
 
-    const days = Object.values(daily).slice(0, 7);
-    const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-
-    days.forEach((day) => {
-        const date = new Date(day.dt_txt);
-        const weekday = weekdays[date.getDay()];
-        const icon = day.weather[0].icon;
-        const desc = day.weather[0].description;
-        const max = day.main.temp_max;
-        const min = day.main.temp_min;
-
-        const card = document.createElement("div");
-        card.classList.add("forecast-day");
-        card.innerHTML = `
-            <h4>${weekday}</h4>
-            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}">
-            <p>${desc}</p>
-            <p><strong>Máx:</strong> ${Math.round(max)}°C</p>
-            <p><strong>Mín:</strong> ${Math.round(min)}°C</p>
-        `;
-        forecastGrid.appendChild(card);
-    });
+    const card = document.createElement("div");
+    card.classList.add("day-card");
+    card.innerHTML = `
+      <h4>${dayName.charAt(0).toUpperCase() + dayName.slice(1)}</h4>
+      <img src="https://openweathermap.org/img/wn/${dia.weather[0].icon}.png" alt="${dia.weather[0].description}" />
+      <p>${dia.weather[0].description}</p>
+      <p><strong>Máx:</strong> ${Math.round(dia.temp.max)}°C</p>
+      <p><strong>Mín:</strong> ${Math.round(dia.temp.min)}°C</p>
+    `;
+    forecastGrid.appendChild(card);
+  });
 }
 
-function showAlert(msg) {
-    document.querySelector('#Alert').innerHTML = msg;
-}
+// Carrega Blumenau por padrão ao abrir
+buscarPrevisao("Blumenau");
