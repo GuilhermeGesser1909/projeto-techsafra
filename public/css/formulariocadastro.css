@@ -3,6 +3,11 @@ body {
   background-color: #f5f7fa;
   margin: 0;
   padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
@@ -70,10 +75,10 @@ button:hover {
 }
 
 .secondary {
-  background-color: #ccc;
-  color: #333;
+  background-color: #c40a0a;
+  color: #ffffff;
 }
 
 .secondary:hover {
-  background-color: #b3b3b3;
+  background-color: #c40a0a;
 }

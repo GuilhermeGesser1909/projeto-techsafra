@@ -6,6 +6,7 @@
   --green-700: #3fa34d;
   --green-500: #63c262;
   --gold-500: #e4b93c;
+  --red-500: #e74c3c;
   --bg-light: #f5f8f3;
   --text-dark: #1f3324;
   --radius: 14px;
@@ -637,8 +638,23 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-.btn:hover {
+.btn:hover.add-btn {
   background: var(--green-500);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(63, 162, 77, 0.14);
+}
+.btn:hover.edit-btn {
+  background: var(--gold-500);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(63, 162, 77, 0.14);
+}
+.btn:hover.delete-btn {
+  background: var(--red-500);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(63, 162, 77, 0.14);
+}
+.btn:hover.cancel-btn {
+  background: var(--red-500);
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(63, 162, 77, 0.14);
 }
@@ -648,6 +664,15 @@ body {
 }
 .add-btn {
   background: linear-gradient(90deg, var(--green-500), var(--green-700));
+}
+.edit-btn {
+  background: linear-gradient(90deg, var(--gold-500));
+}
+.delete-btn {
+  background: linear-gradient(90deg, var(--red-500));
+}
+.cancel-btn {
+  background: linear-gradient(90deg, var(--red-500));
 }
 
 /* Footer */
