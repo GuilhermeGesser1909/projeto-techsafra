@@ -97,7 +97,7 @@ p.lead {
 
 .cta:hover {
   background: var(--yellow);
-  color: #fff;
+  color: #110f0f;
   box-shadow: 0 8px 20px rgba(46, 122, 62, 0.4);
 }
 
