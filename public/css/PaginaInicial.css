@@ -178,6 +178,7 @@ p.lead {
 
 /* RECURSOS */
 .recursos {
+  text-align: center;
   padding: 80px 6vw;
 }
 
@@ -205,6 +206,7 @@ p.lead {
 
 /* DEPOIMENTOS */
 .depoimentos {
+  text-align: center;
   background: linear-gradient(180deg, #ffffff, #f3fff5);
   padding: 80px 6vw;
 }
