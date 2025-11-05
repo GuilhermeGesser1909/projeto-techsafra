@@ -14,7 +14,7 @@ public class PropriedadeModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false, length = 100)
     private String nome;
@@ -25,8 +25,8 @@ public class PropriedadeModel implements Serializable {
     @Column(nullable = false)
     private double areaHectares;
 
-    public UUID getId() { return id; }
-    public void setId(UUID id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
@@ -37,7 +37,6 @@ public class PropriedadeModel implements Serializable {
     public double getAreaHectares() { return areaHectares; }
     public void setAreaHectares(double areaHectares) { this.areaHectares = areaHectares; }
 	public void setArea(Object area) {
-		// TODO Auto-generated method stub
 		
 	}
 }
