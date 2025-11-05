@@ -18,7 +18,6 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    // Endpoint de cadastro já existente
     @PostMapping("/cadastrar")
     public String cadastrar(@RequestBody Map<String, String> body) {
         String nome = body.get("nome");
