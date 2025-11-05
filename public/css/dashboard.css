@@ -687,6 +687,24 @@ body {
 .cancel-btn {
   background: linear-gradient(90deg, var(--red-500));
 }
+.btn,
+.btn a {
+  text-decoration: none !important;
+}
+/* Padronização de tamanho dos botões de ação */
+.btn {
+  min-width: 150px; /* largura mínima igual para todos */
+  text-align: center;
+  display: inline-block;
+}
+
+.add-btn,
+.edit-btn,
+.delete-btn,
+.cancel-btn {
+  padding: 10px 16px; /* mantém proporção agradável */
+  font-size: 0.95rem;
+}
 
 /* Footer */
 .footer {
