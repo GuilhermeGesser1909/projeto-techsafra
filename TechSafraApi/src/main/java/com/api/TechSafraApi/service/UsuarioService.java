@@ -32,7 +32,6 @@ public class UsuarioService {
         return "Usuário cadastrado com sucesso!";
     }
 
-    // NOVO: Método de login
     public String loginUsuario(String email, String senha) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
 
