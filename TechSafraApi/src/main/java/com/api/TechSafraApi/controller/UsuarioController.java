@@ -20,6 +20,16 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    @PostMapping("/cadastrar")
+    public String cadastrar(@RequestBody Map<String, String> body) {
+        String nome = body.get("nome");
+        String email = body.get("email");
+        String senha = body.get("senha");
+        String confirmarSenha = body.get("confirmarSenha");
+
+        return usuarioService.cadastrarUsuario(nome, email, senha, confirmarSenha);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Map<String, String> body) {
         String email = body.get("email");
