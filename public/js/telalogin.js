@@ -23,10 +23,10 @@ formLogin.addEventListener("submit", async (event) => {
       const mensagem = await response.text();
       mostrarMensagemLogin("✅ " + mensagem, "sucesso");
 
-      // Redireciona após 1,5 segundos
+      // Redireciona após 1 segundo
       setTimeout(() => {
         window.location.href = "./home.html";
-      }, 1500);
+      }, 1000);
     } else {
       const erro = await response.text();
       mostrarMensagemLogin("❌ " + erro, "erro");
