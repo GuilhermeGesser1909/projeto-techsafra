@@ -687,6 +687,24 @@ body {
 .cancel-btn {
   background: linear-gradient(90deg, var(--red-500));
 }
+.btn,
+.btn a {
+  text-decoration: none !important;
+}
+/* Padronização de tamanho dos botões de ação */
+.btn {
+  min-width: 150px; /* largura mínima igual para todos */
+  text-align: center;
+  display: inline-block;
+}
+
+.add-btn,
+.edit-btn,
+.delete-btn,
+.cancel-btn {
+  padding: 10px 16px; /* mantém proporção agradável */
+  font-size: 0.95rem;
+}
 
 /* Footer */
 .footer {
@@ -817,4 +835,129 @@ body {
 .forecast-desc {
   font-size: 0.9rem;
   color: #555;
+}
+
+/* ===== PREVISÃO DO TEMPO ===== */
+
+.weather-card {
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: background 1s ease, color 0.5s ease;
+  color: #1a1a1a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fundo animado leve */
+.weather-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  transition: opacity 1s ease, background-image 1s ease;
+  z-index: 0;
+}
+
+.weather-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tipos de clima 🌦️ */
+.sunny::before {
+  background-image: url("/img/sunny.jpg");
+  opacity: 0.35;
+}
+
+.partly-cloudy::before {
+  background-image: url("/img/partly-cloudy.jpg");
+  opacity: 0.4;
+}
+
+.cloudy::before {
+  background-image: url("/img/cloudy.jpg");
+  opacity: 0.5;
+}
+
+.rainy::before {
+  background-image: url("/img/rainy.jpg");
+  opacity: 0.45;
+}
+
+.clear-night::before {
+  background-image: url("/img/clear-night.jpg");
+  opacity: 0.35;
+}
+
+/* Grids e blocos */
+.info-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.info:hover {
+  transform: scale(1.05);
+}
+
+.temp-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.temp-block img {
+  width: 80px;
+  height: 80px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+#forecast-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+#forecast-grid .day-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+#forecast-grid .day-card:hover {
+  transform: translateY(-5px);
 }
