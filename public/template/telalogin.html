@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
     <title>TechSafra — Entrar</title>
     <link rel="icon" href="/img/logo.png" />
     <link rel="stylesheet" href="/css/telalogin.css" />
@@ -11,6 +10,7 @@
 
   <body>
     <main class="login-page">
+      <!-- Lado visual -->
       <aside class="login-visual">
         <img
           src="/img/photocampo.jpeg"
@@ -24,6 +24,7 @@
         </div>
       </aside>
 
+      <!-- Lado do formulário -->
       <section class="login-form-wrap">
         <div class="card">
           <header class="card-header">
@@ -67,6 +68,9 @@
               </div>
             </label>
 
+            <!-- Elemento para exibir mensagens (sucesso/erro) -->
+            <p id="mensagemLogin" class="mensagem"></p>
+
             <div class="form-actions">
               <label class="checkbox">
                 <input type="checkbox" name="remember" />
@@ -77,7 +81,8 @@
               >
             </div>
 
-            <button class="btn primary" a ref="#">Entrar</button>
+            <!-- Corrigido: o botão não deve ter “a ref” -->
+            <button type="submit" class="btn primary">Entrar</button>
 
             <div class="divider"><span>ou</span></div>
 

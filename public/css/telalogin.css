@@ -269,3 +269,27 @@ a:hover {
         font-size: 24px
     }
 }
+
+.mensagem {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+  display: none;
+}
+
+.mensagem.sucesso {
+  display: block;
+  background-color: #e7f9ed;
+  color: #1b5e20;
+  border: 1px solid #4caf50;
+}
+
+.mensagem.erro {
+  display: block;
+  background-color: #ffebee;
+  color: #b71c1c;
+  border: 1px solid #f44336;
+}
+

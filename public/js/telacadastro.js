@@ -8,7 +8,6 @@ document.getElementById("year").innerText = new Date().getFullYear();
 const form = document.getElementById("cadastroForm");
 const mensagem = document.getElementById("mensagemCadastro");
 
-// 🔧 Configure aqui o endpoint real do backend
 const BASE_URL = "http://localhost:8080/api/usuarios/cadastrar"; // altere se necessário
 
 form.addEventListener("submit", async (e) => {
@@ -28,15 +27,11 @@ try {
 const response = await fetch(BASE_URL, {
 method: "POST",
 headers: { "Content-Type": "application/json" },
-body: JSON.stringify({ nome, email, senha })
+body: JSON.stringify({ nome, email, senha, confirmarSenha })
 });
 
 if (response.ok) {
   mostrarMensagem("Usuário cadastrado com sucesso!", "sucesso");
-
-  // Armazena dados no sessionStorage para preencher login automaticamente
-  //sessionStorage.setItem("emailCadastro", email);
-  //sessionStorage.setItem("senhaCadastro", senha);
 
   // Redireciona após 2 segundos
   setTimeout(() => {

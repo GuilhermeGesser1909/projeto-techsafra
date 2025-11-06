@@ -1,7 +1,6 @@
-
 const formLogin = document.getElementById("login-form");
+const mensagemLogin = document.getElementById("mensagemLogin");
 
-// Evento de envio do formulário
 formLogin.addEventListener("submit", async (event) => {
   event.preventDefault(); // Impede o comportamento padrão do formulário
 
@@ -13,39 +12,41 @@ formLogin.addEventListener("submit", async (event) => {
   const usuario = { email, senha };
 
   try {
-    // Faz a requisição para o backend (ajuste a URL se seu backend estiver em outro lugar)
+    // Faz a requisição para o backend
     const response = await fetch("http://localhost:8080/api/usuarios/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario),
     });
 
-    // Se o login for bem-sucedido
     if (response.ok) {
       const mensagem = await response.text();
+      mostrarMensagemLogin("✅ " + mensagem, "sucesso");
 
-      // Exibe uma mensagem rápida antes do redirecionamento
-      alert("✅ " + mensagem);
-
-      // Redireciona para a tela home
-      window.location.href = "./home.html";
+      // Redireciona após 1,5 segundos
+      setTimeout(() => {
+        window.location.href = "./home.html";
+      }, 1500);
     } else {
-      // Caso o login falhe
       const erro = await response.text();
-      alert("❌ " + erro);
+      mostrarMensagemLogin("❌ " + erro, "erro");
     }
   } catch (error) {
     console.error("Erro ao conectar com o servidor:", error);
-    alert("🚫 Falha ao conectar ao servidor. Verifique se o backend está rodando.");
+    mostrarMensagemLogin("🚫 Falha ao conectar ao servidor. Verifique se o backend está rodando.", "erro");
   }
 });
 
-// Função para mostrar/ocultar senha
-function togglePassword(idCampo) {
-  const campo = document.getElementById(idCampo);
-  const tipo = campo.getAttribute("type") === "password" ? "text" : "password";
-  campo.setAttribute("type", tipo);
+// Função para mostrar mensagens na tela de login
+function mostrarMensagemLogin(texto, tipo) {
+  mensagemLogin.textContent = texto;
+  mensagemLogin.className = "mensagem " + tipo;
 }
 
+
+// ========================= MOSTRAR / OCULTAR SENHA =========================
+
+function togglePassword(idCampo) {
+  const campo = document.getElementById(idCampo);
+  campo.type = campo.type === "password" ? "text" : "password";
+}
