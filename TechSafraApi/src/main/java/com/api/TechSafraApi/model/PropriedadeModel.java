@@ -1,13 +1,13 @@
 package com.api.TechSafraApi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+//import lombok.Data;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Data
+//@Data
 @Table(name = "TB_PROPRIEDADE")
 public class PropriedadeModel implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -37,7 +37,6 @@ public class PropriedadeModel implements Serializable {
     public double getAreaHectares() { return areaHectares; }
     public void setAreaHectares(double areaHectares) { this.areaHectares = areaHectares; }
 	public void setArea(Object area) {
-		// TODO Auto-generated method stub
 		
 	}
 }

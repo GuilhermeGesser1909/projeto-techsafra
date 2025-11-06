@@ -33,14 +33,16 @@ public class UsuarioService {
     }
 
     public String loginUsuario(String email, String senha) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
+        if (email == null || email.trim().isEmpty() || senha == null || senha.trim().isEmpty()) {
+            return "E-mail e senha são obrigatórios!";
+        }
 
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
         if (usuarioOptional.isEmpty()) {
-            return "Email não cadastrado!";
+            return "E-mail não cadastrado!";
         }
 
         Usuario usuario = usuarioOptional.get();
-
         if (!usuario.getSenha().equals(senha)) {
             return "Senha incorreta!";
         }

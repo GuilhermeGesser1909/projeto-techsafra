@@ -28,7 +28,6 @@ public class UsuarioController {
         return usuarioService.cadastrarUsuario(nome, email, senha, confirmarSenha);
     }
 
-    // NOVO: Endpoint de login
     @PostMapping("/login")
     public String login(@RequestBody Map<String, String> body) {
         String email = body.get("email");
