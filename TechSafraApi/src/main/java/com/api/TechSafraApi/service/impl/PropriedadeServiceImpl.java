@@ -2,49 +2,76 @@ package com.api.TechSafraApi.service.impl;
 
 import com.api.TechSafraApi.dtos.PropriedadeDto;
 import com.api.TechSafraApi.model.PropriedadeModel;
+import com.api.TechSafraApi.model.Usuario;
 import com.api.TechSafraApi.repository.PropriedadeRepository;
+import com.api.TechSafraApi.repository.UsuarioRepository;
 import com.api.TechSafraApi.service.PropriedadeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PropriedadeServiceImpl implements PropriedadeService {
 
-    private final PropriedadeRepository repository;
+    private final PropriedadeRepository propriedadeRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public PropriedadeServiceImpl(PropriedadeRepository repository) {
-        this.repository = repository;
+    public PropriedadeServiceImpl(
+            PropriedadeRepository propriedadeRepository,
+            UsuarioRepository usuarioRepository
+    ) {
+        this.propriedadeRepository = propriedadeRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
+    // 🔹 Listar todas as propriedades
     @Override
     public List<PropriedadeModel> listarTodas() {
-        return repository.findAll();
+        return propriedadeRepository.findAll();
     }
 
+    // 🔹 Salvar diretamente um model (usado internamente)
     @Override
     public PropriedadeModel salvar(PropriedadeModel propriedade) {
-        return repository.save(propriedade);
+        return propriedadeRepository.save(propriedade);
     }
 
+    // 🔹 Buscar uma propriedade pelo ID
     @Override
     public PropriedadeModel buscarPorId(Long id) {
-        Optional<PropriedadeModel> propriedade = repository.findById(id);
-        return propriedade.orElse(null);
+        return propriedadeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Propriedade não encontrada com ID: " + id));
     }
 
+    // 🔹 Deletar uma propriedade
     @Override
     public void deletar(Long id) {
-        repository.deleteById(id);
+        if (!propriedadeRepository.existsById(id)) {
+            throw new RuntimeException("Propriedade com ID " + id + " não encontrada para exclusão.");
+        }
+        propriedadeRepository.deleteById(id);
     }
-    
+
+    // 🔹 Salvar a partir do DTO (requisição vinda do controller)
     @Override
     public PropriedadeModel salvar(PropriedadeDto dto) {
+        // Validação básica
+        if (dto.usuarioId() == null) {
+            throw new IllegalArgumentException("O ID do usuário é obrigatório para cadastrar uma propriedade.");
+        }
+
+        // Busca o usuário dono da propriedade
+        Usuario usuario = usuarioRepository.findById(dto.usuarioId())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com ID: " + dto.usuarioId()));
+
+        // Cria o modelo a partir do DTO
         PropriedadeModel model = new PropriedadeModel();
-        model.setNome(dto.getNome());
-        model.setLocalizacao(dto.getLocalizacao());
-        model.setArea(dto.getArea());
-        return repository.save(model);
+        model.setNome(dto.nome());
+        model.setLocalizacao(dto.localizacao());
+        model.setAreaHectares(dto.areaHectares());
+        model.setUsuario(usuario); // vínculo com usuário
+
+        // Salva e retorna o objeto persistido
+        return propriedadeRepository.save(model);
     }
 }

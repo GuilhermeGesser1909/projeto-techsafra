@@ -1,27 +1,13 @@
 package com.api.TechSafraApi.dtos;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-//import lombok.Data;
 
-//@Data
+// DTO para criação de propriedade vinculada a um usuário
 public record PropriedadeDto(
         @NotBlank String nome,
         @NotBlank String localizacao,
-        @Positive double areaHectares
-) {
-
-	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getLocalizacao() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getArea() {
-		// TODO Auto-generated method stub
-		return null;
-	}}
+        @Positive double areaHectares,
+        @NotNull Long usuarioId
+) { }

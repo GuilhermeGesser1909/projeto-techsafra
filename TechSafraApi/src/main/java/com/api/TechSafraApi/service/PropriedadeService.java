@@ -2,6 +2,7 @@ package com.api.TechSafraApi.service;
 
 import com.api.TechSafraApi.dtos.PropriedadeDto;
 import com.api.TechSafraApi.model.PropriedadeModel;
+
 import java.util.List;
 
 public interface PropriedadeService {
@@ -9,5 +10,5 @@ public interface PropriedadeService {
     PropriedadeModel salvar(PropriedadeModel propriedade);
     PropriedadeModel buscarPorId(Long id);
     void deletar(Long id);
-	PropriedadeModel salvar(PropriedadeDto dto);
+    PropriedadeModel salvar(PropriedadeDto dto);
 }
