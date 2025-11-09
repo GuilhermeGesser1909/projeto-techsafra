@@ -13,7 +13,7 @@ formLogin.addEventListener("submit", async (event) => {
 
   try {
     // Faz a requisição para o backend
-    const response = await fetch("http://localhost:8080/api/usuarios/login", {
+    const response = await fetch("http://localhost:8080/usuarios/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario),

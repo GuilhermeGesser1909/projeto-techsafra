@@ -11,8 +11,8 @@
 /* ===== CONTAINER PRINCIPAL ===== */
 #container {
   background-color: #b42d2d;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 14px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -45,7 +45,7 @@
 
 /* ===== SEÇÃO DO CLIMA ===== */
 #weather {
-  margin-top: -25px;
+  margin-top: -35px;
 }
 
 /* ===== TÍTULO ===== */
@@ -61,11 +61,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 20px;
+  gap: 10px;
   background: linear-gradient(90deg, #5a7cdc, #606dde);
   color: #fff;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
 }
 
 #temp img {

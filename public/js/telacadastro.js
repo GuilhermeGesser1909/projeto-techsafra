@@ -8,7 +8,7 @@ document.getElementById("year").innerText = new Date().getFullYear();
 const form = document.getElementById("cadastroForm");
 const mensagem = document.getElementById("mensagemCadastro");
 
-const BASE_URL = "http://localhost:8080/api/usuarios/cadastrar"; // altere se necessário
+const BASE_URL = "http://localhost:8080/usuarios/cadastrar";
 
 form.addEventListener("submit", async (e) => {
 e.preventDefault();
@@ -33,7 +33,6 @@ body: JSON.stringify({ nome, email, senha, confirmarSenha })
 if (response.ok) {
   mostrarMensagem("Usuário cadastrado com sucesso!", "sucesso");
 
-  // Redireciona após 2 segundos
   setTimeout(() => {
     window.location.href = "./telalogin.html";
   }, 2000);

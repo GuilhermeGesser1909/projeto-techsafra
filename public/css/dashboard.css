@@ -274,8 +274,10 @@ body {
 
 /* ===== PREVISÃO DO TEMPO ===== */
 #section2 {
-  padding: 2rem 3rem;
-  display: flex;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #eef6ee;
+  margin-bottom: 12px;
   justify-content: center;
   align-items: flex-start;
 }

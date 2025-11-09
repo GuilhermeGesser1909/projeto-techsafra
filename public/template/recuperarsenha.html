@@ -1,168 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>TechSafra — Recuperar Senha</title>
-    <link rel="icon" href="/img/logo.png" />
-    <link rel="stylesheet" href="/css/telalogin.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <body>
-    <main class="login-page">
-      <aside class="login-visual">
-        <img
-          src="/img/photocampo.jpeg"
-          alt="Imagem de fundo agrícola"
-          class="visual-image"
-        />
-        <div class="visual-overlay">
-          <img src="/img/logo.png" alt="TechSafra" class="logo-small" />
-          <h1>TechSafra</h1>
-          <p>Conectando fazendas, dados e decisões.</p>
-        </div>
-      </aside>
+  <title>TechSafra — Recuperar Senha</title>
+  <link rel="icon" href="/img/logo.png" />
+  <link rel="stylesheet" href="/css/telalogin.css" />
+</head>
 
-      <section class="login-form-wrap">
-        <div class="card">
-          <header class="card-header">
-            <img src="/img/logo.png" alt="TechSafra" class="logo-inline" />
-            <h2>Recuperar senha</h2>
-            <p class="muted">
-              Informe seu e-mail para receber o código de redefinição.
+<body>
+  <main class="login-page">
+    <aside class="login-visual">
+      <img src="/img/photocampo.jpeg" alt="Imagem de fundo agrícola" class="visual-image" />
+      <div class="visual-overlay">
+        <img src="/img/logo.png" alt="TechSafra" class="logo-small" />
+        <h1>TechSafra</h1>
+        <p>Conectando fazendas, dados e decisões.</p>
+      </div>
+    </aside>
+
+    <section class="login-form-wrap">
+      <div class="card">
+        <header class="card-header">
+          <img src="/img/logo.png" alt="TechSafra" class="logo-inline" />
+          <h2>Recuperar senha</h2>
+          <p class="muted">
+          </p>
+        </header>
+
+
+        <form class="login-form" id="email" autocomplete="off">
+          <div id="step1">
+            <label class="input-group">
+              <span class="label">E-mail</span>
+              <input type="email" id="emailRecuperacao" placeholder="seu@exemplo.com" required />
+            </label>
+
+            <label class="input-group">
+              <span class="label">Nova Senha</span>
+              <div class="password-row">
+                <input
+                  type="password"
+                  name="senha"
+                  placeholder="••••••••"
+                  required
+                  id="password"
+                />
+                <button
+                  type="button"
+                  class="toggle-pass"
+                  aria-label="Mostrar senha"
+                  onclick="togglePassword('password')"
+                >
+                  Mostrar
+                </button>
+              </div>
+            </label>
+
+            <label class="input-group">
+              <span class="label">Confirmar nova senha</span>
+              <div class="password-row">
+                <input
+                  type="password"
+                  name="senha2"
+                  placeholder="••••••••"
+                  required
+                  id="password2"
+                />
+
+                <button
+                  type="button"
+                  class="toggle-pass"
+                  aria-label="Mostrar senha"
+                  onclick="togglePassword('password2')"
+                >
+                  Mostrar
+                </button>
+              </div>
+            </label>
+
+            <button type="button" class="btn primary" id="btnAlterarSenha">
+              Alterar Senha
+            </button>
+
+            <p class="muted" style="margin-top: 1rem">
+              <a class="forgot" href="/template/telalogin.html">Voltar ao login</a>
             </p>
-          </header>
+          </div>
 
-          <form class="login-form" id="formRecuperar" autocomplete="off">
-            <!-- Etapa 1 -->
-            <div id="step1">
-              <label class="input-group">
-                <span class="label">E-mail</span>
-                <input
-                  type="email"
-                  id="emailRecuperacao"
-                  placeholder="seu@exemplo.com"
-                  required
-                />
-              </label>
+          <p id="mensagem" class="muted" style="text-align: center; margin-top: 1rem"></p>
+        </form>
 
-              <button type="button" class="btn primary" id="btnEnviarCodigo">
-                Enviar código
-              </button>
+        <footer class="card-foot muted">
+          <small>© <span id="year"></span> TechSafra — Todos os direitos
+            reservados.</small>
+        </footer>
+      </div>
+    </section>
+  </main>
 
-              <p class="muted" style="margin-top: 1rem">
-                <a class="forgot" href="/template/telalogin.html"
-                  >Voltar ao login</a
-                >
-              </p>
-            </div>
+  <script src="/js/recuperarsenha.js"></script>
+</body>
 
-            <!-- Etapa 2 -->
-            <div id="step2" style="display: none">
-              <label class="input-group">
-                <span class="label">Código de verificação</span>
-                <input
-                  type="text"
-                  id="codigoVerificacao"
-                  placeholder="Digite o código recebido"
-                  required
-                />
-              </label>
-
-              <!-- Nova senha -->
-              <label class="input-group">
-                <span class="label">Nova senha</span>
-                <div
-                  class="password-row"
-                  style="display: flex; align-items: center"
-                >
-                  <input
-                    type="password"
-                    id="novaSenha"
-                    placeholder="••••••••"
-                    required
-                    style="flex: 1"
-                  />
-                  <button
-                    type="button"
-                    id="toggleNovaSenha"
-                    class="btn"
-                    style="margin-left: 8px"
-                  >
-                    Mostrar
-                  </button>
-                </div>
-              </label>
-
-              <!-- Confirmar senha -->
-              <label class="input-group">
-                <span class="label">Confirmar nova senha</span>
-                <div
-                  class="password-row"
-                  style="display: flex; align-items: center"
-                >
-                  <input
-                    type="password"
-                    id="confirmarSenha"
-                    placeholder="••••••••"
-                    required
-                    style="flex: 1"
-                  />
-                  <button
-                    type="button"
-                    id="toggleConfirmarSenha"
-                    class="btn"
-                    style="margin-left: 8px"
-                  >
-                    Mostrar
-                  </button>
-                </div>
-              </label>
-
-              <script>
-                const togglePassword = (inputId, buttonId) => {
-                  const input = document.getElementById(inputId);
-                  const button = document.getElementById(buttonId);
-                  button.addEventListener("click", () => {
-                    const isPassword = input.type === "password";
-                    input.type = isPassword ? "text" : "password";
-                    button.textContent = isPassword ? "Ocultar" : "Mostrar";
-                  });
-                };
-
-                togglePassword("novaSenha", "toggleNovaSenha");
-                togglePassword("confirmarSenha", "toggleConfirmarSenha");
-              </script>
-
-              <button type="button" class="btn primary" id="btnRedefinirSenha">
-                Redefinir senha
-              </button>
-
-              <p class="muted" style="margin-top: 1rem">
-                <a class="forgot" href="/template/telalogin.html"
-                  >Voltar ao login</a
-                >
-              </p>
-            </div>
-
-            <p
-              id="mensagem"
-              class="muted"
-              style="text-align: center; margin-top: 1rem"
-            ></p>
-          </form>
-
-          <footer class="card-foot muted">
-            <small
-              >© <span id="year"></span> TechSafra — Todos os direitos
-              reservados.</small
-            >
-          </footer>
-        </div>
-      </section>
-    </main>
-
-    <script src="/js/recuperarsenha.js"></script>
-  </body>
 </html>

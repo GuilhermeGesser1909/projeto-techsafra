@@ -1,11 +1,5 @@
-/* dashboard.js
- - gerencia troca de seções, modais, inicializa gráficos (Chart.js)
- - mantém todo conteúdo do dashboard (sem alterar dados estáticos)
-*/
-
-/* --- Seletor de seções via sidebar --- */
 document.addEventListener("DOMContentLoaded", () => {
-  // sidebar links
+
   const links = document.querySelectorAll(".sidebar nav a");
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -17,32 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // show initial section (section1)
   showSection("section1");
 
-  // init charts
   initCharts();
 
-  // hook search form (weather) - placeholder behavior
   const search = document.getElementById("search");
   if (search) {
     search.addEventListener("submit", (ev) => {
       ev.preventDefault();
       const city = document.getElementById("city_Name").value || "Blumenau";
-      // placeholder: update title only (your previsao.js can replace)
       document.getElementById("title").textContent = city + ", BR";
-      // optionally, call real API here
       showSection("section2");
     });
   }
 
-  // modal close on Esc
   document.addEventListener("keydown", (ev) => {
     if (ev.key === "Escape") closeAllModals();
   });
 });
 
-/* mostre apenas a seção com id = name e oculte as demais */
 function showSection(name) {
   const sections = document.querySelectorAll("main .card-section");
   sections.forEach((s) => {
@@ -54,11 +41,10 @@ function showSection(name) {
       s.style.display = "none";
     }
   });
-  // scroll to top of main
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-/* ---------- Modais ---------- */
 function abrirModal(id) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -78,12 +64,11 @@ function closeAllModals() {
   document.body.style.overflow = "";
 }
 function confirmarExclusao() {
-  // placeholder: implementa lógica real no backend
+
   alert("Item excluído (exemplo).");
   fecharModal("modalExcluir");
 }
 
-/* ---------- Charts (Chart.js) ---------- */
 function initCharts() {
   const ctx = document.getElementById("graficoSafra");
   if (!ctx) return;
@@ -140,7 +125,6 @@ function initCharts() {
   });
 }
 
-/* ---------- Small helpers for forms (placeholders) ---------- */
 function salvarSafra() {
   alert("Salvando safra (demo).");
   fecharModal("modalEditarSafra");
@@ -178,5 +162,4 @@ function updateWeatherBackground(description) {
   }
 }
 
-// Exemplo:
 updateWeatherBackground(document.getElementById("temp_description").innerText);
