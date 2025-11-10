@@ -472,29 +472,32 @@
     © 2025 TechSafra — Informação e Inovação para o Agronegócio
   </footer>
 
-  <!-- 🔹 MODAL EDITAR PROPRIEDADE -->
-  <div id="modalEditarPropriedade" class="modal" aria-hidden="true">
-    <div class="modal-content large">
-      <span class="close" onclick="fecharModal('modalEditarPropriedade')">&times;</span>
-      <h2>Editar Propriedade</h2>
+ <!-- 🔹 MODAL EDITAR PROPRIEDADE -->
+<div id="modalEditarPropriedade" class="modal" aria-hidden="true">
+  <div class="modal-content large">
+    <span class="close" onclick="fecharModal('modalEditarPropriedade')">&times;</span>
+    <h2>Editar Propriedade</h2>
 
-      <div class="modal-body">
-        <div class="form-section">
-          <label>Nome da Fazenda</label>
-          <input type="text" id="nomePropriedade" />
-          <label>Localização</label>
-          <input type="text" id="localizacaoPropriedade" />
-          <label>Área Total (ha)</label>
-          <input type="number" id="areaPropriedade" />
-        </div>
-      </div>
+    <div class="modal-body">
+      <div class="form-section">
+        <label>Nome da Fazenda</label>
+        <input type="text" id="nomePropriedade" />
 
-      <div class="modal-actions">
-        <button class="btn save-btn" id="salvarEdicaoBtn">Salvar Alterações</button>
-        <button class="btn cancel-btn" onclick="fecharModal('modalEditarPropriedade')">Cancelar</button>
+        <label>Localização</label>
+        <input type="text" id="localizacaoPropriedade" />
+
+        <label>Área Total (ha)</label>
+        <input type="number" id="areaPropriedade" />
       </div>
     </div>
+
+    <div class="modal-actions">
+      <!-- ✅ ID importante pro JS -->
+      <button class="btn save-btn" id="salvarEdicaoBtn">Salvar Alterações</button>
+      <button class="btn cancel-btn" onclick="fecharModal('modalEditarPropriedade')">Cancelar</button>
+    </div>
   </div>
+</div>
 
   <div id="modalEditarEstoque" class="modal" aria-hidden="true">
     <div class="modal-content large">
@@ -615,21 +618,22 @@
     </div>
   </div>
 
-  <div id="modalExcluir" class="modal" aria-hidden="true">
-    <div class="modal-content small">
-      <span class="close" onclick="fecharModal('modalExcluir')">&times;</span>
-      <h2>Confirmar Exclusão</h2>
-      <p>Tem certeza que deseja excluir este item?</p>
-      <div class="modal-actions">
-        <button class="btn save-btn" onclick="confirmarExclusao()">
-          Sim, Excluir
-        </button>
-        <button class="btn cancel-btn" onclick="fecharModal('modalExcluir')">
-          Cancelar
-        </button>
-      </div>
+  <!-- 🔹 MODAL EXCLUIR -->
+<div id="modalExcluir" class="modal" aria-hidden="true">
+  <div class="modal-content small">
+    <span class="close" onclick="fecharModal('modalExcluir')">&times;</span>
+    <h2>Confirmar Exclusão</h2>
+    <p>Tem certeza que deseja excluir esta propriedade?</p>
+    <div class="modal-actions">
+      <!-- ✅ O JS usa este ID -->
+      <button class="btn save-btn" id="confirmarExclusaoBtn">Sim, Excluir</button>
+      <button class="btn cancel-btn" onclick="fecharModal('modalExcluir')">
+        Cancelar
+      </button>
     </div>
   </div>
+</div>
+
 
   <script src="/js/dashboard.js"></script>
   <script src="/js/previsao.js"></script>
