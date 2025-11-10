@@ -3,8 +3,12 @@ package com.api.TechSafraApi.model;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "TB_PROPRIEDADE")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PropriedadeModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -24,6 +28,7 @@ public class PropriedadeModel implements Serializable {
     // 🔹 Relacionamento com o usuário (muitas propriedades -> um usuário)
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIgnoreProperties({"senha", "email", "cpf"}) // não manda dados sensíveis
     private Usuario usuario;
 
     // 🔹 Construtores
