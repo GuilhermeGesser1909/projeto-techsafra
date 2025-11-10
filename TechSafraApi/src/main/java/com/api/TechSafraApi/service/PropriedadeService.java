@@ -11,4 +11,5 @@ public interface PropriedadeService {
     PropriedadeModel buscarPorId(Long id);
     void deletar(Long id);
     PropriedadeModel salvar(PropriedadeDto dto);
+    PropriedadeModel atualizar(Long id, PropriedadeDto dto);
 }

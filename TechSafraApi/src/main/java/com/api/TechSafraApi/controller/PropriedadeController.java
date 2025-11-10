@@ -45,4 +45,15 @@ public class PropriedadeController {
         service.deletar(id);
         return ResponseEntity.noContent().build();
     }
+    
+    // Editar uma propriedade
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<PropriedadeModel> atualizar(
+            @PathVariable Long id,
+            @RequestBody @Valid PropriedadeDto dto) {
+        PropriedadeModel atualizada = service.atualizar(id, dto);
+        return ResponseEntity.ok(atualizada);
+    }
+
 }

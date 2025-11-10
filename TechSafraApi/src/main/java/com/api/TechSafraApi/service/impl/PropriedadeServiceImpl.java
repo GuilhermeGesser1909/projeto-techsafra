@@ -74,4 +74,24 @@ public class PropriedadeServiceImpl implements PropriedadeService {
         // Salva e retorna o objeto persistido
         return propriedadeRepository.save(model);
     }
+    
+    // Editar uma propriedade
+    
+    @Override
+    public PropriedadeModel atualizar(Long id, PropriedadeDto dto) {
+        PropriedadeModel existente = buscarPorId(id);
+        existente.setNome(dto.nome());
+        existente.setLocalizacao(dto.localizacao());
+        existente.setAreaHectares(dto.areaHectares());
+
+        // Atualiza o usuário, se necessário
+        if (!existente.getUsuario().getId().equals(dto.usuarioId())) {
+            Usuario usuario = usuarioRepository.findById(dto.usuarioId())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com ID: " + dto.usuarioId()));
+            existente.setUsuario(usuario);
+        }
+
+        return propriedadeRepository.save(existente);
+    }
+
 }
