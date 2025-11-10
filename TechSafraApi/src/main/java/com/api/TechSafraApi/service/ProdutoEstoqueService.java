@@ -4,11 +4,12 @@ import com.api.TechSafraApi.dtos.ProdutoEstoqueDto;
 import com.api.TechSafraApi.model.ProdutoEstoqueModel;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface ProdutoEstoqueService {
     List<ProdutoEstoqueModel> listarTodas();
     ProdutoEstoqueModel salvar(ProdutoEstoqueModel produto);
-    ProdutoEstoqueModel buscarPorId(Long id);
-    void deletar(Long id);
-    ProdutoEstoqueModel salvar(ProdutoEstoqueDto dto);
+    ProdutoEstoqueModel buscarPorId(UUID id);
+    void deletar(UUID id);
+    ProdutoEstoqueModel salvarDto(ProdutoEstoqueDto dto);
 }

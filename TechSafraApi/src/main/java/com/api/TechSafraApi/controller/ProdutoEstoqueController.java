@@ -6,6 +6,7 @@ import com.api.TechSafraApi.service.ProdutoEstoqueService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/produtos-estoque")
@@ -23,7 +24,7 @@ public class ProdutoEstoqueController {
     }
 
     @GetMapping("/{id}")
-    public ProdutoEstoqueModel buscar(@PathVariable Long id) {
+    public ProdutoEstoqueModel buscar(@PathVariable UUID id) {
         return service.buscarPorId(id);
     }
 
@@ -33,7 +34,7 @@ public class ProdutoEstoqueController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
+    public void deletar(@PathVariable UUID id) {
         service.deletar(id);
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ProdutoEstoqueServiceImpl implements ProdutoEstoqueService {
@@ -29,18 +30,18 @@ public class ProdutoEstoqueServiceImpl implements ProdutoEstoqueService {
     }
 
     @Override
-    public ProdutoEstoqueModel buscarPorId(Long id) {
+    public ProdutoEstoqueModel buscarPorId(UUID id) {
         Optional<ProdutoEstoqueModel> opt = repository.findById(id);
         return opt.orElse(null);
     }
 
     @Override
-    public void deletar(Long id) {
+    public void deletar(UUID id) {
         repository.deleteById(id);
     }
 
     @Override
-    public ProdutoEstoqueModel salvar(ProdutoEstoqueDto dto) {
+    public ProdutoEstoqueModel salvarDto(ProdutoEstoqueDto dto) {
         ProdutoEstoqueModel model = new ProdutoEstoqueModel();
         model.setNome(dto.nome());
         model.setQuantidade(dto.quantidade());

@@ -6,6 +6,7 @@ import com.api.TechSafraApi.service.MaquinarioService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/maquinarios")
@@ -23,7 +24,7 @@ public class MaquinarioController {
     }
 
     @GetMapping("/{id}")
-    public MaquinarioModel buscar(@PathVariable Long id) {
+    public MaquinarioModel buscar(@PathVariable UUID id) {
         return service.buscarPorId(id);
     }
 
@@ -33,7 +34,7 @@ public class MaquinarioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
+    public void deletar(@PathVariable UUID id) {
         service.deletar(id);
     }
 }

@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface MaquinarioRepository extends JpaRepository<MaquinarioModel, UUID> {
 
-    void deleteById(Long id);
+    void deleteById(UUID id);
 
-    Optional<MaquinarioModel> findById(Long id);
+    Optional<MaquinarioModel> findById(UUID id);
 }

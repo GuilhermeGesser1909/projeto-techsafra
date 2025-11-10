@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class MaquinarioServiceImpl implements MaquinarioService {
@@ -29,18 +30,18 @@ public class MaquinarioServiceImpl implements MaquinarioService {
     }
 
     @Override
-    public MaquinarioModel buscarPorId(Long id) {
+    public MaquinarioModel buscarPorId(UUID id) {
         Optional<MaquinarioModel> opt = repository.findById(id);
         return opt.orElse(null);
     }
 
     @Override
-    public void deletar(Long id) {
+    public void deletar(UUID id) {
         repository.deleteById(id);
     }
 
     @Override
-    public MaquinarioModel salvar(MaquinarioDto dto) {
+    public MaquinarioModel salvarDto(MaquinarioDto dto) {
         MaquinarioModel model = new MaquinarioModel();
         model.setNome(dto.nome());
         model.setFabricante(dto.fabricante());
