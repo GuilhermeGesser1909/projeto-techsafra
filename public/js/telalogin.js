@@ -2,34 +2,27 @@ const formLogin = document.getElementById("login-form");
 const mensagemLogin = document.getElementById("mensagemLogin");
 
 formLogin.addEventListener("submit", async (event) => {
-  event.preventDefault(); // Impede o comportamento padrão do formulário
+  event.preventDefault();
 
-  // Captura os dados dos campos
   const email = document.getElementById("usuario").value.trim();
   const senha = document.getElementById("password").value.trim();
-
-  // Monta o objeto para enviar ao backend
   const usuario = { email, senha };
 
   try {
-    // Faz a requisição para o backend
     const response = await fetch("http://localhost:8080/usuarios/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(usuario),
     });
 
-    if (response.ok) {
-      const mensagem = await response.text();
-      mostrarMensagemLogin("✅ " + mensagem, "sucesso");
+    const data = await response.json();
 
-      // Redireciona após 1 segundo
-      setTimeout(() => {
-        window.location.href = "./home.html";
-      }, 1000);
+    if (response.ok) {
+      localStorage.setItem("usuarioId", data.id);
+      mostrarMensagemLogin("✅ " + data.mensagem, "sucesso");
+      setTimeout(() => (window.location.href = "./home.html"), 1000);
     } else {
-      const erro = await response.text();
-      mostrarMensagemLogin("❌ " + erro, "erro");
+      mostrarMensagemLogin("❌ " + (data.erro || "Falha no login"), "erro");
     }
   } catch (error) {
     console.error("Erro ao conectar com o servidor:", error);
@@ -37,14 +30,10 @@ formLogin.addEventListener("submit", async (event) => {
   }
 });
 
-// Função para mostrar mensagens na tela de login
 function mostrarMensagemLogin(texto, tipo) {
   mensagemLogin.textContent = texto;
   mensagemLogin.className = "mensagem " + tipo;
 }
-
-
-// ========================= MOSTRAR / OCULTAR SENHA =========================
 
 function togglePassword(idCampo) {
   const campo = document.getElementById(idCampo);

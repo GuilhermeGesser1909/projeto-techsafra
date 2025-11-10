@@ -250,6 +250,7 @@
       </div>
     </section>
 
+  <!-- 🌱 MINHAS PROPRIEDADES -->
     <section id="section4" class="card-section" hidden>
       <div class="card">
         <h3>🌱 Minhas Propriedades</h3>
@@ -258,86 +259,11 @@
           <button class="btn add-btn" onclick="location.href='/template/cadastropropriedade.html'">
             <i class="fas fa-plus"></i> Nova Propriedade
           </button>
-          <button class="btn edit-btn" onclick="abrirModal('modalEditarPropriedade')">
-            Editar
-          </button>
-          <button class="btn delete-btn" onclick="abrirModal('modalExcluir')">
-            Excluir
-          </button>
         </div>
 
-        <div class="properties-list">
-          <div class="property-item">
-            <div class="property-info">
-              <h4>Fazenda São João</h4>
-              <p>Blumenau, SC • 25 hectares</p>
-            </div>
-            <div class="property-details">
-              <div class="crop-info">
-                <span class="crop-name">Milho</span>
-                <div class="progress-bar-container">
-                  <div class="progress-bar" style="width: 65%"></div>
-                </div>
-                <span class="progress-text">65%</span>
-              </div>
-              <div class="crop-info">
-                <span class="crop-name">Feijão</span>
-                <div class="progress-bar-container">
-                  <div class="progress-bar" style="width: 80%"></div>
-                </div>
-                <span class="progress-text">80%</span>
-              </div>
-              <div class="crop-info">
-                <span class="crop-name">Mandioca</span>
-                <div class="progress-bar-container">
-                  <div class="progress-bar" style="width: 95%"></div>
-                </div>
-                <span class="progress-text">95%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="summary-footer">
-          <div class="summary-item">
-            <span class="summary-number">37</span><span class="summary-text">Hectares totais</span>
-          </div>
-          <div class="summary-item">
-            <span class="summary-number">4</span><span class="summary-text">culturas ativas</span>
-          </div>
-          <div class="summary-item">
-            <span class="summary-number">2</span><span class="summary-text">Propriedades</span>
-          </div>
-        </div>
-
-        <div class="property-item">
-          <div class="property-info">
-            <h4>Fazenda Rancho das Orquídeas</h4>
-            <p>Campo Grande, MS • 25 hectares</p>
-          </div>
-          <div class="property-details">
-            <div class="crop-info">
-              <span class="crop-name">Soja</span>
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 22%"></div>
-              </div>
-              <span class="progress-text">22%</span>
-            </div>
-            <div class="crop-info">
-              <span class="crop-name">Milho</span>
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 60%"></div>
-              </div>
-              <span class="progress-text">60%</span>
-            </div>
-            <div class="crop-info">
-              <span class="crop-name">Uva Niágara</span>
-              <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 54%"></div>
-              </div>
-              <span class="progress-text">54%</span>
-            </div>
-          </div>
+        <!-- 🔹 JS insere aqui as propriedades reais -->
+        <div id="listaPropriedades" class="properties-list">
+          <p>Carregando propriedades...</p>
         </div>
       </div>
     </section>
@@ -546,10 +472,12 @@
     © 2025 TechSafra — Informação e Inovação para o Agronegócio
   </footer>
 
+  <!-- 🔹 MODAL EDITAR PROPRIEDADE -->
   <div id="modalEditarPropriedade" class="modal" aria-hidden="true">
     <div class="modal-content large">
       <span class="close" onclick="fecharModal('modalEditarPropriedade')">&times;</span>
       <h2>Editar Propriedade</h2>
+
       <div class="modal-body">
         <div class="form-section">
           <label>Nome da Fazenda</label>
@@ -558,24 +486,12 @@
           <input type="text" id="localizacaoPropriedade" />
           <label>Área Total (ha)</label>
           <input type="number" id="areaPropriedade" />
-          <label>Cultura Principal</label>
-          <input type="text" id="culturaPropriedade" />
-          <label>Observações</label>
-          <textarea id="obsPropriedade"></textarea>
-        </div>
-        <div class="report-section">
-          <h3>Relatório Atual</h3>
-          <p><strong>Nome:</strong> Fazenda Santa Luzia</p>
-          <p><strong>Área:</strong> 145 ha</p>
-          <p><strong>Cultura:</strong> Soja</p>
-          <p><strong>Última atualização:</strong> 20/10/2025</p>
         </div>
       </div>
+
       <div class="modal-actions">
-        <button class="btn save-btn">Salvar Alterações</button>
-        <button class="btn cancel-btn" onclick="fecharModal('modalEditarPropriedade')">
-          Cancelar
-        </button>
+        <button class="btn save-btn" id="salvarEdicaoBtn">Salvar Alterações</button>
+        <button class="btn cancel-btn" onclick="fecharModal('modalEditarPropriedade')">Cancelar</button>
       </div>
     </div>
   </div>
@@ -717,8 +633,7 @@
 
   <script src="/js/dashboard.js"></script>
   <script src="/js/previsao.js"></script>
-  <script src="/public/js/dashboard.js"></script>
-  <script src="/public/js/previsao.js"></script>
+
 </body>
 
 </html>

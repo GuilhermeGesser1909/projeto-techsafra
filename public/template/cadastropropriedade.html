@@ -6,12 +6,11 @@
     <title>Cadastrar Propriedade - TechSafra</title>
     <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="stylesheet" href="/css/formulariocadastro.css" />
-    <style></style>
   </head>
 
   <body>
     <div class="container">
-      <h1>Cadastro de Nova Propriedade</h1>
+      <h1>🌱 Cadastro de Nova Propriedade</h1>
 
       <form id="formPropriedade">
         <div>
@@ -30,8 +29,8 @@
             <label for="nomecidade">Cidade:</label>
             <input
               type="text"
-              id="nomeCidade"
-              name="nomeCidade"
+              id="nomecidade"
+              name="nomecidade"
               placeholder="Ex: São Paulo"
               required
             />
@@ -71,18 +70,18 @@
         </div>
 
         <div>
-          <label for="tamanhopropriedade">Tamanho: (hectare):</label>
+          <label for="tamanhopropriedade">Tamanho (hectares):</label>
           <input
-            type="Number"
-            id="tamanho"
-            name="tamanho"
+            type="number"
+            id="tamanhopropriedade"
+            name="tamanhopropriedade"
+            placeholder="Ex: 1500"
             required
-            placeholder="Ex: 1500 hectares"
           />
         </div>
 
         <div class="button-group">
-          <button type="submit">Salvar Propriedade</button>
+          <button type="submit" class="btn">Salvar Propriedade</button>
           <button
             type="button"
             class="secondary"
@@ -92,7 +91,10 @@
           </button>
         </div>
       </form>
+
+      <div id="resultado" class="mensagem"></div>
     </div>
+
+    <script src="/js/cadastropropriedade.js" defer></script>
   </body>
-  <script src="/js/cadastropropriedade.js" defer></script>
 </html>
