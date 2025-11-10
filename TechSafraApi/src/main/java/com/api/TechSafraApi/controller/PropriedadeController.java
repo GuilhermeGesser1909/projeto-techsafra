@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/propriedades")
+@CrossOrigin(origins = "http://localhost:3000") 
 public class PropriedadeController {
 
     private final PropriedadeService service;

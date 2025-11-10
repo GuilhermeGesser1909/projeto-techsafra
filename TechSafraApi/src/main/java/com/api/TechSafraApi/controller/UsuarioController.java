@@ -38,23 +38,29 @@ public class UsuarioController {
         }
     }
 
-    // 🔹 Login de usuário
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> body) {
+    @CrossOrigin(origins = "*") // ⚠️ garante que o front consiga acessar
+    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
         String email = body.get("email");
         String senha = body.get("senha");
 
         String resultado = usuarioService.loginUsuario(email, senha);
 
-        switch (resultado) {
-            case "E-mail e senha são obrigatórios!":
-            case "E-mail não cadastrado!":
-            case "Senha incorreta!":
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resultado);
-            default:
-                return ResponseEntity.ok(resultado);
+        if (resultado.equals("E-mail e senha são obrigatórios!") ||
+            resultado.equals("E-mail não cadastrado!") ||
+            resultado.equals("Senha incorreta!")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("erro", resultado));
         }
+
+        // 🔹 Aqui você pega o usuário autenticado e retorna seus dados
+        Usuario usuario = usuarioService.buscarPorEmail(email);
+        return ResponseEntity.ok(Map.of(
+            "id", usuario.getId(),
+            "email", usuario.getEmail(),
+            "mensagem", "Login realizado com sucesso"
+        ));
     }
+
 
     // 🔹 (Opcional) Buscar todos os usuários - útil pra testar
     @GetMapping
