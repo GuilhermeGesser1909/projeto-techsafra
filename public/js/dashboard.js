@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const usuarioId = localStorage.getItem("usuarioId");
   const lista = document.getElementById("listaPropriedades");
 
-  if (!lista) return; // segurança, se não estiver no dashboard
+  if (!lista) return;
 
   if (!usuarioId) {
     lista.innerHTML = `<p style="color:red;">Usuário não autenticado! Faça login novamente.</p>`;
@@ -47,17 +47,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 🔹 FUNÇÃO: Listar propriedades do usuário logado
   async function listarPropriedades() {
+    console.log("🔍 Carregando propriedades para usuário:", usuarioId);
     try {
       const resp = await fetch(API_URL);
       if (!resp.ok) throw new Error("Erro ao buscar propriedades");
 
       const propriedades = await resp.json();
-      const minhas = propriedades.filter(
-        (p) => p.usuarioId === parseInt(usuarioId)
-      );
+      console.log("📦 Todas as propriedades recebidas:", propriedades);
+
+      // Verifica se o backend envia o campo usuarioId
+      const minhas = propriedades.filter((p) => {
+        return (
+          p.usuarioId === parseInt(usuarioId) ||
+          p.usuario?.id === parseInt(usuarioId)
+        );
+      });
+
+      console.log("✅ Propriedades filtradas:", minhas);
 
       if (minhas.length === 0) {
-        lista.innerHTML = "<p>Nenhuma propriedade cadastrada ainda.</p>";
+        lista.innerHTML =
+          "<p style='color:gray;'>Nenhuma propriedade cadastrada ainda.</p>";
         return;
       }
 
@@ -81,25 +91,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         )
         .join("");
     } catch (error) {
-      console.error(error);
+      console.error("❌ Erro ao carregar propriedades:", error);
       lista.innerHTML = `<p style="color:red;">Erro ao carregar propriedades.</p>`;
     }
   }
 
-  // 🔹 ABRIR MODAL DE EDIÇÃO
+  // 🔹 EDIÇÃO (GET + PUT)
   window.editarPropriedade = async (id) => {
     try {
       const resp = await fetch(`${API_URL}/${id}`);
       if (!resp.ok) throw new Error("Erro ao buscar propriedade");
       const prop = await resp.json();
 
-      // Preenche os campos do modal
       document.getElementById("nomePropriedade").value = prop.nome;
       document.getElementById("localizacaoPropriedade").value =
         prop.localizacao;
       document.getElementById("areaPropriedade").value = prop.areaHectares;
 
-      // Guarda o ID dentro do modal
       document.getElementById("modalEditarPropriedade").dataset.id = id;
       abrirModal("modalEditarPropriedade");
     } catch (error) {
@@ -108,7 +116,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   };
 
-  // 🔹 SALVAR ALTERAÇÕES (PUT)
   document
     .getElementById("salvarEdicaoBtn")
     ?.addEventListener("click", async () => {
@@ -147,13 +154,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-  // 🔹 ABRIR MODAL DE EXCLUSÃO
+  // 🔹 EXCLUSÃO
   window.excluirPropriedade = (id) => {
     document.getElementById("modalExcluir").dataset.id = id;
     abrirModal("modalExcluir");
   };
 
-  // 🔹 CONFIRMAR EXCLUSÃO (DELETE)
   document
     .getElementById("confirmarExclusaoBtn")
     ?.addEventListener("click", async () => {
@@ -173,6 +179,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-  // 🔹 Carrega propriedades automaticamente ao abrir o dashboard
+  // 🔹 Carrega automaticamente na abertura do dashboard
   listarPropriedades();
 });
