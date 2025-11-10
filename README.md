@@ -19,7 +19,7 @@ O **TechSafra API** é um backend desenvolvido em **Java com Spring Boot**, resp
 ### Passos para rodar o backend
 ```bash
 # Clonar o repositório
-git clone https://github.com/seuusuario/TechSafraApi.git
+git clone https://github.com/GuilhermeGesser1909/projeto-techsafra.git
 
 # Entrar no diretório
 cd TechSafraApi

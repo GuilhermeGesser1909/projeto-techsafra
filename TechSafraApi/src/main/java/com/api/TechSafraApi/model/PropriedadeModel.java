@@ -51,4 +51,5 @@ public class PropriedadeModel implements Serializable {
 
     public Usuario getUsuario() { return usuario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+
 }
