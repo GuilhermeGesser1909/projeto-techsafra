@@ -1,13 +1,11 @@
 package com.api.TechSafraApi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Data
 @Table(name = "TB_MAQUINARIO")
 public class MaquinarioModel implements Serializable {
     private static final long serialVersionUID = 1L;
