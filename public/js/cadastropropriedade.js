@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
   const API_URL = "http://localhost:8080/propriedades";
 
-  // 🔹 Pega o ID do usuário logado salvo no localStorage
   const usuarioId = localStorage.getItem("usuarioId");
 
   if (!usuarioId) {
@@ -15,16 +14,30 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const nome = document.getElementById("nomePropriedade").value.trim();
-    const localizacao = document.getElementById("nomecidade").value.trim();
-    const areaHectares = parseFloat(document.getElementById("tamanhopropriedade").value);
-
-    if (!nome || !localizacao || isNaN(areaHectares)) {
-      resultado.innerHTML = `<p style="color:red;">❌ Preencha todos os campos corretamente.</p>`;
-      return;
-    }
-
-    const novaPropriedade = { nome, localizacao, areaHectares, usuarioId: parseInt(usuarioId) };
+    const novaPropriedade = {
+      nome: document.getElementById("nomePropriedade").value.trim(),
+      localizacao: document.getElementById("nomecidade").value.trim(),
+      estado: document.getElementById("Estado").value,
+      areaHectares: parseFloat(document.getElementById("tamanhopropriedade").value),
+      areaCultivavel: parseFloat(document.getElementById("areaCultivavel").value) || 0,
+      areaReserva: parseFloat(document.getElementById("areaReserva").value) || 0,
+      solo: document.getElementById("solo").value,
+      topografia: document.getElementById("topografia").value,
+      irrigacao: document.getElementById("irrigacao").value,
+      culturaPrincipal: document.getElementById("culturaPrincipal").value,
+      culturaSecundaria: document.getElementById("culturaSecundaria").value,
+      numTalhoes: parseInt(document.getElementById("numTalhoes").value) || 0,
+      responsavel: document.getElementById("responsavel").value,
+      telefone: document.getElementById("telefone").value,
+      emailContato: document.getElementById("emailContato").value,
+      cnpjCpf: document.getElementById("cnpjCpf").value,
+      cep: document.getElementById("cep").value,
+      endereco: document.getElementById("endereco").value,
+      latitude: document.getElementById("latitude").value,
+      longitude: document.getElementById("longitude").value,
+      observacoes: document.getElementById("observacoes").value,
+      usuarioId: parseInt(usuarioId)
+    };
 
     try {
       const response = await fetch(API_URL, {
@@ -33,29 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(novaPropriedade),
       });
 
-      if (!response.ok) {
-        const erro = await response.text();
-        throw new Error(erro || "Erro ao cadastrar propriedade.");
-      }
+      if (!response.ok) throw new Error("Erro ao cadastrar propriedade.");
 
       const propriedadeCriada = await response.json();
-
-      resultado.innerHTML = `
-        <p style="color:green;"><strong>✅ Propriedade cadastrada com sucesso!</strong></p>
-        <p><strong>Nome:</strong> ${propriedadeCriada.nome}</p>
-        <p><strong>Localização:</strong> ${propriedadeCriada.localizacao}</p>
-        <p><strong>Área:</strong> ${propriedadeCriada.areaHectares} ha</p>
-      `;
+      resultado.innerHTML = `<p class="success">✅ Propriedade <strong>${propriedadeCriada.nome}</strong> cadastrada com sucesso!</p>`;
 
       form.reset();
 
-      // 🔹 Redireciona pro dashboard após 2 segundos
       setTimeout(() => {
-        window.location.href = "/template/home.html";
+        window.location.href = "/template/dashboard.html";
       }, 2000);
     } catch (error) {
       console.error(error);
-      resultado.innerHTML = `<p style="color:red;">❌ ${error.message}</p>`;
+      resultado.innerHTML = `<p class="error">❌ ${error.message}</p>`;
     }
   });
 });
