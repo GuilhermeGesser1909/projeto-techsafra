@@ -41,7 +41,7 @@ public class MaquinarioServiceImpl implements MaquinarioService {
     }
 
     @Override
-    public MaquinarioModel salvarDto(MaquinarioDto dto) {
+    public MaquinarioModel salvar(MaquinarioDto dto) {
         MaquinarioModel model = new MaquinarioModel();
         model.setNome(dto.nome());
         model.setFabricante(dto.fabricante());

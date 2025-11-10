@@ -11,5 +11,5 @@ public interface ProdutoEstoqueService {
     ProdutoEstoqueModel salvar(ProdutoEstoqueModel produto);
     ProdutoEstoqueModel buscarPorId(UUID id);
     void deletar(UUID id);
-    ProdutoEstoqueModel salvarDto(ProdutoEstoqueDto dto);
+    ProdutoEstoqueModel salvar(ProdutoEstoqueDto dto);
 }

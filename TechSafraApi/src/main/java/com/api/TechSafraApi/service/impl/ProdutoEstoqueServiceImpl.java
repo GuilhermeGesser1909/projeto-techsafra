@@ -41,7 +41,7 @@ public class ProdutoEstoqueServiceImpl implements ProdutoEstoqueService {
     }
 
     @Override
-    public ProdutoEstoqueModel salvarDto(ProdutoEstoqueDto dto) {
+    public ProdutoEstoqueModel salvar(ProdutoEstoqueDto dto) {
         ProdutoEstoqueModel model = new ProdutoEstoqueModel();
         model.setNome(dto.nome());
         model.setQuantidade(dto.quantidade());

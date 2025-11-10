@@ -11,5 +11,5 @@ public interface MaquinarioService {
     MaquinarioModel salvar(MaquinarioModel maquinario);
     MaquinarioModel buscarPorId(UUID id);
     void deletar(UUID id);
-    MaquinarioModel salvarDto(MaquinarioDto dto);
+    MaquinarioModel salvar(MaquinarioDto dto);
 }
