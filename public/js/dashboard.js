@@ -123,16 +123,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // 🔹 EDITAR (GET + PUT)
+  // 🔹 EDITAR (GET + preencher modal completo)
   window.editarPropriedade = async (id) => {
     try {
       const resp = await fetch(`${API_URL}/${id}`);
       if (!resp.ok) throw new Error("Erro ao buscar propriedade");
       const prop = await resp.json();
 
-      document.getElementById("nomePropriedade").value = prop.nome;
-      document.getElementById("localizacaoPropriedade").value = prop.localizacao;
-      document.getElementById("areaPropriedade").value = prop.areaHectares;
+      // Preenche todos os campos
+      document.getElementById("edit-nomePropriedade").value = prop.nome || "";
+      document.getElementById("edit-localizacaoPropriedade").value = prop.localizacao || "";
+      document.getElementById("edit-estado").value = prop.estado || "";
+      document.getElementById("edit-areaHectares").value = prop.areaHectares || "";
+      document.getElementById("edit-areaCultivavel").value = prop.areaCultivavel || "";
+      document.getElementById("edit-areaReserva").value = prop.areaReserva || "";
+      document.getElementById("edit-solo").value = prop.solo || "";
+      document.getElementById("edit-topografia").value = prop.topografia || "";
+      document.getElementById("edit-irrigacao").value = prop.irrigacao || "";
+      document.getElementById("edit-culturaPrincipal").value = prop.culturaPrincipal || "";
+      document.getElementById("edit-culturaSecundaria").value = prop.culturaSecundaria || "";
+      document.getElementById("edit-numTalhoes").value = prop.numTalhoes || "";
+      document.getElementById("edit-responsavel").value = prop.responsavel || "";
+      document.getElementById("edit-telefone").value = prop.telefone || "";
+      document.getElementById("edit-emailContato").value = prop.emailContato || "";
+      document.getElementById("edit-cnpjCpf").value = prop.cnpjCpf || "";
+      document.getElementById("edit-cep").value = prop.cep || "";
+      document.getElementById("edit-endereco").value = prop.endereco || "";
+      document.getElementById("edit-latitude").value = prop.latitude || "";
+      document.getElementById("edit-longitude").value = prop.longitude || "";
+      document.getElementById("edit-observacoes").value = prop.observacoes || "";
 
       document.getElementById("modalEditarPropriedade").dataset.id = id;
       abrirModal("modalEditarPropriedade");
@@ -145,11 +164,31 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 🔹 SALVAR ALTERAÇÕES (PUT)
   document.getElementById("salvarEdicaoBtn")?.addEventListener("click", async () => {
     const id = document.getElementById("modalEditarPropriedade").dataset.id;
-    const nome = document.getElementById("nomePropriedade").value;
-    const localizacao = document.getElementById("localizacaoPropriedade").value;
-    const areaHectares = parseFloat(document.getElementById("areaPropriedade").value);
 
-    const dadosAtualizados = { nome, localizacao, areaHectares, usuarioId: parseInt(usuarioId) };
+    const dadosAtualizados = {
+      nome: document.getElementById("edit-nomePropriedade").value.trim(),
+      localizacao: document.getElementById("edit-localizacaoPropriedade").value.trim(),
+      estado: document.getElementById("edit-estado").value,
+      areaHectares: parseFloat(document.getElementById("edit-areaHectares").value) || 0,
+      areaCultivavel: parseFloat(document.getElementById("edit-areaCultivavel").value) || 0,
+      areaReserva: parseFloat(document.getElementById("edit-areaReserva").value) || 0,
+      solo: document.getElementById("edit-solo").value,
+      topografia: document.getElementById("edit-topografia").value,
+      irrigacao: document.getElementById("edit-irrigacao").value,
+      culturaPrincipal: document.getElementById("edit-culturaPrincipal").value,
+      culturaSecundaria: document.getElementById("edit-culturaSecundaria").value,
+      numTalhoes: parseInt(document.getElementById("edit-numTalhoes").value) || 0,
+      responsavel: document.getElementById("edit-responsavel").value,
+      telefone: document.getElementById("edit-telefone").value,
+      emailContato: document.getElementById("edit-emailContato").value,
+      cnpjCpf: document.getElementById("edit-cnpjCpf").value,
+      cep: document.getElementById("edit-cep").value,
+      endereco: document.getElementById("edit-endereco").value,
+      latitude: document.getElementById("edit-latitude").value,
+      longitude: document.getElementById("edit-longitude").value,
+      observacoes: document.getElementById("edit-observacoes").value,
+      usuarioId: parseInt(usuarioId),
+    };
 
     try {
       const resp = await fetch(`${API_URL}/${id}`, {
@@ -167,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     } catch (error) {
       console.error(error);
-      alert("Falha ao atualizar.");
+      alert("Falha ao atualizar propriedade.");
     }
   });
 

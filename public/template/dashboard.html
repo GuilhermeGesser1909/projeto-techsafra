@@ -480,24 +480,124 @@
 
     <div class="modal-body">
       <div class="form-section">
-        <label>Nome da Fazenda</label>
-        <input type="text" id="nomePropriedade" />
 
-        <label>Localização</label>
-        <input type="text" id="localizacaoPropriedade" />
+        <label for="edit-nomePropriedade">Nome da Fazenda</label>
+        <input type="text" id="edit-nomePropriedade" required />
 
-        <label>Área Total (ha)</label>
-        <input type="number" id="areaPropriedade" />
+        <label for="edit-localizacaoPropriedade">Cidade</label>
+        <input type="text" id="edit-localizacaoPropriedade" required />
+
+        <label for="edit-estado">Estado</label>
+        <select id="edit-estado" required>
+          <option value="">Selecione...</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+
+        <label for="edit-areaHectares">Área Total (ha)</label>
+        <input type="number" id="edit-areaHectares" required />
+
+        <label for="edit-areaCultivavel">Área Cultivável (ha)</label>
+        <input type="number" id="edit-areaCultivavel" />
+
+        <label for="edit-areaReserva">Área de Reserva (ha)</label>
+        <input type="number" id="edit-areaReserva" />
+
+        <label for="edit-solo">Tipo de Solo</label>
+        <select id="edit-solo" required>
+          <option value="">Selecione...</option>
+          <option value="Argiloso">Argiloso</option>
+          <option value="Arenoso">Arenoso</option>
+          <option value="Mistura">Mistura</option>
+        </select>
+
+        <label for="edit-topografia">Topografia</label>
+        <select id="edit-topografia" required>
+          <option value="">Selecione...</option>
+          <option value="Plana">Plana</option>
+          <option value="Levemente ondulada">Levemente ondulada</option>
+          <option value="Ondulada">Ondulada</option>
+        </select>
+
+        <label for="edit-irrigacao">Sistema de Irrigação</label>
+        <select id="edit-irrigacao" required>
+          <option value="">Selecione...</option>
+          <option value="Pivô">Pivô</option>
+          <option value="Gotejamento">Gotejamento</option>
+          <option value="Aspersão">Aspersão</option>
+          <option value="Sem irrigação">Sem irrigação</option>
+        </select>
+
+        <label for="edit-culturaPrincipal">Cultura Principal</label>
+        <input type="text" id="edit-culturaPrincipal" />
+
+        <label for="edit-culturaSecundaria">Cultura Secundária</label>
+        <input type="text" id="edit-culturaSecundaria" />
+
+        <label for="edit-numTalhoes">Número de Talhões</label>
+        <input type="number" id="edit-numTalhoes" />
+
+        <label for="edit-responsavel">Responsável</label>
+        <input type="text" id="edit-responsavel" required />
+
+        <label for="edit-telefone">Telefone</label>
+        <input type="tel" id="edit-telefone" required />
+
+        <label for="edit-emailContato">Email de Contato</label>
+        <input type="email" id="edit-emailContato" required />
+
+        <label for="edit-cnpjCpf">CNPJ/CPF</label>
+        <input type="text" id="edit-cnpjCpf" required />
+
+        <label for="edit-cep">CEP</label>
+        <input type="text" id="edit-cep" required />
+
+        <label for="edit-endereco">Endereço</label>
+        <input type="text" id="edit-endereco" required />
+
+        <label for="edit-latitude">Latitude</label>
+        <input type="text" id="edit-latitude" />
+
+        <label for="edit-longitude">Longitude</label>
+        <input type="text" id="edit-longitude" />
+
+        <label for="edit-observacoes">Observações</label>
+        <textarea id="edit-observacoes"></textarea>
       </div>
     </div>
 
     <div class="modal-actions">
-      <!-- ✅ ID importante pro JS -->
       <button class="btn save-btn" id="salvarEdicaoBtn">Salvar Alterações</button>
       <button class="btn cancel-btn" onclick="fecharModal('modalEditarPropriedade')">Cancelar</button>
     </div>
   </div>
 </div>
+
 
   <div id="modalEditarEstoque" class="modal" aria-hidden="true">
     <div class="modal-content large">
